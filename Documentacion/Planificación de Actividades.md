@@ -1,5 +1,4 @@
-*Enlace Documento Word colaborativo: https://epnecuador-my.sharepoint.com/:w:/g/personal/bryan_guano_epn_edu_ec/EZXEZHM37a5AoSTAbZGKzzkBkAq52QYZqZlLbLv0RcGSnw?e=Mfc4Oh*
-*Enlace cronograma*: https://tasteful-cycle-2dc.notion.site/ea7b5bdacd754e6ea18c9b41f8bfc91d?v=882cb3aa4c214ceb9071cd220ba41921*
+
 ## Objetivos
 - Definir los objetivos específicos del proyecto.
 - Identificar los recursos necesarios.
@@ -8,7 +7,9 @@
 ## Semana 1
 ## Cronograma
 
-![[Pasted image 20240520213244.png]]
+*Enlace cronograma*: https://tasteful-cycle-2dc.notion.site/ea7b5bdacd754e6ea18c9b41f8bfc91d?v=882cb3aa4c214ceb9071cd220ba41921*
+
+![Texto alternativo](./images/cronograma-S1.png)
 
 ## Actividades
 
