@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ProyectoGUI;
+
 import Traductor.*;
+import static Traductor.Impresión.guardarImagen;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -27,8 +29,7 @@ import javax.swing.SwingUtilities;
  * @author alejo
  */
 public class TraductorGUI extends javax.swing.JFrame {
-    
-    
+
     /**
      * Creates new form TraductorGUI
      */
@@ -66,6 +67,7 @@ public class TraductorGUI extends javax.swing.JFrame {
      */
     private static boolean imagenSenalGuardada = false;
     private static boolean imagenEspejoGuardada = false;
+    static String textoBraille = "";
 
     public static void main(String[] args) {
 
@@ -109,14 +111,13 @@ public class TraductorGUI extends javax.swing.JFrame {
         frame.getContentPane().add(panel);
         frame.setVisible(true);
 
-
         Traductor traductor = new Traductor();
-        
+
         transcribirButton.addActionListener(e -> {
             String textoEspaniol = inputField.getText();
             String textoBraille = traductor.traducirTexto(textoEspaniol);
             outputArea.setText(textoBraille);
-            
+
             /*
 
             String textoBrailleEspejo = new StringBuilder(textoBraille).reverse().toString();
@@ -125,25 +126,31 @@ public class TraductorGUI extends javax.swing.JFrame {
             imagenSenalGuardada = false;
             imagenEspejoGuardada = false;*/
         });
+        
+        
 
         guardarSenalButton.addActionListener(e -> {
             if (imagenSenalGuardada) {
                 JOptionPane.showMessageDialog(null, "Ya guardaste la imagen", "Aviso", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            String textoBraille = outputArea.getText();
-            BufferedImage senal = Impresión.generarSenialetica(textoBraille);
-            Impresión.guardarImagen(senal, "senal", "Señalización Braille guardada exitosamente.");
+            textoBraille = outputArea.getText();
+            BufferedImage senal = Impresión.generarImagenConTexto(textoBraille);
+            Impresión.guardarImagen(senal, "imagen_con_texto.png");
             imagenSenalGuardada = true;
         });
-        
-        
 
         guardarEspejoButton.addActionListener(e -> {
             if (imagenEspejoGuardada) {
                 JOptionPane.showMessageDialog(null, "Ya guardaste la imagen", "Aviso", JOptionPane.WARNING_MESSAGE);
                 return;
             }
+
+            BufferedImage senal = Impresión.generarImagenConTexto(textoBraille);
+            BufferedImage imagenEspejo = Impresión.generarImagenEspejo(senal);
+
+            // Guardar la imagen espejo
+            guardarImagen(imagenEspejo, "imagen_espejo.png");
             //String textoBraille = outputArea.getText();
             //BufferedImage espejo = usuario.imprimirTextoEspejo(textoBraille);
             //Impresión.guardarImagen(espejo, "espejo", "Texto en Espejo guardado exitosamente.");
@@ -160,7 +167,7 @@ public class TraductorGUI extends javax.swing.JFrame {
             frame.dispose();
         });
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

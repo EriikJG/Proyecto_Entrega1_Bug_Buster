@@ -16,14 +16,14 @@ import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-
 /**
  * Clase para imprimir texto en una imagen y en la consola.
  */
 public class Impresión {
 
-    private static final int WIDTH = 600;
-    private static final int HEIGHT = 200;
+    private static final int WIDTH = 300;
+    private static final int HEIGHT = 100;
+
     private static final String OUTPUT_IMAGE_PATH = "imagen_con_texto.png";
     private static final String OUTPUT_MIRRORED_IMAGE_PATH = "imagen_espejo.png";
 
@@ -43,8 +43,9 @@ public class Impresión {
         // Guardar la imagen espejo
         guardarImagen(imagenEspejo, OUTPUT_MIRRORED_IMAGE_PATH);
     }
+    
 
-    private BufferedImage generarImagenConTexto(String texto) {
+    public static BufferedImage generarImagenConTexto(String texto) {
         BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = imagen.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -58,11 +59,7 @@ public class Impresión {
         g2d.dispose();
         return imagen;
     }
-
-
-    private static final int WIDTH = 300;
-    private static final int HEIGHT = 100;
-
+/*
     public static BufferedImage generarSenialetica(String texto) {
         BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = imagen.createGraphics();
@@ -77,9 +74,8 @@ public class Impresión {
         g2d.dispose();
         return imagen;
     }
-
-
-    private BufferedImage generarImagenEspejo(BufferedImage imagen) {
+*/
+    public static BufferedImage generarImagenEspejo(BufferedImage imagen) {
         int width = imagen.getWidth();
         int height = imagen.getHeight();
         BufferedImage imagenEspejo = new BufferedImage(width, height, imagen.getType());
@@ -89,15 +85,16 @@ public class Impresión {
         return imagenEspejo;
     }
 
-   private void guardarImagen(BufferedImage imagen, String outputPath) {
+    public static void guardarImagen(BufferedImage imagen, String outputPath) {
         try {
             File outputImageFile = new File(outputPath);
             ImageIO.write(imagen, "png", outputImageFile);
-            System.out.println("La imagen se ha guardado correctamente en: " + outputImageFile.getAbsolutePath());
+            JOptionPane.showMessageDialog(null, "Señalización Braille guardada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+/*
     public static void guardarImagen(BufferedImage imagen, String nombreBase, String mensajeExito) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Guardar Imagen");
@@ -115,5 +112,5 @@ public class Impresión {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 }
