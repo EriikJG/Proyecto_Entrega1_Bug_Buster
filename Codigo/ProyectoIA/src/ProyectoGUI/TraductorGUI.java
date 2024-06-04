@@ -69,7 +69,7 @@ public class TraductorGUI extends javax.swing.JFrame {
 
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Transcripción Braille");
+        JFrame frame = new JFrame("Traductor ESP-BRAILLE");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 600);
 
@@ -109,7 +109,6 @@ public class TraductorGUI extends javax.swing.JFrame {
         frame.getContentPane().add(panel);
         frame.setVisible(true);
 
-        Usuario usuario = new Usuario();
 
         Traductor traductor = new Traductor();
         
@@ -133,8 +132,8 @@ public class TraductorGUI extends javax.swing.JFrame {
                 return;
             }
             String textoBraille = outputArea.getText();
-            BufferedImage senal = usuario.generarSenalizacion(textoBraille);
-            guardarImagen(senal, "senal", "Señalización Braille guardada exitosamente.");
+            BufferedImage senal = Impresión.generarSenialetica(textoBraille);
+            Impresión.guardarImagen(senal, "senal", "Señalización Braille guardada exitosamente.");
             imagenSenalGuardada = true;
         });
         
@@ -145,9 +144,9 @@ public class TraductorGUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ya guardaste la imagen", "Aviso", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            String textoBraille = outputArea.getText();
-            BufferedImage espejo = usuario.imprimirTextoEspejo(textoBraille);
-            guardarImagen(espejo, "espejo", "Texto en Espejo guardado exitosamente.");
+            //String textoBraille = outputArea.getText();
+            //BufferedImage espejo = usuario.imprimirTextoEspejo(textoBraille);
+            //Impresión.guardarImagen(espejo, "espejo", "Texto en Espejo guardado exitosamente.");
             imagenEspejoGuardada = true;
         });
 
@@ -162,18 +161,6 @@ public class TraductorGUI extends javax.swing.JFrame {
         });
     }
     
-    public BufferedImage generarSenialetica(){
-        BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = imagen.createGraphics();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(0, 0, WIDTH, HEIGHT);
-        g2d.setColor(Color.BLACK);
-        g2d.setFont(new Font("Braille", Font.PLAIN, 40));
-        g2d.drawString(texto, 10, 50);
-        g2d.dispose();
-        return imagen;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
