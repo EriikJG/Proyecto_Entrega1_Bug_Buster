@@ -1,27 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package Traductor;
 
-/**
- *
- * @author alejo
- */
 public class ProyectoIA {
 
-    /**
-     * @param args the command line arguments
-     */
-
     public static void main(String[] args) {
-        // TODO code application logic here
-        Traductor t = new Traductor();
+        // Crear un objeto de la clase Traductor
+        Traductor traductor = new Traductor();
 
-        String textoTraducidoABraille = t.traducirTexto("hola");
-        String textoTraducidoAEspañol = t.traducirTexto("⠤");
-        //String textoTraducido1 = t.traducirTexto("⠃");
-        System.out.println(textoTraducidoABraille);
-        System.out.println(textoTraducidoAEspañol);
+        // Traducir un texto a braille y a español
+        String textoTraducidoABraille = traductor.traducirTexto("hola");
+        String textoTraducidoAEspañol = traductor.traducirTexto("⠋");
+
+        // Imprimir el texto traducido en braille y en español
+        System.out.println("Texto traducido a braille: " + textoTraducidoABraille);
+        System.out.println("Texto traducido a español: " + textoTraducidoAEspañol);
+
+        // Crear un objeto de la clase Impresión
+        Impresión impresion = new Impresión();
+
+        // Imprimir el texto traducido tanto en la consola como en una imagen
+        impresion.imprimirTexto(textoTraducidoABraille);
+        impresion.imprimirTexto(textoTraducidoABraille);
     }
 }
