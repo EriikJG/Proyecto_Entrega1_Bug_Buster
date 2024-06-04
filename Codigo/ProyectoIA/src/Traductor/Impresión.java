@@ -32,7 +32,7 @@ public class Impresión {
         System.out.println(texto);
 
         // Generar la imagen con el texto
-        BufferedImage imagen = generarImagenConTexto(texto);
+        BufferedImage imagen = generarImagen(texto);
 
         // Guardar la imagen
         guardarImagen(imagen, OUTPUT_IMAGE_PATH);
@@ -43,9 +43,8 @@ public class Impresión {
         // Guardar la imagen espejo
         guardarImagen(imagenEspejo, OUTPUT_MIRRORED_IMAGE_PATH);
     }
-    
 
-    public static BufferedImage generarImagenConTexto(String texto) {
+    public static BufferedImage generarImagen(String texto) {
         BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = imagen.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -59,22 +58,7 @@ public class Impresión {
         g2d.dispose();
         return imagen;
     }
-/*
-    public static BufferedImage generarSenialetica(String texto) {
-        BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = imagen.createGraphics();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(0, 0, WIDTH, HEIGHT);
-        g2d.setColor(Color.BLACK);
-        // Usar una fuente compatible con braille
-        Font font = new Font("Braille", Font.PLAIN, 48);
-        g2d.setFont(font);
-        g2d.drawString(texto, 10, 100); // Ajustar la posición según sea necesario
-        g2d.dispose();
-        return imagen;
-    }
-*/
+
     public static BufferedImage generarImagenEspejo(BufferedImage imagen) {
         int width = imagen.getWidth();
         int height = imagen.getHeight();
@@ -94,7 +78,24 @@ public class Impresión {
             e.printStackTrace();
         }
     }
-/*
+    /*
+    public static BufferedImage generarSenialetica(String texto) {
+        BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = imagen.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(0, 0, WIDTH, HEIGHT);
+        g2d.setColor(Color.BLACK);
+        // Usar una fuente compatible con braille
+        Font font = new Font("Braille", Font.PLAIN, 48);
+        g2d.setFont(font);
+        g2d.drawString(texto, 10, 100); // Ajustar la posición según sea necesario
+        g2d.dispose();
+        return imagen;
+    }
+     */
+
+ /*
     public static void guardarImagen(BufferedImage imagen, String nombreBase, String mensajeExito) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Guardar Imagen");
