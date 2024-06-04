@@ -4,8 +4,12 @@
  */
 package ProyectoGUI;
 import Traductor.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 
 import java.awt.GridLayout;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -133,6 +137,8 @@ public class TraductorGUI extends javax.swing.JFrame {
             guardarImagen(senal, "senal", "Señalización Braille guardada exitosamente.");
             imagenSenalGuardada = true;
         });
+        
+        
 
         guardarEspejoButton.addActionListener(e -> {
             if (imagenEspejoGuardada) {
@@ -154,6 +160,19 @@ public class TraductorGUI extends javax.swing.JFrame {
         salirButton.addActionListener(e -> {
             frame.dispose();
         });
+    }
+    
+    public BufferedImage generarSenialetica(){
+        BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = imagen.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(0, 0, WIDTH, HEIGHT);
+        g2d.setColor(Color.BLACK);
+        g2d.setFont(new Font("Braille", Font.PLAIN, 40));
+        g2d.drawString(texto, 10, 50);
+        g2d.dispose();
+        return imagen;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
