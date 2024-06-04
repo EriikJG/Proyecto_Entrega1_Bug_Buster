@@ -31,7 +31,6 @@ public class Traductor {
         }
 
         return textoTraducido;
-
     }
 
     public static boolean esBraille(char primerCaracter) {

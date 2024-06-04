@@ -90,12 +90,12 @@ public class TraductorGUI extends javax.swing.JFrame {
         JTextArea outputArea = new JTextArea(5, 20);
         outputArea.setEditable(false);
         panel.add(new JScrollPane(outputArea));
-/*
+        /*
         panel.add(new JLabel("Modo Espejo:"));
         JTextArea espejoArea = new JTextArea(5, 20);
         espejoArea.setEditable(false);
         panel.add(new JScrollPane(espejoArea));
-*/
+         */
         JButton guardarSenalButton = new JButton("Guardar Señalización Braille");
         panel.add(guardarSenalButton);
 
@@ -116,18 +116,9 @@ public class TraductorGUI extends javax.swing.JFrame {
         transcribirButton.addActionListener(e -> {
             String textoEspaniol = inputField.getText();
             String textoBraille = traductor.traducirTexto(textoEspaniol);
+            
             outputArea.setText(textoBraille);
-
-            /*
-
-            String textoBrailleEspejo = new StringBuilder(textoBraille).reverse().toString();
-            espejoArea.setText(textoBrailleEspejo);
-
-            imagenSenalGuardada = false;
-            imagenEspejoGuardada = false;*/
         });
-        
-        
 
         guardarSenalButton.addActionListener(e -> {
             if (imagenSenalGuardada) {

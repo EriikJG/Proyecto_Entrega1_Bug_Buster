@@ -51,10 +51,9 @@ public class Impresión {
         g2d.setColor(Color.WHITE);
         g2d.fillRect(0, 0, WIDTH, HEIGHT);
         g2d.setColor(Color.BLACK);
-        // Usar una fuente compatible con braille
         Font font = new Font("Braille", Font.PLAIN, 48);
         g2d.setFont(font);
-        g2d.drawString(texto, 10, 100); // Ajustar la posición según sea necesario
+        g2d.drawString(texto, 10, 100);
         g2d.dispose();
         return imagen;
     }
@@ -78,40 +77,4 @@ public class Impresión {
             e.printStackTrace();
         }
     }
-    /*
-    public static BufferedImage generarSenialetica(String texto) {
-        BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = imagen.createGraphics();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(0, 0, WIDTH, HEIGHT);
-        g2d.setColor(Color.BLACK);
-        // Usar una fuente compatible con braille
-        Font font = new Font("Braille", Font.PLAIN, 48);
-        g2d.setFont(font);
-        g2d.drawString(texto, 10, 100); // Ajustar la posición según sea necesario
-        g2d.dispose();
-        return imagen;
-    }
-     */
-
- /*
-    public static void guardarImagen(BufferedImage imagen, String nombreBase, String mensajeExito) {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Guardar Imagen");
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int seleccion = fileChooser.showSaveDialog(null);
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            File carpeta = fileChooser.getSelectedFile();
-            try {
-                String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-                File archivo = new File(carpeta, nombreBase + "_" + timestamp + ".png");
-                ImageIO.write(imagen, "png", archivo);
-                JOptionPane.showMessageDialog(null, mensajeExito, "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Error al guardar la imagen: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                e.printStackTrace();
-            }
-        }
-    }*/
 }
