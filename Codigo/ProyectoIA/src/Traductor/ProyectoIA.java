@@ -14,6 +14,10 @@ public class ProyectoIA {
         //System.out.println("Texto traducido a braille: " + textoTraducidoABraille);
         System.out.println("\n\nTexto traducido a español: " + textoTraducidoAEspañol);
 
+        
+        String texto = "Hola Mundo 123";
+        String traducidoABraille = traductor.traducirTexto(texto);
+        System.out.println(traducidoABraille);
         // Crear un objeto de la clase Impresión
         //Impresión impresion = new Impresión();
         // Imprimir el texto traducido tanto en la consola como en una imagen
