@@ -27,23 +27,6 @@ public class Impresión {
     private static final String OUTPUT_IMAGE_PATH = "imagen_con_texto.png";
     private static final String OUTPUT_MIRRORED_IMAGE_PATH = "imagen_espejo.png";
 
-    public void imprimirTexto(String texto) {
-        // Imprimir en la consola
-        System.out.println(texto);
-
-        // Generar la imagen con el texto
-        BufferedImage imagen = generarImagen(texto);
-
-        // Guardar la imagen
-        guardarImagen(imagen, OUTPUT_IMAGE_PATH);
-
-        // Generar la imagen espejo
-        BufferedImage imagenEspejo = generarImagenEspejo(imagen);
-
-        // Guardar la imagen espejo
-        guardarImagen(imagenEspejo, OUTPUT_MIRRORED_IMAGE_PATH);
-    }
-
     public static BufferedImage generarImagen(String texto) {
         BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = imagen.createGraphics();
@@ -53,7 +36,7 @@ public class Impresión {
         g2d.setColor(Color.BLACK);
         Font font = new Font("Braille", Font.PLAIN, 48);
         g2d.setFont(font);
-        g2d.drawString(texto, 10, 100);
+        g2d.drawString(texto, 10, 50);
         g2d.dispose();
         return imagen;
     }
