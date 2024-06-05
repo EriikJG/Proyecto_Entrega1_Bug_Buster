@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyectoia;
+package Traductor;
 
 /**
  *
@@ -31,7 +31,6 @@ public class Traductor {
         }
 
         return textoTraducido;
-
     }
 
     public static boolean esBraille(char primerCaracter) {
