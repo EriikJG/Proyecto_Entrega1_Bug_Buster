@@ -16,7 +16,8 @@ import java.util.regex.Pattern;
  *
  * @author alejo
  */
-public class Diccionario {
+public class Diccionario 
+{
 
     private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
     private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
