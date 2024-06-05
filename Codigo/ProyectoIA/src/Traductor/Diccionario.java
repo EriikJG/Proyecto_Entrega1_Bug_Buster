@@ -428,53 +428,64 @@ public class Diccionario {
         boolean esEspanol = indiceIdioma == 1;
         StringBuilder resultado = new StringBuilder();
 
-        Arrays.stream(dividirNumerosDePalabras(extraerPalabras(textoATraducir)))
-                .forEach(palabra -> {
-                    StringBuilder caracterTraducido = new StringBuilder();
+        String[] lineas = textoATraducir.split("\n");
 
-                    if (esEspanol) {
-                        if (contieneNumeros(palabra)) {
-                            caracterTraducido.append(NUM_INDICATOR);
-                        }
-                        palabra.chars().forEach(c -> {
-                            char caracter = (char) c;
-                            // Solo agrega el indicador de mayúscula si el carácter está en mayúscula
-                            if (Character.isUpperCase(caracter)) {
-                                caracterTraducido.append(UPPERCASE_INDICATOR);
+        for (String linea : lineas) {
+            Arrays.stream(dividirNumerosDePalabras(extraerPalabras(linea)))
+                    .forEach(palabra -> {
+                        StringBuilder caracterTraducido = new StringBuilder();
+
+                        if (esEspanol) {
+                            if (contieneNumeros(palabra)) {
+                                caracterTraducido.append(NUM_INDICATOR);
                             }
-                            caracterTraducido.append(traducirABraille(Character.toLowerCase(caracter)));
-                        });
-                    } else {
-                        // Implementación para otros idiomas
-                        if (palabra.charAt(0) == NUM_INDICATOR.charAt(0)) {
-                            String[] numerosBrailleSeparados = separarNumerosBraille(agregarCaracterNumerico(palabra));
-                            for (String numero : numerosBrailleSeparados) {
-                                caracterTraducido.append(traducirAEspaniol(numero));
-                            }
+                            palabra.chars().forEach(c -> {
+                                char caracter = (char) c;
+                                // Solo agrega el indicador de mayúscula si el carácter está en mayúscula
+                                if (Character.isUpperCase(caracter)) {
+                                    caracterTraducido.append(UPPERCASE_INDICATOR);
+                                }
+                                caracterTraducido.append(traducirABraille(Character.toLowerCase(caracter)));
+                            });
                         } else {
-                            // Manejo de mayúsculas en la traducción de braille a español
-                            boolean nextIsUppercase = false;
-                            for (int i = 0; i < palabra.length(); i++) {
-                                String caracter = String.valueOf(palabra.charAt(i));
-                                if (caracter.equals(UPPERCASE_INDICATOR)) {
-                                    nextIsUppercase = true;
-                                } else {
-                                    char traducido = traducirAEspaniol(caracter).charAt(0);
-                                    if (nextIsUppercase) {
-                                        traducido = Character.toUpperCase(traducido);
-                                        nextIsUppercase = false;
+                            // Implementación para otros idiomas
+                            if (palabra.charAt(0) == NUM_INDICATOR.charAt(0)) {
+                                String[] numerosBrailleSeparados = separarNumerosBraille(agregarCaracterNumerico(palabra));
+                                for (String numero : numerosBrailleSeparados) {
+                                    caracterTraducido.append(traducirAEspaniol(numero));
+                                }
+                            } else {
+                                // Manejo de mayúsculas en la traducción de braille a español
+                                boolean nextIsUppercase = false; 
+                                for (int i = 0; i < palabra.length(); i++) {
+                                    String caracter = String.valueOf(palabra.charAt(i));
+                                    if (caracter.equals(UPPERCASE_INDICATOR)) {
+                                        nextIsUppercase = true;
+                                    } else {
+                                        char traducido = traducirAEspaniol(caracter).charAt(0);
+                                        if (nextIsUppercase) {
+                                            traducido = Character.toUpperCase(traducido);
+                                            nextIsUppercase = false;
+                                        }
+                                        caracterTraducido.append(traducido);
                                     }
-                                    caracterTraducido.append(traducido);
                                 }
                             }
                         }
-                    }
 
-                    resultado.append(caracterTraducido).append(" ");
-                });
+                        resultado.append(caracterTraducido).append(" ");
+                    });
 
-        // Eliminar el último espacio en blanco
-        if (resultado.length() > 0) {
+            // Eliminar el último espacio en blanco
+            if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == ' ') {
+                resultado.setLength(resultado.length() - 1);
+            }
+
+            resultado.append("\n");
+        }
+
+        // Eliminar el último salto de línea
+        if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == '\n') {
             resultado.setLength(resultado.length() - 1);
         }
 
