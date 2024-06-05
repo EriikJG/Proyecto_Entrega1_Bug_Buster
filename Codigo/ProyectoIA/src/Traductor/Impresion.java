@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 /**
  * Clase para imprimir texto en una imagen y en la consola.
  */
-public class Impresión {
+public class Impresion {
 
     private static final int WIDTH = 300;
     private static final int HEIGHT = 100;
