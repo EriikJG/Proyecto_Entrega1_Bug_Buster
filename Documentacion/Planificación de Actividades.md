@@ -9,7 +9,7 @@
 
 *Enlace cronograma*: https://tasteful-cycle-2dc.notion.site/ea7b5bdacd754e6ea18c9b41f8bfc91d?v=882cb3aa4c214ceb9071cd220ba41921*
 
-![Texto alternativo](./images/cronograma-S1.png)
+![Texto alternativo](./images/cronograma-V2.png)
 
 ## Actividades
 
