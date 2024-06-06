@@ -66,7 +66,7 @@ public class Diccionario {
         caracteresEspBraille.put('8', "⠓");
         caracteresEspBraille.put('9', "⠊");
         caracteresEspBraille.put('0', "⠚");
-/*
+        /*
         caracteresEspBraille.put('.', "⠲");
         caracteresEspBraille.put(',', "⠂");
         caracteresEspBraille.put(';', "⠆");
@@ -100,13 +100,15 @@ public class Diccionario {
         caracteresEspBraille.put(' ', " ");
 
         caracteresEspBraille.put('á', "⠷");
-        caracteresEspBraille.put('é', "⠮");
-        caracteresEspBraille.put('í', "⠾");
-        caracteresEspBraille.put('ó', "⠿");
+        caracteresEspBraille.put('é', "⠿");
+        caracteresEspBraille.put('í', "⠌");
+        caracteresEspBraille.put('ó', "⠾");
         caracteresEspBraille.put('ú', "⠜");
         caracteresEspBraille.put('ü', "⠳");
         caracteresEspBraille.put('@', "⠈");
-/*
+        
+       
+        /*
         caracteresEspBraille.put('á', "⠷");
         caracteresEspBraille.put('é', "⠮");
         caracteresEspBraille.put('í', "⠾");
@@ -190,7 +192,7 @@ public class Diccionario {
         caracteresBrailleEsp.put("⠒", ':');
         caracteresBrailleEsp.put("⠤", '-');
         caracteresBrailleEsp.put(" ", ' ');
-        
+
         caracteresBrailleEsp.put("⠲", '.');
         caracteresBrailleEsp.put("⠂", ',');
         caracteresBrailleEsp.put("⠦", '?');
@@ -199,7 +201,15 @@ public class Diccionario {
         caracteresBrailleEsp.put("⠒", ':');
         caracteresBrailleEsp.put("⠤", '-');
         caracteresBrailleEsp.put(" ", ' ');
-/*
+
+        caracteresBrailleEsp.put("⠷", 'á');
+        caracteresBrailleEsp.put("⠿", 'é');
+        caracteresBrailleEsp.put("⠌", 'í');
+        caracteresBrailleEsp.put("⠾", 'ó');
+        caracteresBrailleEsp.put("⠜", 'ú');
+        caracteresBrailleEsp.put("⠳", 'ü');
+        caracteresBrailleEsp.put("⠈", '@');
+        /*
         caracteresBrailleEsp.put("⠷", '(');
         caracteresBrailleEsp.put("⠾", ')');
         caracteresBrailleEsp.put("⠖", '!');
@@ -216,9 +226,9 @@ public class Diccionario {
         caracteresBrailleEsp.put("⠴", '}');
         caracteresBrailleEsp.put("⠪", '[');
         caracteresBrailleEsp.put("⠻", ']');*/
-        
 
-        /*
+
+ /*
         caracteresBrailleEsp.put(CARACTER_SIMBOLO + "⠷", '(');
         caracteresBrailleEsp.put(CARACTER_SIMBOLO + "⠾", ')');
         caracteresBrailleEsp.put("⠖", '!');
@@ -235,15 +245,6 @@ public class Diccionario {
         caracteresBrailleEsp.put(CARACTER_SIMBOLO + "⠴", '}');
         caracteresBrailleEsp.put(CARACTER_SIMBOLO + "⠪", '[');
         caracteresBrailleEsp.put(CARACTER_SIMBOLO + "⠻", ']');*/
-
-        caracteresBrailleEsp.put("⠷", 'á');
-        caracteresBrailleEsp.put("⠿", 'é');
-        caracteresBrailleEsp.put("⠽", 'í');
-        caracteresBrailleEsp.put("⠾", 'ó');
-        caracteresBrailleEsp.put("⠜", 'ú');
-        caracteresBrailleEsp.put("⠳", 'ü');
-        caracteresBrailleEsp.put("⠈", '@');
-
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠁", 'A');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠃", 'B');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠉", 'C');
@@ -455,7 +456,6 @@ public class Diccionario {
     }
 
     private String obtenerCaracterEnEspaniol(String caracterPalabra) {
-        //System.out.println("caracter: " + caracteresBrailleEsp.get(caracterPalabra));
         return String.valueOf(caracteresBrailleEsp.get(caracterPalabra));
     }
 
