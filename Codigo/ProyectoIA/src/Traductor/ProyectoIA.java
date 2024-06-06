@@ -10,9 +10,12 @@ public class ProyectoIA {
 
         Traductor t = new Traductor();
 
-        String textoTraducido = t.traducirTexto("⠸⠴");
+        String textoTraducido = t.traducirTexto("⠸⠷⠨⠁⠗⠃⠕⠇⠸⠾");//(Arbol)
+        String textoTraducido1 = t.traducirTexto("⠸⠷⠨⠁⠗⠃⠾⠇⠸⠾");//(Arból)
+        //String textoTraducido = t.traducirTexto("⠸⠷⠨⠁⠗⠃⠾⠇⠾ ⠸⠪⠒⠨⠙⠸⠻");
         
         System.out.println(textoTraducido);
+        System.out.println(textoTraducido1);
     }
 
 }
