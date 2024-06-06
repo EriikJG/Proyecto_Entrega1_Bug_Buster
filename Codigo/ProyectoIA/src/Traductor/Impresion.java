@@ -7,25 +7,15 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-/**
- * Clase para imprimir texto en una imagen y en la consola.
- */
-public class Impresión {
+public class Impresion {
 
     private static final int WIDTH = 300;
     private static final int HEIGHT = 100;
-
-    private static final String OUTPUT_IMAGE_PATH = "imagen_con_texto.png";
-    private static final String OUTPUT_MIRRORED_IMAGE_PATH = "imagen_espejo.png";
 
     public static BufferedImage generarImagen(String texto) {
         BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
@@ -40,7 +30,7 @@ public class Impresión {
         g2d.dispose();
         return imagen;
     }
-
+    
     public static BufferedImage generarImagenEspejo(BufferedImage imagen) {
         int width = imagen.getWidth();
         int height = imagen.getHeight();
@@ -51,13 +41,21 @@ public class Impresión {
         return imagenEspejo;
     }
 
-    public static void guardarImagen(BufferedImage imagen, String outputPath) {
-        try {
-            File outputImageFile = new File(outputPath);
-            ImageIO.write(imagen, "png", outputImageFile);
-            JOptionPane.showMessageDialog(null, "Señalización Braille guardada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static void guardarImagen(BufferedImage imagen, String nombreBase) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar Imagen");
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int seleccion = fileChooser.showSaveDialog(null);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File carpeta = fileChooser.getSelectedFile();
+            try {
+                String timestamp = Long.toString(System.currentTimeMillis());
+                File archivo = new File(carpeta, nombreBase + "_" + timestamp + ".png");
+                ImageIO.write(imagen, "png", archivo);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Error al guardar la imagen: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
         }
     }
 }
