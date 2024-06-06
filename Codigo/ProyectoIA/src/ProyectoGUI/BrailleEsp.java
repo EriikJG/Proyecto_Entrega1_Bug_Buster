@@ -56,6 +56,8 @@ public class BrailleEsp extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jBGenCar = new javax.swing.JButton();
+        jBEspacio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,20 +182,47 @@ public class BrailleEsp extends javax.swing.JFrame {
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object[][] {
                 {"⠁", "a", "⠃", "b"},
                 {"⠉", "c", "⠙", "d"},
                 {"⠑", "e", "⠋", "f"},
-                {"⠋", "g", "⠛", "h"},
-                {"⠓", "i", "⠚", "j"},
+                {"⠛", "g", "⠓", "h"},
+                {"⠊", "i", "⠚", "j"},
                 {"⠅", "k", "⠇", "l"},
                 {"⠍", "m", "⠝", "n"},
-                {"⠕", "o", "⠏", "p"},
-                {"⠟", "q", "⠗", "r"},
-                {"⠎", "s", "⠞", "t"},
-                {"⠥", "u", "⠧", "v"},
-                {"⠺", "w", "⠭", "x"},
-                {"⠽", "y", "⠵", "z"}
+                {"⠻", "ñ", "⠕", "o"},
+                {"⠏", "p", "⠟", "q"},
+                {"⠗", "r", "⠎", "s"},
+                {"⠞", "t", "⠥", "u"},
+                {"⠧", "v", "⠺", "w"},
+                {"⠭", "x", "⠽", "y"},
+                {"⠵", "z", "⠲", "."},
+                {"⠂", ",", "⠦", "?"},
+                {"⠖", "!", "⠆", ";"},
+                {"⠒", ":", "⠤", "-"},
+                {" ", " ", "⠷", "á"},
+                {"⠿", "é", "⠽", "í"},
+                {"⠾", "ó", "⠷", "ú"},
+                {"⠳", "ü", "⠈", "@"},
+                {"⠨⠁", "A", "⠨⠃", "B"},
+                {"⠨⠉", "C", "⠨⠙", "D"},
+                {"⠨⠑", "E", "⠨⠋", "F"},
+                {"⠨⠛", "G", "⠨⠓", "H"},
+                {"⠨⠊", "I", "⠨⠚", "J"},
+                {"⠨⠅", "K", "⠨⠇", "L"},
+                {"⠨⠍", "M", "⠨⠝", "N"},
+                {"⠨⠻", "Ñ", "⠨⠕", "O"},
+                {"⠨⠏", "P", "⠨⠟", "Q"},
+                {"⠨⠗", "R", "⠨⠎", "S"},
+                {"⠨⠞", "T", "⠨⠥", "U"},
+                {"⠨⠧", "V", "⠨⠺", "W"},
+                {"⠨⠭", "X", "⠨⠽", "Y"},
+                {"⠨⠵", "Z"},
+                {"⠼⠁", "1", "⠼⠃", "2"},
+                {"⠼⠉", "3", "⠼⠙", "4"},
+                {"⠼⠑", "5", "⠼⠋", "6"},
+                {"⠼⠛", "7", "⠼⠓", "8"},
+                {"⠼⠊", "9", "⠼⠚", "0"}
             },
             new String [] {
                 "Símbolo Braille", "Letra", "Símbolo Braille", "Letra"
@@ -206,55 +235,85 @@ public class BrailleEsp extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 12)); // NOI18N
         jLabel1.setText("Diccionario para recordar :)");
 
+        jBGenCar.setText("Generar caracter");
+        jBGenCar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(0, 0, 0)));
+        jBGenCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGenCarActionPerformed(evt);
+            }
+        });
+
+        jBEspacio.setBackground(new java.awt.Color(0, 0, 0));
+        jBEspacio.setFont(new java.awt.Font("Yu Gothic", 1, 12)); // NOI18N
+        jBEspacio.setForeground(new java.awt.Color(255, 255, 255));
+        jBEspacio.setText("SPACE");
+        jBEspacio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jBEspacio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBEspacio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEspacioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jBRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                            .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                         .addComponent(jScrollPane2)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(13, 13, 13)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBEspacio))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
                         .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(21, 21, 21)
                         .addComponent(jBRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -289,19 +348,10 @@ public class BrailleEsp extends javax.swing.JFrame {
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTraducirActionPerformed
-        Character brailleChar = convertirABraille(puntosPresionados);
-        if (brailleChar != null) {
-            jTABraille.append(Character.toString(brailleChar));
-
-            // Traducir el texto al Español
-            String textoBraille = jTABraille.getText();
-            String textoEsp = traductor.traducirTexto(textoBraille);
-            jTAEsp.setText(textoEsp);
-        } else {
-            // Mostrar mensaje de advertencia si el carácter no es válido
-            JOptionPane.showMessageDialog(null, "Caracter no válido", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
+        // Traducir el texto al Español
+        String textoBraille = jTABraille.getText();
+        String textoEsp = traductor.traducirTexto(textoBraille);
+        jTAEsp.setText(textoEsp);
         reiniciarBotones();
     }//GEN-LAST:event_jBTraducirActionPerformed
 
@@ -328,6 +378,23 @@ public class BrailleEsp extends javax.swing.JFrame {
     private void jB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB1ActionPerformed
 
     }//GEN-LAST:event_jB1ActionPerformed
+
+    private void jBGenCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenCarActionPerformed
+        Character brailleChar = convertirABraille(puntosPresionados);
+        if (brailleChar != null) {
+            jTABraille.append(Character.toString(brailleChar));
+
+        } else {
+            // Mostrar mensaje de advertencia si el carácter no es válido
+            JOptionPane.showMessageDialog(null, "Caracter no válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }    
+        reiniciarBotones();
+    }//GEN-LAST:event_jBGenCarActionPerformed
+
+    private void jBEspacioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEspacioActionPerformed
+        // Agregar un espacio al área de texto de Braille
+        jTABraille.append(" ");
+    }//GEN-LAST:event_jBEspacioActionPerformed
     
     private void crearArregloPuntos() {
         puntos = new JButton[]{jB1, jB4, jB2, jB5, jB3, jB66};
@@ -362,37 +429,68 @@ public class BrailleEsp extends javax.swing.JFrame {
 
         // Mapa de algunos patrones Braille comunes
         Map<String, Character> brailleMap = new HashMap<>();
-        brailleMap.put("100000", '⠁'); // A
-        brailleMap.put("101000", '⠃'); // B
-        brailleMap.put("110000", '⠉'); // C
-        brailleMap.put("110100", '⠙'); // D
-        brailleMap.put("100100", '⠑'); // E
-        brailleMap.put("111000", '⠋'); // F
-        brailleMap.put("111100", '⠛'); // G
-        brailleMap.put("101100", '⠓'); // H
-        brailleMap.put("011000", '⠊'); // I
-        brailleMap.put("011100", '⠚'); // J
-        brailleMap.put("100010", '⠅'); // K
-        brailleMap.put("101010", '⠇'); // L
-        brailleMap.put("110010", '⠍'); // M
-        brailleMap.put("110110", '⠝'); // N
-        brailleMap.put("100110", '⠕'); // O
-        brailleMap.put("111010", '⠏'); // P
-        brailleMap.put("111110", '⠟'); // Q
-        brailleMap.put("101110", '⠗'); // R
-        brailleMap.put("011010", '⠎'); // S
-        brailleMap.put("011110", '⠞'); // T
-        brailleMap.put("100011", '⠥'); // U
-        brailleMap.put("101011", '⠧'); // V
-        brailleMap.put("011101", '⠺'); // W
-        brailleMap.put("110011", '⠭'); // X
-        brailleMap.put("110111", '⠽'); // Y
-        brailleMap.put("100111", '⠵'); // Z
-        // Agrega más caracteres según sea necesario
-
+        // Indicador de mayúscula
+        brailleMap.put("010001", '⠨'); // Indicador de mayúscula
+        //Letras 
+        brailleMap.put("100000", '⠁'); // a
+        brailleMap.put("101000", '⠃'); // b
+        brailleMap.put("110000", '⠉'); // c
+        brailleMap.put("110100", '⠙'); // d
+        brailleMap.put("100100", '⠑'); // e
+        brailleMap.put("111000", '⠋'); // f
+        brailleMap.put("111100", '⠛'); // g
+        brailleMap.put("101100", '⠓'); // h
+        brailleMap.put("011000", '⠊'); // i
+        brailleMap.put("011100", '⠚'); // j
+        brailleMap.put("100010", '⠅'); // k
+        brailleMap.put("101010", '⠇'); // l
+        brailleMap.put("110010", '⠍'); // m
+        brailleMap.put("110110", '⠝'); // n
+        brailleMap.put("100110", '⠕'); // o
+        brailleMap.put("111010", '⠏'); // p
+        brailleMap.put("111110", '⠟'); // q
+        brailleMap.put("101110", '⠗'); // r
+        brailleMap.put("011010", '⠎'); // s
+        brailleMap.put("011110", '⠞'); // t
+        brailleMap.put("100011", '⠥'); // u
+        brailleMap.put("101011", '⠧'); // v
+        brailleMap.put("011101", '⠺'); // w
+        brailleMap.put("110011", '⠭'); // x
+        brailleMap.put("110111", '⠽'); // y
+        brailleMap.put("100111", '⠵'); // z
+        // Números (requieren el prefijo de número ⠼ que es 3456)
+        brailleMap.put("010111", '⠼'); // Prefijo número
+        brailleMap.put("100000", '⠁'); // 1
+        brailleMap.put("101000", '⠃'); // 2
+        brailleMap.put("110000", '⠉'); // 3
+        brailleMap.put("110100", '⠙'); // 4
+        brailleMap.put("100100", '⠑'); // 5
+        brailleMap.put("111000", '⠋'); // 6
+        brailleMap.put("111100", '⠛'); // 7
+        brailleMap.put("101100", '⠓'); // 8
+        brailleMap.put("011000", '⠊'); // 9
+        brailleMap.put("011100", '⠚'); // 0
+        // Signos de puntuación
+        brailleMap.put("001000", '⠂'); // Coma
+        brailleMap.put("001010", '⠆'); // Punto y coma
+        brailleMap.put("001100", '⠄'); // Punto
+        brailleMap.put("001011", '⠲'); // Signo de exclamación
+        brailleMap.put("001110", '⠖'); // Signo de interrogación
+        brailleMap.put("001001", '⠦'); // Paréntesis de apertura
+        brailleMap.put("001101", '⠴'); // Paréntesis de cierre
+        brailleMap.put("001111", '⠔'); // Guion
+        // Otros símbolos
+        brailleMap.put("010000", '⠐'); // Comillas
+        brailleMap.put("011011", '⠜'); // Comillas dobles
+        brailleMap.put("010101", '⠮'); // Asterisco
+        brailleMap.put("010110", '⠤'); // Guion medio
+        brailleMap.put("010011", '⠳'); // Comilla simple
+        brailleMap.put("011001", '⠬'); // @ (arroba)
+        brailleMap.put("011011", '⠿'); // #
         // Obtener el carácter Braille correspondiente al patrón
         return brailleMap.getOrDefault(braillePattern.toString(), null);
     }
+
 
 
     /**
@@ -439,6 +537,8 @@ public class BrailleEsp extends javax.swing.JFrame {
     private javax.swing.JButton jB4;
     private javax.swing.JButton jB5;
     private javax.swing.JButton jB66;
+    private javax.swing.JButton jBEspacio;
+    private javax.swing.JButton jBGenCar;
     private javax.swing.JButton jBLimpiar;
     private javax.swing.JButton jBRegresar;
     private javax.swing.JButton jBTraducir;
