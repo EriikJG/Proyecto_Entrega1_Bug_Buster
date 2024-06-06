@@ -16,12 +16,12 @@ La interfaz del Traductor de Braille está diseñada de manera sencilla e intuit
 
 La interfaz de usuario de la aplicación consta de dos secciones principales: la traducción de Braille a Español y la traducción de Español a Braille.
 
-![Diagrama de clases](./images/menu.png)
+![Menu](./images/menu.png)
 #### 4. Traducción de Español a Braille
 
 En la sección de traducción de Español a Braille, puedes ingresar texto en Español y obtener su traducción al código Braille. Sigue estos pasos para utilizar esta función:
 
-![Diagrama de clases](./images/espaniol-braile.png)
+![Espaniol- braile](./images/espaniol-braile.png)
 1. Ingresa el texto en Español en el campo de entrada provisto.
 2. Haz clic en el botón "Traducir".
 3. La traducción al código Braille del texto en Español aparecerá en el área de salida.
@@ -29,7 +29,7 @@ En la sección de traducción de Español a Braille, puedes ingresar texto en Es
 
 En la sección de traducción de Braille a Español, puedes ingresar texto en código Braille y obtener su traducción al Español. Sigue estos pasos para utilizar esta función:
 
-![Diagrama de clases](./images/braile-espaniol.png)
+![Braile-  espaniol](./images/braile-espaniol.png)
 
 1. Ingresa el texto en código Braille en el campo de entrada provisto.
 2. Haz clic en el botón "Traducir".
@@ -38,7 +38,7 @@ En la sección de traducción de Braille a Español, puedes ingresar texto en c�
 
 Si deseas generar señalética Braille a partir de un texto en español, sigue estos pasos:
 
-![Diagrama de clases](senializacion.png)
+![Senializacion](./images/senializacion.png)
 
 1. Ingresa el texto deseado en el área de transcripción.
 2. Haz clic en el botón "Traducir".
@@ -48,7 +48,7 @@ Si deseas generar señalética Braille a partir de un texto en español, sigue e
 
 Para imprimir textos en espejo para escritura manual, sigue estos pasos:
 
-![Diagrama de clases](./images/espejo.png)
+![Imprimir Espejo](./images/espejo.png)
 
 1. Traduce el texto deseado a Braille.
 2. Selecciona la opción de imprimir en espejo.
