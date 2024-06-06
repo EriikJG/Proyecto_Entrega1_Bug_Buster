@@ -289,13 +289,18 @@ public class BrailleEsp extends javax.swing.JFrame {
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTraducirActionPerformed
-        char brailleChar = convertirABraille(puntosPresionados);
-        jTABraille.append(Character.toString(brailleChar));
+        Character brailleChar = convertirABraille(puntosPresionados);
+        if (brailleChar != null) {
+            jTABraille.append(Character.toString(brailleChar));
 
-        //Traducir el texto al Español
-        String textoBraille = jTABraille.getText();
-        String textoEsp = traductor.traducirTexto(textoBraille);
-        jTAEsp.setText(textoEsp);
+            // Traducir el texto al Español
+            String textoBraille = jTABraille.getText();
+            String textoEsp = traductor.traducirTexto(textoBraille);
+            jTAEsp.setText(textoEsp);
+        } else {
+            // Mostrar mensaje de advertencia si el carácter no es válido
+            JOptionPane.showMessageDialog(null, "Caracter no válido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
         reiniciarBotones();
     }//GEN-LAST:event_jBTraducirActionPerformed
@@ -340,20 +345,21 @@ public class BrailleEsp extends javax.swing.JFrame {
 
     
     private void reiniciarBotones() {
-        for (int i = 0; i < puntosPresionados.length; i++) {
+        for (int i = 0; i < puntos.length; i++) {
             puntosPresionados[i] = false;
             puntos[i].setBackground(Color.WHITE);
         }
     }
+
     
-    private char convertirABraille(boolean[] puntosPresionados) {
+    private Character convertirABraille(boolean[] puntosPresionados) {
         // Mapea la representación binaria a caracteres Braille
         StringBuilder braillePattern = new StringBuilder();
         // La representación del patrón Braille sigue el orden: 1, 4, 2, 5, 3, 6
         for (int i = 0; i < puntosPresionados.length; i++) {
             braillePattern.append(puntosPresionados[i] ? "1" : "0");
         }
-        
+
         // Mapa de algunos patrones Braille comunes
         Map<String, Character> brailleMap = new HashMap<>();
         brailleMap.put("100000", '⠁'); // A
@@ -372,7 +378,7 @@ public class BrailleEsp extends javax.swing.JFrame {
         brailleMap.put("110110", '⠝'); // N
         brailleMap.put("100110", '⠕'); // O
         brailleMap.put("111010", '⠏'); // P
-        brailleMap.put("101110", '⠟'); // Q
+        brailleMap.put("111110", '⠟'); // Q
         brailleMap.put("101110", '⠗'); // R
         brailleMap.put("011010", '⠎'); // S
         brailleMap.put("011110", '⠞'); // T
@@ -385,17 +391,10 @@ public class BrailleEsp extends javax.swing.JFrame {
         // Agrega más caracteres según sea necesario
 
         // Obtener el carácter Braille correspondiente al patrón
-        Character brailleChar = brailleMap.get(braillePattern.toString());
-
-        // Si el carácter no es válido, mostrar ventana emergente
-        if (brailleChar == null) {
-            JOptionPane.showMessageDialog(null, "Caracter no válido", "Error", JOptionPane.ERROR_MESSAGE);
-            return '?';
-        } else {
-            return brailleChar;
-        }
+        return brailleMap.getOrDefault(braillePattern.toString(), null);
     }
-    
+
+
     /**
      * @param args the command line arguments
      */
