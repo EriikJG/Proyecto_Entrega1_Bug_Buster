@@ -151,5 +151,6 @@ public class ProyectoIA {
         // Lógica de traducción aquí
     }
     ```
---
+---
+
 Esta documentación proporciona instrucciones detalladas para configurar el ambiente de desarrollo, incluyendo la instalación de herramientas, configuración del entorno, y convenciones de codificación. Además, presenta un ejemplo de implementación del código fuente y sugiere herramientas para diagramación UML. Siguiendo estas instrucciones, los desarrolladores podrán colaborar eficientemente en el proyecto y mantener una estructura de código consistente.
