@@ -63,7 +63,7 @@ public class Diccionario {
         caracteresEspBraille.put('9', "⠊");
         caracteresEspBraille.put('0', "⠚");
 
-        caracteresEspBraille.put('.', "⠲");
+
         caracteresEspBraille.put(',', "⠂");
         caracteresEspBraille.put('?', "⠦");
         caracteresEspBraille.put('!', "⠖");
@@ -148,13 +148,6 @@ public class Diccionario {
         caracteresBrailleEsp.put("⠼⠓", '8');
         caracteresBrailleEsp.put("⠼⠊", '9');
         caracteresBrailleEsp.put("⠼⠚", '0');
-
-        caracteresBrailleEsp.put("⠲", '.');
-        caracteresBrailleEsp.put("⠂", ',');
-        caracteresBrailleEsp.put("⠆", ';');
-        caracteresBrailleEsp.put("⠒", ':');
-        caracteresBrailleEsp.put("⠤", '-');
-        caracteresBrailleEsp.put(" ", ' ');
 
         caracteresBrailleEsp.put("⠲", '.');
         caracteresBrailleEsp.put("⠂", ',');
