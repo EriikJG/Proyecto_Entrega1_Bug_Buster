@@ -7,8 +7,10 @@ package Traductor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,15 +18,15 @@ import java.util.regex.Pattern;
  *
  * @author alejo
  */
-public class Diccionario 
-{
+public class Diccionario {
 
     private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
     private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
 
     private static final String CARACTER_NUMERO = "⠼";
-    private static final Pattern PATRON_NUMERO_NO_NUMERO=  Pattern.compile("\\d+|\\D+");
+    private static final String CARACTER_SIMBOLO = "⠸";
     private static final String CARACTER_MAYUSCULAS = "⠨"; // Indicador de mayúscula
+    private static final Pattern PATRON_NUMERO_NO_NUMERO = Pattern.compile("\\d+|\\D+");
 
     static {
         caracteresEspBraille.put('a', "⠁");
@@ -64,14 +66,29 @@ public class Diccionario
         caracteresEspBraille.put('8', "⠓");
         caracteresEspBraille.put('9', "⠊");
         caracteresEspBraille.put('0', "⠚");
+
         caracteresEspBraille.put('.', "⠲");
         caracteresEspBraille.put(',', "⠂");
-        caracteresEspBraille.put('?', "⠦");
-        caracteresEspBraille.put('!', "⠖");
         caracteresEspBraille.put(';', "⠆");
         caracteresEspBraille.put(':', "⠒");
         caracteresEspBraille.put('-', "⠤");
         caracteresEspBraille.put(' ', " ");
+        caracteresEspBraille.put('(', CARACTER_SIMBOLO + "⠷");
+        caracteresEspBraille.put(')', CARACTER_SIMBOLO + "⠾");
+        caracteresEspBraille.put('!', "⠖");
+        caracteresEspBraille.put('¡', "⠖");
+        caracteresEspBraille.put('¿', "⠢");
+        caracteresEspBraille.put('?', "⠢");
+        caracteresEspBraille.put('_', CARACTER_SIMBOLO + "⠤");
+        caracteresEspBraille.put('"', "⠶");
+        caracteresEspBraille.put('#', "⠼");
+        caracteresEspBraille.put('%', "⠸⠴");
+        caracteresEspBraille.put('&', "⠯");
+        caracteresEspBraille.put('/', "⠌");
+        caracteresEspBraille.put('{', CARACTER_SIMBOLO + "⠦");
+        caracteresEspBraille.put('}', CARACTER_SIMBOLO + "⠴");
+        caracteresEspBraille.put('[', CARACTER_SIMBOLO + "⠪");
+        caracteresEspBraille.put(']', CARACTER_SIMBOLO + "⠻");
 
         caracteresEspBraille.put('á', "⠷");
         caracteresEspBraille.put('é', "⠿");
@@ -138,6 +155,7 @@ public class Diccionario
         caracteresBrailleEsp.put("⠭", 'x');
         caracteresBrailleEsp.put("⠽", 'y');
         caracteresBrailleEsp.put("⠵", 'z');
+
         caracteresBrailleEsp.put("⠼⠁", '1');
         caracteresBrailleEsp.put("⠼⠃", '2');
         caracteresBrailleEsp.put("⠼⠉", '3');
@@ -148,14 +166,30 @@ public class Diccionario
         caracteresBrailleEsp.put("⠼⠓", '8');
         caracteresBrailleEsp.put("⠼⠊", '9');
         caracteresBrailleEsp.put("⠼⠚", '0');
+
         caracteresBrailleEsp.put("⠲", '.');
         caracteresBrailleEsp.put("⠂", ',');
-        caracteresBrailleEsp.put("⠦", '?');
-        caracteresBrailleEsp.put("⠖", '!');
         caracteresBrailleEsp.put("⠆", ';');
         caracteresBrailleEsp.put("⠒", ':');
         caracteresBrailleEsp.put("⠤", '-');
         caracteresBrailleEsp.put(" ", ' ');
+
+        caracteresBrailleEsp.put(CARACTER_SIMBOLO + "⠷", '(');
+        caracteresBrailleEsp.put(CARACTER_SIMBOLO + "⠾", ')');
+        caracteresBrailleEsp.put("⠖", '!');
+        caracteresBrailleEsp.put("⠖", '¡');
+        caracteresBrailleEsp.put("⠢", '¿');
+        caracteresBrailleEsp.put("⠢", '?');
+        caracteresBrailleEsp.put("⠸⠤", '_');
+        caracteresBrailleEsp.put("⠶", '"');
+        caracteresBrailleEsp.put("⠼", '#');
+        caracteresBrailleEsp.put("⠸⠴", '%');
+        caracteresBrailleEsp.put("⠯", '&');
+        caracteresBrailleEsp.put("⠌", '/');
+        caracteresBrailleEsp.put("⠸⠦", '{');
+        caracteresBrailleEsp.put("⠸⠴", '}');
+        caracteresBrailleEsp.put("⠸⠪", '[');
+        caracteresBrailleEsp.put("⠸⠻", ']');
 
         caracteresBrailleEsp.put("⠷", 'á');
         caracteresBrailleEsp.put("⠿", 'é');
@@ -192,152 +226,15 @@ public class Diccionario
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠭", 'X');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠽", 'Y');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠵", 'Z');
+
+    }
+    private static final Map<String, Character> caracteresBrailleEsp1 = new HashMap<>();
+
+    static {
+
+        caracteresBrailleEsp1.put("⠾", 'ó');
     }
 
-    /*
-    public String traducirCaracterACaracter(String textoATraducir, int indiceIdioma) {
-        ArrayList<String> textoTraducido = new ArrayList<>();
-
-        String[] palabrasATraducir = extraerPalabras(textoATraducir);
-        String[] stringsSeparadosCaracterNumero = dividirNumerosDePalabras(palabrasATraducir);
-
-        for (String palabra : stringsSeparadosCaracterNumero) {
-            StringBuilder caracterTraducido = new StringBuilder();
-
-            if (idiomaEsEspaniol(indiceIdioma)) {
-                if (contieneNumeros(palabra)) {
-                    caracterTraducido.append("⠼");
-                }
-                for (char c : palabra.toCharArray()) {
-                    caracterTraducido.append(traducirABraille(c));
-                }
-            } else {
-                if (palabra.charAt(0) == '⠼') {
-                    // Traducción de números
-                    palabra = agregarCaracterNumerico(palabra);
-                    String[] numerosBrailleSeparados = separarNumerosBraille(palabra);
-                    for (String numero : numerosBrailleSeparados) {
-                        caracterTraducido.append(traducirAEspaniol(numero));
-                    }
-                } else {
-                    // Traducción de letras
-                    for (char c : palabra.toCharArray()) {
-                        caracterTraducido.append(traducirAEspaniol(String.valueOf(c)));
-                    }
-                }
-            }
-
-            textoTraducido.add(caracterTraducido.toString());
-        }
-
-        return concatenarConEspacios(textoTraducido);
-    }
-
-    
-
-    public static String concatenarConEspacios(ArrayList<String> list) {
-        if (list == null || list.isEmpty()) {
-            return "";
-        }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (String str : list) {
-            if (str != null && !str.isEmpty()) {
-                sb.append(str).append(" ");
-            }
-        }
-
-        // Eliminar el último espacio en blanco
-        if (sb.length() > 0) {
-            sb.setLength(sb.length() - 1);
-        }
-
-        return sb.toString();
-    }
-    
-    public static boolean contieneNumeros(String str) {
-        return str.matches(".*\\d.*");
-    }
-
-    private String traducirAEspaniol(String caracterPalabra) {
-        char caracterTraducidoEspaniol = caracteresBrailleEsp.get(caracterPalabra);
-        return String.valueOf(caracterTraducidoEspaniol);
-    }
-
-    private String traducirABraille(char caracterPalabra) {
-        String caracterTraducidoBraille = caracteresEspBraille.get(caracterPalabra);
-        return caracterTraducidoBraille;
-    }
-
-    private boolean idiomaEsEspaniol(int indiceIdioma) {
-        return indiceIdioma == 1;
-    }
-
-    public String[] extraerPalabras(String cadena) {
-        // Dividir una oración en palabras basadas en espacios en blanco (" ") y saltos de línea ("\n").
-        String[] palabras = cadena.split(" ");
-        List<String> resultado = new ArrayList<>();
-        for (String palabra : palabras) {
-            String[] temp = palabra.split("\n");
-            for (String item : temp) {
-                resultado.add(item);
-            }
-        }
-        return resultado.toArray(new String[0]);
-    }
-
-    private String[] dividirNumerosDePalabras(String[] palabrasATraducir) {
-        Pattern pattern = Pattern.compile("\\d+|\\D+");
-
-        List<String> substrings = new ArrayList<>();
-
-        // Iterar sobre el arreglo y dividir las cadenas en partes numéricas y no numéricas
-        for (String palabraATraducir : palabrasATraducir) {
-            Matcher matcher = pattern.matcher(palabraATraducir);
-
-            while (matcher.find()) {
-                String fragmento = matcher.group();
-                substrings.add(fragmento);
-            }
-        }
-
-        String[] resultadoFinal = substrings.toArray(new String[0]);
-
-        return resultadoFinal;
-    }
-
-    private String agregarCaracterNumerico(String stringSeparadoCaracterNumero) {
-        StringBuilder result = new StringBuilder();
-        char[] charArray = stringSeparadoCaracterNumero.toCharArray();
-
-        for (int i = 0; i < charArray.length; i++) {
-            result.append(charArray[i]);
-            if (i != 0) {
-                result.append('⠼');
-            }
-        }
-        result.setLength(result.length() - 1);
-
-        return result.toString();
-    }
-
-    private String[] separarNumerosBraille(String stringSeparadoCaracterNumero) {
-        if (stringSeparadoCaracterNumero.length() == 2) {
-            String[] result = {stringSeparadoCaracterNumero};
-            return result;
-        }
-        int numPairs = stringSeparadoCaracterNumero.length() / 2;
-        String[] result = new String[numPairs];
-
-        // Recorre la cadena y extrae subcadenas de dos caracteres
-        for (int i = 0; i < numPairs; i++) {
-            result[i] = stringSeparadoCaracterNumero.substring(i * 2, i * 2 + 2);
-        }
-
-        return result;
-    }*/
- 
     public String traducirCaracterACaracter(String textoATraducir, int indiceIdioma) {
         boolean esEspanol = indiceIdioma == 1;
         StringBuilder resultado = new StringBuilder();
@@ -370,17 +267,102 @@ public class Diccionario
                                 }
                             } else {
                                 // Manejo de mayúsculas en la traducción de braille a español
-                                boolean nextIsUppercase = false; 
-                                for (int i = 0; i < palabra.length(); i++) {
+                                boolean nextIsUppercase = false;
+
+                                boolean nextIsSimbolo = false;
+                                /* for (int i = 0; i < palabra.length(); i++) {
                                     String caracter = String.valueOf(palabra.charAt(i));
                                     if (caracter.equals(CARACTER_MAYUSCULAS)) {
                                         nextIsUppercase = true;
                                     } else {
+                                        
                                         char traducido = obtenerCaracterEnEspaniol(caracter).charAt(0);
                                         if (nextIsUppercase) {
                                             traducido = Character.toUpperCase(traducido);
                                             nextIsUppercase = false;
                                         }
+                                        caracterTraducido.append(traducido);
+                                    }
+
+                                    //Para simbolos especiales
+                                    if (caracter.equals(CARACTER_SIMBOLO)) {
+                                        nextIsSimbolo = true;
+                                    } else {
+                                        //char traducido = obtenerCaracterEnEspaniol(caracter).charAt(0);
+                                        if (nextIsSimbolo) {
+                                            traducido = Character.toUpperCase(traducido);
+                                            nextIsSimbolo = false;
+                                        }
+                                        //caracterTraducido.append(traducido);
+                                        caracterTraducido.append("9");
+
+                                    }*/
+ /*for (int i = 0; i < palabra.length(); i++) {
+                                    String caracter = String.valueOf(palabra.charAt(i));
+
+                                    // Verificar si el carácter es mayúscula
+                                    if (caracter.equals(CARACTER_MAYUSCULAS)) {
+                                        nextIsUppercase = true;
+                                    } // Verificar si el carácter es un símbolo
+                                    else if (caracter.equals(CARACTER_SIMBOLO)) {
+                                        nextIsSimbolo = true;
+                                    } // Si es un carácter normal y no es ni mayúscula ni símbolo
+                                    else {
+                                        // Manejo de traducción de caracteres
+                                        char traducido = obtenerCaracterEnEspaniol(caracter).charAt(0);
+                                        //System.out.println("char: " + caracter + " traducido: " + traducido);
+                                        // Manejo de mayúsculas
+                                        if (nextIsUppercase) {
+
+                                            traducido = Character.toUpperCase(traducido);
+
+                                            nextIsUppercase = false;
+                                        }
+
+                                        // Manejo de símbolos
+                                        if (nextIsSimbolo) {
+                                            // Aquí puedes decidir qué hacer si nextIsSimbolo es true, por ejemplo:
+                                            // podrías traducir de una forma particular o marcar el carácter de alguna manera.
+
+                                            // Ejemplo de lógica si es símbolo, puedes ajustar acorde a tus necesidades:
+                                            //traducido = '9';  // ejemplo, sustituyes el caracter por '9'
+                                           
+                                            nextIsSimbolo = false;
+                                        }
+                                        caracterTraducido.append(traducido);
+                                    }
+
+                                }*/
+ 
+                                for (int i = 0; i < palabra.length(); i++) {
+                                    String caracter = String.valueOf(palabra.charAt(i));
+
+                                    if (caracter.equals(CARACTER_MAYUSCULAS)) {
+                                        nextIsUppercase = true;
+                                    } else if (caracter.equals(CARACTER_SIMBOLO) && i + 1 < palabra.length()) {
+                                        // Concatenar símbolo con el siguiente carácter
+                                        String simboloYCaracter = caracter + String.valueOf(palabra.charAt(i + 1));
+
+                                        // Verificar si la combinación existe en el mapa
+                                        if (caracteresBrailleEsp.containsKey(simboloYCaracter)) {
+                                            char traducido = caracteresBrailleEsp.get(simboloYCaracter);
+                                            caracterTraducido.append(traducido);
+
+                                            // Saltar el siguiente carácter ya que ha sido manejado como parte de la combinación
+                                            i++;
+                                        } else {
+                                            // Si la combinación no existe, solo añade el símbolo (puede personalizar según necesidades)
+                                            caracterTraducido.append(caracter);
+                                        }
+                                    } else {
+                                        // Manejo de traducción de caracteres
+                                        char traducido = obtenerCaracterEnEspaniol(caracter).charAt(0);
+
+                                        if (nextIsUppercase) {
+                                            traducido = Character.toUpperCase(traducido);
+                                            nextIsUppercase = false;
+                                        }
+
                                         caracterTraducido.append(traducido);
                                     }
                                 }
@@ -411,6 +393,7 @@ public class Diccionario
     }
 
     private String obtenerCaracterEnEspaniol(String caracterPalabra) {
+        //System.out.println("caracter: " + caracteresBrailleEsp.get(caracterPalabra));
         return String.valueOf(caracteresBrailleEsp.get(caracterPalabra));
     }
 
