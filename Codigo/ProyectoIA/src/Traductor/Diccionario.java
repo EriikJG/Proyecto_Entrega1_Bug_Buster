@@ -13,7 +13,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * La clase Diccionario proporciona métodos para traducir texto entre español y Braille.
+ * También maneja la visualización de caracteres en Braille y la conversión entre caracteres en español y Braille.
+ */
 public class Diccionario {
 
     private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
@@ -25,6 +28,7 @@ public class Diccionario {
     private static final Pattern PATRON_NUMERO_NO_NUMERO = Pattern.compile("\\d+|\\D+");
 
     static {
+        // Mapeo de caracteres en español a Braille
         caracteresEspBraille.put('a', "⠁");
         caracteresEspBraille.put('b', "⠃");
         caracteresEspBraille.put('c', "⠉");
@@ -79,7 +83,7 @@ public class Diccionario {
         caracteresEspBraille.put('ú', "⠜");
         caracteresEspBraille.put('ü', "⠳");
         caracteresEspBraille.put('@', "⠈");
-        
+        // Mapeo de caracteres en mayúsculas en español a Braille
         caracteresEspBraille.put('A', CARACTER_MAYUSCULAS + "⠁");
         caracteresEspBraille.put('B', CARACTER_MAYUSCULAS + "⠃");
         caracteresEspBraille.put('C', CARACTER_MAYUSCULAS + "⠉");
@@ -110,6 +114,7 @@ public class Diccionario {
     }
 
     static {
+        // Mapeo de caracteres en Braille a español
         caracteresBrailleEsp.put("⠁", 'a');
         caracteresBrailleEsp.put("⠃", 'b');
         caracteresBrailleEsp.put("⠉", 'c');
@@ -201,7 +206,13 @@ public class Diccionario {
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠽", 'Y');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠵", 'Z');
     }
-
+    /**
+     * Traduce un texto entre español y Braille, o viceversa.
+     *
+     * @param textoATraducir El texto que se desea traducir.
+     * @param indiceIdioma   El índice que indica el idioma de origen: 1 para español a Braille, otro valor para Braille a español.
+     * @return El texto traducido.
+     */
     public String traducirCaracterACaracter(String textoATraducir, int indiceIdioma) {
         boolean esEspanol = indiceIdioma == 1;
         StringBuilder resultado = new StringBuilder();
@@ -286,22 +297,48 @@ public class Diccionario {
         return resultado.toString();
     }
 
+    /**
+     * Verifica si una cadena contiene números.
+     *
+     * @param str La cadena a verificar.
+     * @return true si la cadena contiene números, de lo contrario false.
+     */
     private boolean contieneNumeros(String str) {
         return str.matches(".*\\d.*");
     }
-
+    /**
+     * Obtiene el carácter correspondiente en español para un carácter Braille dado.
+     *
+     * @param caracterPalabra El carácter Braille.
+     * @return El carácter correspondiente en español.
+     */
     private String obtenerCaracterEnEspaniol(String caracterPalabra) {
         return String.valueOf(caracteresBrailleEsp.get(caracterPalabra));
     }
-
+    /**
+     * Obtiene el carácter correspondiente en Braille para un carácter en español dado.
+     *
+     * @param caracterPalabra El carácter en español.
+     * @return El carácter correspondiente en Braille.
+     */
     private String obtenerCaracterEnBraille(char caracterPalabra) {
         return caracteresEspBraille.getOrDefault(caracterPalabra, String.valueOf(caracterPalabra));
     }
-
+    /**
+     * Extrae las palabras de una cadena dada.
+     *
+     * @param cadena La cadena de entrada.
+     * @return Un arreglo de palabras.
+     */
     private String[] extraerPalabras(String cadena) {
         return cadena.split("\\s+");
     }
-
+    /**
+     * Divide una cadena en subcadenas de números y palabras.
+     *
+     * @param palabrasATraducir Las palabras a traducir.
+     * @return Un arreglo de subcadenas divididas.
+     */
     private String[] dividirNumerosDePalabras(String[] palabrasATraducir) {
         List<String> substrings = new ArrayList<>();
         for (String palabra : palabrasATraducir) {
@@ -312,7 +349,12 @@ public class Diccionario {
         }
         return substrings.toArray(new String[0]);
     }
-
+    /**
+     * Agrega el carácter numérico a una cadena de caracteres y números.
+     *
+     * @param stringSeparadoCaracterNumero La cadena separada.
+     * @return La cadena con el carácter numérico agregado.
+     */
     private String agregarCaracterNumerico(String stringSeparadoCaracterNumero) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < stringSeparadoCaracterNumero.length(); i++) {
@@ -324,7 +366,12 @@ public class Diccionario {
         result.setLength(result.length() - 1);
         return result.toString();
     }
-
+    /**
+     * Separa una cadena de caracteres Braille en números Braille.
+     *
+     * @param stringSeparadoCaracterNumero La cadena separada.
+     * @return Un arreglo de números Braille.
+     */
     private String[] separarNumerosBraille(String stringSeparadoCaracterNumero) {
         int numPairs = stringSeparadoCaracterNumero.length() / 2;
         String[] result = new String[numPairs];
