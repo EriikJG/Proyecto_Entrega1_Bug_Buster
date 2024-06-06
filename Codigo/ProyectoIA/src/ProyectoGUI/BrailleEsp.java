@@ -473,20 +473,22 @@ public class BrailleEsp extends javax.swing.JFrame {
         // Signos de puntuación
         brailleMap.put("001000", '⠂'); // Coma
         brailleMap.put("001010", '⠆'); // Punto y coma
-        brailleMap.put("001100", '⠄'); // Punto
-        brailleMap.put("001011", '⠲'); // Signo de exclamación
-        brailleMap.put("001110", '⠖'); // Signo de interrogación
-        brailleMap.put("001001", '⠦'); // Paréntesis de apertura
-        brailleMap.put("001101", '⠴'); // Paréntesis de cierre
-        brailleMap.put("001111", '⠔'); // Guion
+        brailleMap.put("001101", '⠲'); // Punto
+        brailleMap.put("001110", '⠖'); // Signo de exclamación
+        brailleMap.put("001011", '⠦'); // Signo de interrogación
+        brailleMap.put("001100", '⠒'); // Signo de 2 puntos
+        
         // Otros símbolos
-        brailleMap.put("010000", '⠐'); // Comillas
-        brailleMap.put("011011", '⠜'); // Comillas dobles
-        brailleMap.put("010101", '⠮'); // Asterisco
         brailleMap.put("010110", '⠤'); // Guion medio
-        brailleMap.put("010011", '⠳'); // Comilla simple
-        brailleMap.put("011001", '⠬'); // @ (arroba)
-        brailleMap.put("011011", '⠿'); // #
+        brailleMap.put("010000", '⠈'); // @ (arroba)
+        //Otros símbolos
+        brailleMap.put("101111", '⠷'); // á
+        brailleMap.put("111111", '⠿'); // é
+        brailleMap.put("010010", '⠌'); // í
+        brailleMap.put("011111", '⠾'); // ó
+        brailleMap.put("010110", '⠜'); // ú
+        brailleMap.put("101101", '⠳'); // ü
+        
         // Obtener el carácter Braille correspondiente al patrón
         return brailleMap.getOrDefault(braillePattern.toString(), null);
     }
