@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  * Clase MENU representa la interfaz gráfica principal del menú del proyecto.
  * Permite al usuario seleccionar entre traducir de Español a Braille o de Braille a Español.
  *
- * @autor pilco
+ * @author pilco
  */
 public class MENU extends javax.swing.JFrame {
     

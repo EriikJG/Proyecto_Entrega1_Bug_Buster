@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * Proporciona una interfaz gráfica para ingresar texto en español,
  * traducirlo a Braille, y guardar la traducción como una imagen.
  *
- * @autor pilco
+ * @author pilco
  */
 public class EspañolBraille extends javax.swing.JFrame {
 
