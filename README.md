@@ -39,7 +39,7 @@ Este proyecto fue desarrollado por [Erik Gaibor](https://github.com/EriikJG) ,[B
 
 ### Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [este enlace](https://github.com/EriikJG/Proyecto_Entrega1_Bug_Buster.git/LICENCE.md) para obtener más detalles.
 
 ### Agradecimientos
 
