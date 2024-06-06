@@ -1,4 +1,4 @@
-
+# Planificación de Actividades
 ## Objetivos
 - Definir los objetivos específicos del proyecto.
 - Identificar los recursos necesarios.
