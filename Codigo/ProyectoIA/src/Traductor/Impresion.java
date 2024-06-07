@@ -11,12 +11,21 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-
+/**
+ * La clase Impresion proporciona métodos para generar y guardar imágenes con texto,
+ * incluyendo la opción de generar una imagen en espejo.
+ */
 public class Impresion {
 
     private static final int WIDTH = 300;
     private static final int HEIGHT = 100;
 
+    /**
+     * Genera una imagen con el texto proporcionado.
+     *
+     * @param texto El texto a incluir en la imagen.
+     * @return Un objeto BufferedImage con el texto renderizado.
+     */
     public static BufferedImage generarImagen(String texto) {
         BufferedImage imagen = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = imagen.createGraphics();
@@ -30,7 +39,12 @@ public class Impresion {
         g2d.dispose();
         return imagen;
     }
-    
+    /**
+     * Genera una imagen en espejo de la imagen proporcionada.
+     *
+     * @param imagen La imagen original.
+     * @return Un objeto BufferedImage que es la imagen en espejo de la original.
+     */
     public static BufferedImage generarImagenEspejo(BufferedImage imagen) {
         int width = imagen.getWidth();
         int height = imagen.getHeight();
@@ -40,7 +54,13 @@ public class Impresion {
         g.dispose();
         return imagenEspejo;
     }
-
+    /**
+     * Guarda la imagen proporcionada en un archivo en el sistema de archivos.
+     * El usuario seleccionará el directorio donde se guardará la imagen.
+     *
+     * @param imagen     La imagen a guardar.
+     * @param nombreBase El nombre base del archivo. Se le añadirá un timestamp para asegurar unicidad.
+     */
     public static void guardarImagen(BufferedImage imagen, String nombreBase) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Guardar Imagen");
