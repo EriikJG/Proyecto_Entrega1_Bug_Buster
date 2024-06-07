@@ -49,11 +49,7 @@ Existen signos que aún no son traducidos.
 ![Caso 8.1](./images/caso8.1.png)
 
 
-## Caso de prueba 9: traducción de una combinación de números y letras en una misma 
-
-![Caso 9.1](./images/caso9.1.png)
-
-## Caso de prueba 10: traducción de una combinación de números y letras en una misma palabra
+## Caso de prueba 9: Generación de la señalética de español a braille
 
 ![Caso 10.1](./images/caso10.1.png)
 
@@ -76,16 +72,12 @@ Existen signos que aún no son traducidos.
 *Al igual que la generación de la señalización no es posible establecer un nombre.  
 No es posible generar más de una vez la imagen con la traducción de español a braille en modo espejo*
 
-## Caso de prueba 12: Generación de la traducción en formato espejo
+## Caso de prueba 12: Traducción de textos o palabras con letras en mayúsculas y minúsculas combinadas
 ![Caso 12.1](./images/caso12.1.png)
 ## Defecto encontrado  
   
 *Al ingresar un texto con espacios extras entre las palabras se observo que estos espacios en la traducción también se ven reflejados.*
   
-## Caso de prueba 13: traducción de textos o palabras con letras en mayúsculas y minúsculas combinadas
+## Caso de prueba 13: Traducción de números de braille a español
 ![Caso 13.1](./images/caso13.1.png)
   
-  
-
-## Caso de prueba 14: traducción de números de braille a español
-![Caso 14.1](./images/caso14.1.png)
