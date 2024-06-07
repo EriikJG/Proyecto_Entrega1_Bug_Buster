@@ -12,7 +12,7 @@ Este proyecto consiste en un software que permite traducir textos entre español
 
 ### Instalación
 
-1. Descarga el archivo `ProyectoIA.jar` desde [este enlace](https://github.com/EriikJG/Proyecto_Entrega1_Bug_Buster.git) en la carpeta "aplicacion".
+1. Descarga el archivo `ProyectoIA.jar` desde [este enlace](https://github.com/EriikJG/Proyecto_Entrega1_Bug_Buster.git) en la carpeta "Aplicacion".
 2. Ejecuta el archivo `ProyectoIA.jar` para iniciar el programa.
 
 ### Uso
@@ -44,7 +44,3 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENCE](https://
 ### Agradecimientos
 
 Agradecemos a todos los colaboradores que han contribuido a este proyecto.
-
-### Contacto
-
-Si tienes preguntas o sugerencias sobre el proyecto, no dudes en ponerte en contacto con nosotros a través de [bugBuster@gmail.com]().
