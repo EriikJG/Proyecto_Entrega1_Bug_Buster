@@ -26,7 +26,7 @@ public class BrailleEsp extends javax.swing.JFrame {
         puntosPresionados = new boolean[6];
         traductor = new Traductor();
         setTitle("Traducir de Braille a Español");
-        crearArregloPuntos(); // Llama al método para inicializar el arreglo puntos
+        crearArregloPuntos();
     }
 
     /**
