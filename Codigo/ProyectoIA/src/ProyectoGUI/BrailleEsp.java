@@ -12,9 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
- * Esta clase representa la interfaz gráfica de usuario para traducir del sistema Braille al Español.
- * Permite al usuario ingresar texto en Braille y obtener su traducción correspondiente al Español.
- * Además, proporciona una interfaz visual para ingresar texto en Braille utilizando botones.
+ *
  * @author pilco
  */
 public class BrailleEsp extends javax.swing.JFrame {
@@ -23,16 +21,12 @@ public class BrailleEsp extends javax.swing.JFrame {
     JButton[] puntos;
     private Traductor traductor;
 
-    /**
-     * Constructor de la clase BrailleEsp.
-     * Inicializa la interfaz gráfica de usuario y los componentes necesarios para la traducción.
-     */
     public BrailleEsp() {
         initComponents();
         puntosPresionados = new boolean[6];
         traductor = new Traductor();
         setTitle("Traducir de Braille a Español");
-        crearArregloPuntos();
+        crearArregloPuntos(); // Llama al método para inicializar el arreglo puntos
     }
 
     /**
@@ -401,9 +395,7 @@ public class BrailleEsp extends javax.swing.JFrame {
         // Agregar un espacio al área de texto de Braille
         jTABraille.append(" ");
     }//GEN-LAST:event_jBEspacioActionPerformed
-    /**
-     * Este método crea un arreglo de botones para representar los puntos del sistema Braille.
-     */
+    
     private void crearArregloPuntos() {
         puntos = new JButton[]{jB1, jB4, jB2, jB5, jB3, jB66};
 
@@ -418,21 +410,14 @@ public class BrailleEsp extends javax.swing.JFrame {
         }
     }
 
-    /**
-     * Este método restablece el estado de todos los botones del sistema Braille.
-     */
+    
     private void reiniciarBotones() {
         for (int i = 0; i < puntos.length; i++) {
             puntosPresionados[i] = false;
             puntos[i].setBackground(Color.WHITE);
         }
     }
-    /**
-     * Este método convierte un arreglo de booleanos que representan los puntos presionados en Braille
-     * a un carácter Braille correspondiente.
-     * @param puntosPresionados Un arreglo de booleanos que indica qué puntos están presionados.
-     * @return El carácter Braille correspondiente, o null si no hay una correspondencia.
-     */
+
     
     private Character convertirABraille(boolean[] puntosPresionados) {
         // Mapea la representación binaria a caracteres Braille
@@ -511,8 +496,7 @@ public class BrailleEsp extends javax.swing.JFrame {
 
 
     /**
-     * Método principal de la clase BrailleEsp. Crea una instancia de BrailleEsp y la hace visible.
-     * @param args Los argumentos de la línea de comandos (no se utilizan en este programa).
+     * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
