@@ -504,6 +504,9 @@ public class BrailleEsp extends javax.swing.JFrame {
         brailleMap.put("010110", '⠜'); // ú
         brailleMap.put("101101", '⠳'); // ü
         
+        
+        brailleMap.put("000101", '⠰');
+        
         // Obtener el carácter Braille correspondiente al patrón
         return brailleMap.getOrDefault(braillePattern.toString(), null);
     }

@@ -1,9 +1,9 @@
+package Traductor;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Traductor;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,19 +13,23 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
- * La clase Diccionario proporciona métodos para traducir texto entre español y Braille.
- * También maneja la visualización de caracteres en Braille y la conversión entre caracteres en español y Braille.
+ * La clase Diccionario proporciona métodos para traducir texto entre español y
+ * Braille. También maneja la visualización de caracteres en Braille y la
+ * conversión entre caracteres en español y Braille.
  */
 public class Diccionario {
 
     private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
     private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
+    private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
+    private static final Map<Character, String> caracteresNumerosEspBraille = new HashMap<>();
 
     private static final String CARACTER_NUMERO = "⠼";
     private static final String CARACTER_SIMBOLO = "⠸";
-    private static final String CARACTER_MAYUSCULAS = "⠨"; // Indicador de mayúscula
-    private static final Pattern PATRON_NUMERO_NO_NUMERO = Pattern.compile("\\d+|\\D+");
+    private static final String CARACTER_MAYUSCULAS = "⠨";
+    private static final String CARACTER_LETRA = "⠰";
 
     static {
         // Mapeo de caracteres en español a Braille
@@ -56,17 +60,17 @@ public class Diccionario {
         caracteresEspBraille.put('x', "⠭");
         caracteresEspBraille.put('y', "⠽");
         caracteresEspBraille.put('z', "⠵");
-        caracteresEspBraille.put('1', "⠁");
-        caracteresEspBraille.put('2', "⠃");
-        caracteresEspBraille.put('3', "⠉");
-        caracteresEspBraille.put('4', "⠙");
-        caracteresEspBraille.put('5', "⠑");
-        caracteresEspBraille.put('6', "⠋");
-        caracteresEspBraille.put('7', "⠛");
-        caracteresEspBraille.put('8', "⠓");
-        caracteresEspBraille.put('9', "⠊");
-        caracteresEspBraille.put('0', "⠚");
 
+        caracteresNumerosEspBraille.put('1', "⠁");
+        caracteresNumerosEspBraille.put('2', "⠃");
+        caracteresNumerosEspBraille.put('3', "⠉");
+        caracteresNumerosEspBraille.put('4', "⠙");
+        caracteresNumerosEspBraille.put('5', "⠑");
+        caracteresNumerosEspBraille.put('6', "⠋");
+        caracteresNumerosEspBraille.put('7', "⠛");
+        caracteresNumerosEspBraille.put('8', "⠓");
+        caracteresNumerosEspBraille.put('9', "⠊");
+        caracteresNumerosEspBraille.put('0', "⠚");
 
         caracteresEspBraille.put(',', "⠂");
         caracteresEspBraille.put('?', "⠦");
@@ -83,6 +87,7 @@ public class Diccionario {
         caracteresEspBraille.put('ú', "⠜");
         caracteresEspBraille.put('ü', "⠳");
         caracteresEspBraille.put('@', "⠈");
+
         // Mapeo de caracteres en mayúsculas en español a Braille
         caracteresEspBraille.put('A', CARACTER_MAYUSCULAS + "⠁");
         caracteresEspBraille.put('B', CARACTER_MAYUSCULAS + "⠃");
@@ -111,9 +116,7 @@ public class Diccionario {
         caracteresEspBraille.put('X', CARACTER_MAYUSCULAS + "⠭");
         caracteresEspBraille.put('Y', CARACTER_MAYUSCULAS + "⠽");
         caracteresEspBraille.put('Z', CARACTER_MAYUSCULAS + "⠵");
-    }
 
-    static {
         // Mapeo de caracteres en Braille a español
         caracteresBrailleEsp.put("⠁", 'a');
         caracteresBrailleEsp.put("⠃", 'b');
@@ -143,20 +146,20 @@ public class Diccionario {
         caracteresBrailleEsp.put("⠽", 'y');
         caracteresBrailleEsp.put("⠵", 'z');
 
-        caracteresBrailleEsp.put("⠼⠁", '1');
-        caracteresBrailleEsp.put("⠼⠃", '2');
-        caracteresBrailleEsp.put("⠼⠉", '3');
-        caracteresBrailleEsp.put("⠼⠙", '4');
-        caracteresBrailleEsp.put("⠼⠑", '5');
-        caracteresBrailleEsp.put("⠼⠋", '6');
-        caracteresBrailleEsp.put("⠼⠛", '7');
-        caracteresBrailleEsp.put("⠼⠓", '8');
-        caracteresBrailleEsp.put("⠼⠊", '9');
-        caracteresBrailleEsp.put("⠼⠚", '0');
+        caracteresNumerosBrailleEsp.put("⠁", '1');
+        caracteresNumerosBrailleEsp.put("⠃", '2');
+        caracteresNumerosBrailleEsp.put("⠉", '3');
+        caracteresNumerosBrailleEsp.put("⠙", '4');
+        caracteresNumerosBrailleEsp.put("⠑", '5');
+        caracteresNumerosBrailleEsp.put("⠋", '6');
+        caracteresNumerosBrailleEsp.put("⠛", '7');
+        caracteresNumerosBrailleEsp.put("⠓", '8');
+        caracteresNumerosBrailleEsp.put("⠊", '9');
+        caracteresNumerosBrailleEsp.put("⠚", '0');
 
         caracteresBrailleEsp.put("⠲", '.');
         caracteresBrailleEsp.put("⠂", ',');
-        caracteresBrailleEsp.put("⠦", '?');
+        caracteresBrailleEsp.put("⠦", '¿');
         caracteresBrailleEsp.put("⠖", '!');
         caracteresBrailleEsp.put("⠆", ';');
         caracteresBrailleEsp.put("⠒", ':');
@@ -170,7 +173,7 @@ public class Diccionario {
         caracteresBrailleEsp.put("⠜", 'ú');
         caracteresBrailleEsp.put("⠳", 'ü');
         caracteresBrailleEsp.put("⠈", '@');
-  
+
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠁", 'A');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠃", 'B');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠉", 'C');
@@ -199,95 +202,171 @@ public class Diccionario {
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠽", 'Y');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠵", 'Z');
     }
+
     /**
      * Traduce un texto entre español y Braille, o viceversa.
      *
      * @param textoATraducir El texto que se desea traducir.
-     * @param indiceIdioma   El índice que indica el idioma de origen: 1 para español a Braille, otro valor para Braille a español.
+     * @param indiceIdioma El índice que indica el idioma de origen: 1 para
+     * español a Braille, otro valor para Braille a español.
      * @return El texto traducido.
      */
     public String traducirCaracterACaracter(String textoATraducir, int indiceIdioma) {
-        boolean esEspanol = indiceIdioma == 1;
+        boolean esEspanol = esIdiomaEspanol(indiceIdioma);
+        String[] lineas = dividirPorLineas(textoATraducir);
+
+        return traducirLineas(lineas, esEspanol);
+    } 
+
+    private String[] dividirPorLineas(String texto) {
+        return texto.split("\n");
+    }
+
+    private boolean esIdiomaEspanol(int indiceIdioma) {
+        return indiceIdioma == 1;
+    }
+
+    private String traducirLineas(String[] lineas, boolean esEspanol) {
         StringBuilder resultado = new StringBuilder();
 
-        String[] lineas = textoATraducir.split("\n");
-
         for (String linea : lineas) {
-            Arrays.stream(dividirNumerosDePalabras(extraerPalabras(linea)))
-                    .forEach(palabra -> {
-                        StringBuilder caracterTraducido = new StringBuilder();
-
-                        if (esEspanol) {
-                            //Traducción a braille
-                            if (contieneNumeros(palabra)) {
-                                caracterTraducido.append(CARACTER_NUMERO);
-                            }
-                            palabra.chars().forEach(c -> {
-                                char caracter = (char) c;
-                                
-                                if (Character.isUpperCase(caracter)) {
-                                    caracterTraducido.append(CARACTER_MAYUSCULAS);
-                                }
-                                caracterTraducido.append(obtenerCaracterEnBraille(Character.toLowerCase(caracter)));
-                            });
-                        } else {
-                            // Traducción a español
-                            if (palabra.charAt(0) == CARACTER_NUMERO.charAt(0)) {
-                                String[] numerosBrailleSeparados = separarNumerosBraille(agregarCaracterNumerico(palabra));
-                                for (String numero : numerosBrailleSeparados) {
-                                    caracterTraducido.append(obtenerCaracterEnEspaniol(numero));
-                                }
-                            } else {
-                                // Manejo de mayúsculas en la traducción de braille a español
-                                boolean nextIsUppercase = false;
-                                
-                                for (int i = 0; i < palabra.length(); i++) {
-                                    String caracter = String.valueOf(palabra.charAt(i));
-                                    if (caracter.equals(CARACTER_MAYUSCULAS)) {
-                                        nextIsUppercase = true;
-                                    } else if (caracter.equals(CARACTER_SIMBOLO) && i + 1 < palabra.length()) {
-                                        // Concatenar símbolo con el siguiente carácter
-                                        String simboloYCaracter = caracter + String.valueOf(palabra.charAt(i + 1));
-                                        // Verificar si la combinación existe en el mapa
-                                        if (caracteresBrailleEsp.containsKey(simboloYCaracter)) {
-                                            char traducido = caracteresBrailleEsp.get(simboloYCaracter);
-                                            caracterTraducido.append(traducido);
-                                            // Saltar el siguiente carácter ya que ha sido manejado como parte de la combinación
-                                            i++;
-                                        } else {
-                                            caracterTraducido.append(caracter);
-                                        }
-                                    } else {
-                                        // Manejo de traducción de caracteres
-                                        char traducido = obtenerCaracterEnEspaniol(caracter).charAt(0);
-                                        if (nextIsUppercase) {
-                                            traducido = Character.toUpperCase(traducido);
-                                            nextIsUppercase = false;
-                                        }
-                                        caracterTraducido.append(traducido);
-                                    }
-                                }
-
-                            }
-                        }
-
-                        resultado.append(caracterTraducido).append(" ");
-                    });
-
-            // Eliminar el último espacio en blanco
-            if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == ' ') {
-                resultado.setLength(resultado.length() - 1);
-            }
-
+            String[] palabras = extraerPalabras(linea);
+            resultado.append(traducirPalabras(palabras, esEspanol));
+            limpiarUltimoEspacio(resultado);
             resultado.append("\n");
         }
 
-        // Eliminar el último salto de línea
+        limpiarUltimoSaltoDeLinea(resultado);
+
+        return resultado.toString();
+    }
+
+    private void limpiarUltimoEspacio(StringBuilder resultado) {
+        if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == ' ') {
+            resultado.setLength(resultado.length() - 1);
+        }
+    }
+
+    private void limpiarUltimoSaltoDeLinea(StringBuilder resultado) {
         if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == '\n') {
             resultado.setLength(resultado.length() - 1);
         }
+    }
 
-        return resultado.toString();
+    /*
+    MUESTRA PEQUEÑA PARA PREGUNTAR A CHATGPT
+    private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
+    private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
+
+    private static final String CARACTER_NUMERO = "⠼";
+    private static final String CARACTER_SIMBOLO = "⠸";
+    private static final String CARACTER_LETRA = "⠰";
+    private static final String CARACTER_MAYUSCULA = "⠨";
+
+static {
+        // Mapeo de caracteres en español a Braille
+        caracteresEspBraille.put('a', "⠁");
+        caracteresEspBraille.put('0', "⠚");
+        caracteresEspBraille.put('A', CARACTER_MAYUSCULAS + "⠁");
+        caracteresEspBraille.put('!', "⠖");
+
+        // Mapeo de caracteres en español a Braille
+        caracteresBrailleEsp.put("⠁", 'a');
+        caracteresBrailleEsp.put("⠚", '0');
+        caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠁", 'A');
+        caracteresBrailleEsp.put("⠖", '!');
+    }*/
+    private StringBuilder traducirPalabras(String[] palabras, boolean esEspanol) {
+        StringBuilder resultado = new StringBuilder();
+
+        for (String palabra : palabras) {
+
+            StringBuilder palabraTraducida = traducirPalabra(palabra, esEspanol);
+            resultado.append(palabraTraducida);
+
+            resultado.append(" ");
+        }
+
+        limpiarUltimoEspacio(resultado);
+
+        return resultado;
+    }
+
+    private StringBuilder traducirPalabra(String palabra, boolean esEspanol) {
+        StringBuilder palabraTraducida = new StringBuilder();
+
+        if (esEspanol) {
+            traducirEspanolABraille(palabra, palabraTraducida);
+        } else {
+            traducirBrailleAEspanol(palabra, palabraTraducida);
+        }
+
+        return palabraTraducida;
+    }
+
+    private void traducirBrailleAEspanol(String palabra, StringBuilder resultado) {
+        //Traducción a español
+        boolean esNumero = false;
+        boolean esMayuscula = false;
+
+        for (int i = 0; i < palabra.length(); i++) {
+            String simboloActual = Character.toString(palabra.charAt(i));
+
+            if (simboloActual.equals(CARACTER_NUMERO)) {
+                esNumero = true;
+                continue;
+            } else if (simboloActual.equals(CARACTER_LETRA)) {
+                esNumero = false;
+                continue;
+            } else if (simboloActual.equals(CARACTER_MAYUSCULAS)) {
+                esMayuscula = true;
+                continue;
+            }
+
+            if (esNumero) {
+                // En modo número, interpretamos los símbolos como números
+                resultado.append(caracteresNumerosBrailleEsp.get(simboloActual));
+            } else {
+                char caracter = caracteresBrailleEsp.get(simboloActual);
+                if (esMayuscula) {
+                    caracter = Character.toUpperCase(caracter);
+                    esMayuscula = false;
+                }
+                resultado.append(caracter);
+            }
+        }
+
+    }
+
+    private void traducirEspanolABraille(String palabra, StringBuilder resultado) {
+        boolean enModoNumero = false;
+
+        for (int i = 0; i < palabra.length(); i++) {
+            char caracterActual = palabra.charAt(i);
+
+            if (Character.isDigit(caracterActual)) {
+                if (!enModoNumero) {
+                    resultado.append(CARACTER_NUMERO);
+                    enModoNumero = true;
+                }
+                resultado.append(caracteresNumerosEspBraille.get(caracterActual));
+            } else {
+                if (enModoNumero) {
+                    resultado.append(CARACTER_LETRA);
+                    enModoNumero = false;
+                }
+                if (Character.isUpperCase(caracterActual)) {
+                    resultado.append(CARACTER_MAYUSCULAS);
+                    resultado.append(caracteresEspBraille.get(Character.toLowerCase(caracterActual)));
+                } else {
+                    resultado.append(caracteresEspBraille.get(caracterActual));
+                }
+            }
+        }
+    }
+
+    private String[] extraerPalabras(String cadena) {
+        return cadena.split("\\s+");
     }
 
     /**
@@ -296,81 +375,42 @@ public class Diccionario {
      * @param str La cadena a verificar.
      * @return true si la cadena contiene números, de lo contrario false.
      */
-    private boolean contieneNumeros(String str) {
-        return str.matches(".*\\d.*");
-    }
     /**
-     * Obtiene el carácter correspondiente en español para un carácter Braille dado.
+     * Obtiene el carácter correspondiente en español para un carácter Braille
+     * dado.
      *
      * @param caracterPalabra El carácter Braille.
      * @return El carácter correspondiente en español.
      */
-    private String obtenerCaracterEnEspaniol(String caracterPalabra) {
-        return String.valueOf(caracteresBrailleEsp.get(caracterPalabra));
-    }
     /**
-     * Obtiene el carácter correspondiente en Braille para un carácter en español dado.
+     * Obtiene el carácter correspondiente en Braille para un carácter en
+     * español dado.
      *
      * @param caracterPalabra El carácter en español.
      * @return El carácter correspondiente en Braille.
      */
-    private String obtenerCaracterEnBraille(char caracterPalabra) {
-        return caracteresEspBraille.getOrDefault(caracterPalabra, String.valueOf(caracterPalabra));
-    }
     /**
      * Extrae las palabras de una cadena dada.
      *
      * @param cadena La cadena de entrada.
      * @return Un arreglo de palabras.
      */
-    private String[] extraerPalabras(String cadena) {
-        return cadena.split("\\s+");
-    }
     /**
      * Divide una cadena en subcadenas de números y palabras.
      *
      * @param palabrasATraducir Las palabras a traducir.
      * @return Un arreglo de subcadenas divididas.
      */
-    private String[] dividirNumerosDePalabras(String[] palabrasATraducir) {
-        List<String> substrings = new ArrayList<>();
-        for (String palabra : palabrasATraducir) {
-            Matcher matcher = PATRON_NUMERO_NO_NUMERO.matcher(palabra);
-            while (matcher.find()) {
-                substrings.add(matcher.group());
-            }
-        }
-        return substrings.toArray(new String[0]);
-    }
     /**
      * Agrega el carácter numérico a una cadena de caracteres y números.
      *
      * @param stringSeparadoCaracterNumero La cadena separada.
      * @return La cadena con el carácter numérico agregado.
      */
-    private String agregarCaracterNumerico(String stringSeparadoCaracterNumero) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < stringSeparadoCaracterNumero.length(); i++) {
-            result.append(stringSeparadoCaracterNumero.charAt(i));
-            if (i != 0) {
-                result.append(CARACTER_NUMERO);
-            }
-        }
-        result.setLength(result.length() - 1);
-        return result.toString();
-    }
     /**
      * Separa una cadena de caracteres Braille en números Braille.
      *
      * @param stringSeparadoCaracterNumero La cadena separada.
      * @return Un arreglo de números Braille.
      */
-    private String[] separarNumerosBraille(String stringSeparadoCaracterNumero) {
-        int numPairs = stringSeparadoCaracterNumero.length() / 2;
-        String[] result = new String[numPairs];
-        for (int i = 0; i < numPairs; i++) {
-            result[i] = stringSeparadoCaracterNumero.substring(i * 2, i * 2 + 2);
-        }
-        return result;
-    }
 }
