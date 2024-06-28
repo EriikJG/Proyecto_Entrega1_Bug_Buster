@@ -56,47 +56,57 @@ public class FormBraEsp extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jBGenCar = new javax.swing.JButton();
         jBEspacio = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(490, 480));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(605, 605));
 
         // Establecer el color de fondo del panel a blanco
         jPanel.setBackground(java.awt.Color.WHITE);
-        jPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel.setBackground(new java.awt.Color(204, 204, 204));
         jPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel.setToolTipText("Este es el cuadratin que te permitirá ingresar tus caracteres.");
 
+        jB1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB1ActionPerformed(evt);
             }
         });
 
+        jB4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jB4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB4ActionPerformed(evt);
             }
         });
 
+        jB5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jB5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB5ActionPerformed(evt);
             }
         });
 
+        jB2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jB2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB2ActionPerformed(evt);
             }
         });
 
+        jB66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jB66.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB66ActionPerformed(evt);
             }
         });
 
+        jB3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jB3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB3ActionPerformed(evt);
@@ -147,12 +157,11 @@ public class FormBraEsp extends javax.swing.JPanel {
         jTABraille.setBackground(new java.awt.Color(255, 255, 255));
         jTABraille.setColumns(20);
         jTABraille.setRows(5);
-        jTABraille.setBorder(javax.swing.BorderFactory.createTitledBorder("Texto en Braille"));
+        jTABraille.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(jTABraille);
 
         jBTraducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/language_translator_icon_150921.png"))); // NOI18N
         jBTraducir.setText("Traducir");
-        jBTraducir.setToolTipText("Con este botón podrás traducir tus caracteres a Español.");
         jBTraducir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jBTraducir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,21 +172,21 @@ public class FormBraEsp extends javax.swing.JPanel {
         jTAEsp.setEditable(false);
         jTAEsp.setBackground(new java.awt.Color(255, 255, 255));
         jTAEsp.setColumns(20);
+        jTAEsp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTAEsp.setRows(5);
-        jTAEsp.setToolTipText("Aquí puedes observar todos tus caracteres traducidos!");
-        jTAEsp.setBorder(javax.swing.BorderFactory.createTitledBorder("Texto traducido"));
+        jTAEsp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane2.setViewportView(jTAEsp);
 
+        jBLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/restart-48_46609.png"))); // NOI18N
         jBLimpiar.setText("Limpiar Pantalla");
-        jBLimpiar.setToolTipText("Con este botón puedes limpiar los cuadros de texto.");
-        jBLimpiar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(0, 0, 0)));
+        jBLimpiar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiarActionPerformed(evt);
             }
         });
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {
                 {"⠁", "a", "⠃", "b"},
@@ -225,17 +234,17 @@ public class FormBraEsp extends javax.swing.JPanel {
                 "Símbolo Braille", "Letra", "Símbolo Braille", "Letra"
             }
         ));
-        jTable1.setToolTipText("Este es una tablita con todos los caracteres Braille para tu uso!");
         jScrollPane4.setViewportView(jTable1);
         // Desactivar el ajuste automático del tamaño de las columnas
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 12)); // NOI18N
-        jLabel1.setText("Diccionario para recordar :)");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/text_translation_language_dictionary_icon_209602.png"))); // NOI18N
+        jLabel1.setText("Diccionario para recordar");
 
+        jBGenCar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1904659-arrow-backup-down-download-save-storage-transfer_122509.png"))); // NOI18N
         jBGenCar.setText("Generar caracter");
-        jBGenCar.setToolTipText("Con este botón puedes generar el caracter Braille que desees!");
-        jBGenCar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(0, 0, 0)));
+        jBGenCar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jBGenCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGenCarActionPerformed(evt);
@@ -246,7 +255,6 @@ public class FormBraEsp extends javax.swing.JPanel {
         jBEspacio.setFont(new java.awt.Font("Yu Gothic", 1, 12)); // NOI18N
         jBEspacio.setForeground(new java.awt.Color(255, 255, 255));
         jBEspacio.setText("SPACE");
-        jBEspacio.setToolTipText("Botón de espacio para separar tus caracteres.");
         jBEspacio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jBEspacio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBEspacio.addActionListener(new java.awt.event.ActionListener() {
@@ -255,66 +263,81 @@ public class FormBraEsp extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setText("Cuadratín Braille");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("1. Caracteres Braille Generados");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("2. Traducción generada");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setText("Tecla Espacio");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jBEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28))
-                            .addComponent(jPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jBGenCar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jBEspacio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addComponent(jPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5))
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(87, 87, 87)
+                            .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBTraducir)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addComponent(jBTraducir))
-                    .addComponent(jBEspacio))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBEspacio)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -354,10 +377,16 @@ public class FormBraEsp extends javax.swing.JPanel {
     }//GEN-LAST:event_jB3ActionPerformed
 
     private void jBTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTraducirActionPerformed
-        // Traducir el texto al Español
+        // Obtener el texto de la zona de texto Braille
         String textoBraille = jTABraille.getText();
-        String textoEsp = traductor.traducirTexto(textoBraille);
-        jTAEsp.setText(textoEsp);
+        if (textoBraille.isEmpty()) {
+            // Mostrar mensaje de advertencia si no hay caracteres a ser traducidos
+            JOptionPane.showMessageDialog(null, "No hay caracteres a ser traducidos!", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        } else {
+            // Traducir el texto al Español
+            String textoEsp = traductor.traducirTexto(textoBraille);
+            jTAEsp.setText(textoEsp);
+        }
         reiniciarBotones();
     }//GEN-LAST:event_jBTraducirActionPerformed
 
@@ -368,13 +397,17 @@ public class FormBraEsp extends javax.swing.JPanel {
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBGenCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenCarActionPerformed
-        Character brailleChar = convertirABraille(puntosPresionados);
-        if (brailleChar != null) {
-            jTABraille.append(Character.toString(brailleChar));
-
+        if(isNoCharacterSelected(puntosPresionados)) {
+            //Mostrar advertencia
+            JOptionPane.showMessageDialog(null, "Por favor, seleccione al menos un carácter.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         } else {
-            // Mostrar mensaje de advertencia si el carácter no es válido
-            JOptionPane.showMessageDialog(null, "Caracter no válido", "Error", JOptionPane.ERROR_MESSAGE);
+            Character brailleChar = convertirABraille(puntosPresionados);
+            if (brailleChar != null) {
+                jTABraille.append(Character.toString(brailleChar));
+            } else {
+                // Mostrar mensaje de error si el carácter no es válido
+                JOptionPane.showMessageDialog(null, "Carácter NO válido!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
         reiniciarBotones();
     }//GEN-LAST:event_jBGenCarActionPerformed
@@ -384,7 +417,16 @@ public class FormBraEsp extends javax.swing.JPanel {
         jTABraille.append(" ");
     }//GEN-LAST:event_jBEspacioActionPerformed
 
-        private void crearArregloPuntos() {
+    private boolean isNoCharacterSelected(boolean[] puntosPresionados) {
+        for (boolean punto : puntosPresionados) {
+            if (punto) {
+                return false;  // Si cualquier punto es verdadero, entonces hay al menos un carácter seleccionado
+            }
+        }
+        return true;  // Si todos los puntos son falsos, entonces no hay caracteres seleccionados
+    }    
+    
+    private void crearArregloPuntos() {
         puntos = new JButton[]{jB1, jB4, jB2, jB5, jB3, jB66};
 
         for (int i = 0; i < puntos.length; i++) {
@@ -494,6 +536,10 @@ public class FormBraEsp extends javax.swing.JPanel {
     private javax.swing.JButton jBLimpiar;
     private javax.swing.JButton jBTraducir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

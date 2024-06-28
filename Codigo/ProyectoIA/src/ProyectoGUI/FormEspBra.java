@@ -50,7 +50,7 @@ public class FormEspBra extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(490, 480));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Ingrese el texto en Español:");
+        jLabel1.setText("1. Ingrese el texto en Español:");
 
         jTASalida.setEditable(false);
         jTASalida.setBackground(new java.awt.Color(255, 255, 255));
@@ -60,7 +60,6 @@ public class FormEspBra extends javax.swing.JPanel {
 
         jBTraducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/language_translator_icon_150921.png"))); // NOI18N
         jBTraducir.setText("Traducir");
-        jBTraducir.setToolTipText("Presiona este botón para traducir tu texto.");
         jBTraducir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTraducirActionPerformed(evt);
@@ -68,7 +67,7 @@ public class FormEspBra extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Texo traducido en Braille:");
+        jLabel2.setText("2. Texto traducido en Braille:");
 
         jTAEntrada.setColumns(20);
         jTAEntrada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -78,7 +77,6 @@ public class FormEspBra extends javax.swing.JPanel {
 
         jBGuardarImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1904659-arrow-backup-down-download-save-storage-transfer_122509.png"))); // NOI18N
         jBGuardarImg.setText("Guardar señalización en Braille");
-        jBGuardarImg.setToolTipText("Aquí puedes guardar tu señalización traducida en el directorio de tu preferencia.");
         jBGuardarImg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarImgActionPerformed(evt);
@@ -87,7 +85,6 @@ public class FormEspBra extends javax.swing.JPanel {
 
         jBGuardarImgEsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1904659-arrow-backup-down-download-save-storage-transfer_122509.png"))); // NOI18N
         jBGuardarImgEsp.setText("Guardar en modo Espejo");
-        jBGuardarImgEsp.setToolTipText("Aquí puedes guardar tu señalización traducida en modo \"espejo\" en el directorio de tu preferencia.");
         jBGuardarImgEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarImgEspActionPerformed(evt);
@@ -96,7 +93,6 @@ public class FormEspBra extends javax.swing.JPanel {
 
         jBLimpiarPanta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/restart-48_46609.png"))); // NOI18N
         jBLimpiarPanta.setText("Limpiar Pantalla");
-        jBLimpiarPanta.setToolTipText("Con este botón puedes limpiar los cuadros de texto.");
         jBLimpiarPanta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBLimpiarPantaActionPerformed(evt);
@@ -165,9 +161,13 @@ public class FormEspBra extends javax.swing.JPanel {
 
     private void jBTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTraducirActionPerformed
         String textoEsp = jTAEntrada.getText();
-        String textoBraille = traductor.traducirTexto(textoEsp);
-        jTASalida.setText(textoBraille);
-
+        if(textoEsp.isEmpty()){
+            // Mostrar mensaje de advertencia si no hay caracteres a ser traducidos
+            JOptionPane.showMessageDialog(null, "No hay texto a ser traducido!", "Advertencia", JOptionPane.WARNING_MESSAGE);            
+        } else {
+            String textoBraille = traductor.traducirTexto(textoEsp);
+            jTASalida.setText(textoBraille);
+        }
         imagenSenalGuardada = false;
     }//GEN-LAST:event_jBTraducirActionPerformed
 

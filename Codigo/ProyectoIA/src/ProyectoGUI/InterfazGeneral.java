@@ -7,6 +7,7 @@ package ProyectoGUI;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -22,19 +23,37 @@ public class InterfazGeneral extends javax.swing.JFrame {
     public InterfazGeneral() {
         initComponents();
         setTitle("Interfaz General - Traductor");
-        setSize(800, 600);
+        setSize(800, 605);
         centerFrame(this);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/LogoGrupo.png")).getImage());
         
         Presentacion pag1 = new Presentacion();
-        pag1.setSize(600, 595);
+        pag1.setSize(605, 605);
         pag1.setLocation(0,0);
         
         content.removeAll();
         content.add(pag1, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
-            
+        
+        // Agregar un KeyListener al contentPane para detectar la tecla "E"
+        content.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_E) {
+                    // Llamar al método que simula el clic en jPanel4
+                    jPanel4MouseClicked(null);
+                } else if (evt.getKeyCode() == KeyEvent.VK_B) {
+                    jPanel5MouseClicked(null);
+                } else if (evt.getKeyCode() == KeyEvent.VK_I) {
+                    jPanel3MouseClicked(null);
+                } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    // Cerrar la ventana al presionar ESC
+                    dispose();
+                }
+            }
+        });
+        content.setFocusable(true); // Asegurar que el panel pueda recibir eventos de teclado
+        
     }
     
     private void centerFrame(JFrame frame) {
@@ -44,6 +63,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
         int y = (screenSize.height - frameSize.height) / 2;
         frame.setLocation(x, y);
     }    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,6 +129,11 @@ public class InterfazGeneral extends javax.swing.JFrame {
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel4MouseClicked(evt);
+            }
+        });
+        jPanel4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel4KeyPressed(evt);
             }
         });
 
@@ -187,14 +212,14 @@ public class InterfazGeneral extends javax.swing.JFrame {
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 605, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 605, Short.MAX_VALUE)
         );
 
-        jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 600, 600));
+        jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 605, 605));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,7 +237,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         Presentacion pag1 = new Presentacion();
-        pag1.setSize(600, 595);
+        pag1.setSize(605, 605);
         pag1.setLocation(0,0);
         
         content.removeAll();
@@ -223,7 +248,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         FormEspBra pag2 = new FormEspBra();
-        pag2.setSize(600, 595);
+        pag2.setSize(605, 605);
         pag2.setLocation(0,0);
         
         content.removeAll();
@@ -234,7 +259,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
         FormBraEsp pag3 = new FormBraEsp();
-        pag3.setSize(600, 591);
+        pag3.setSize(605, 605);
         pag3.setLocation(0,0);
         
         content.removeAll();
@@ -242,6 +267,10 @@ public class InterfazGeneral extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void jPanel4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel4KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel4KeyPressed
 
     /**
      * @param args the command line arguments
