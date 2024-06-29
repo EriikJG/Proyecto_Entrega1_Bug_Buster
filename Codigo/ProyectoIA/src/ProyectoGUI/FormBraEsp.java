@@ -186,7 +186,6 @@ public class FormBraEsp extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][] {
                 {"⠁", "a", "⠃", "b"},
@@ -207,8 +206,8 @@ public class FormBraEsp extends javax.swing.JPanel {
                 {"⠖", "!", "⠆", ";"},
                 {"⠒", ":", "⠤", "-"},
                 {" ", " ", "⠷", "á"},
-                {"⠿", "é", "⠽", "í"},
-                {"⠾", "ó", "⠷", "ú"},
+                {"⠿", "é", "⠌", "í"},
+                {"⠾", "ó", "⠜", "ú"},
                 {"⠳", "ü", "⠈", "@"},
                 {"⠨⠁", "A", "⠨⠃", "B"},
                 {"⠨⠉", "C", "⠨⠙", "D"},
@@ -302,7 +301,7 @@ public class FormBraEsp extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addComponent(jScrollPane1)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,18 +336,18 @@ public class FormBraEsp extends javax.swing.JPanel {
                         .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
