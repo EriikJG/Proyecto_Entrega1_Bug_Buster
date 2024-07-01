@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
  */
 public class Traductor {
 
-    private Diccionario diccionario;
     private Impresion impresion;
+    private Diccionario diccionario;
 
     /**
      * Constructor de la clase Traductor.
