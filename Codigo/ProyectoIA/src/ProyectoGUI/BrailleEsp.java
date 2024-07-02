@@ -446,6 +446,9 @@ public class BrailleEsp extends javax.swing.JFrame {
         Map<String, Character> brailleMap = new HashMap<>();
         // Indicador de mayúscula
         brailleMap.put("010001", '⠨'); // Indicador de mayúscula
+        brailleMap.put("010101", '⠸');
+        brailleMap.put("001001", '⠢');
+
         //Letras 
         brailleMap.put("100000", '⠁'); // a
         brailleMap.put("101000", '⠃'); // b
@@ -503,7 +506,7 @@ public class BrailleEsp extends javax.swing.JFrame {
         brailleMap.put("011111", '⠾'); // ó
         brailleMap.put("010110", '⠜'); // ú
         brailleMap.put("101101", '⠳'); // ü
-        
+
         
         brailleMap.put("000101", '⠰');
         
