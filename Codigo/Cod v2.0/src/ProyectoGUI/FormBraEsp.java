@@ -4,8 +4,9 @@
  */
 package ProyectoGUI;
 
-import Traductor.Traductor;
+import Traductor.Diccionario;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JButton;
@@ -19,13 +20,14 @@ public class FormBraEsp extends javax.swing.JPanel {
 
     private boolean[] puntosPresionados;
     JButton[] puntos;
-    private Traductor traductor;
+    private Diccionario traductor;
     
     public FormBraEsp() {
         initComponents();
         puntosPresionados = new boolean[6];
-        traductor = new Traductor();
+        traductor = new Diccionario();
         crearArregloPuntos(); // Llama al método para inicializar el arreglo puntos
+        
     }
 
     /**
@@ -43,7 +45,7 @@ public class FormBraEsp extends javax.swing.JPanel {
         jB4 = new javax.swing.JButton();
         jB5 = new javax.swing.JButton();
         jB2 = new javax.swing.JButton();
-        jB66 = new javax.swing.JButton();
+        jB6 = new javax.swing.JButton();
         jB3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTABraille = new javax.swing.JTextArea();
@@ -60,11 +62,16 @@ public class FormBraEsp extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jBMayus = new javax.swing.JButton();
+        jBNumeros = new javax.swing.JButton();
+        jBSimbolo = new javax.swing.JButton();
+        jBLetra = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(490, 480));
+        setPreferredSize(new java.awt.Dimension(605, 608));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(605, 605));
+        jPanel1.setPreferredSize(new java.awt.Dimension(605, 608));
+        jPanel1.setRequestFocusEnabled(false);
 
         // Establecer el color de fondo del panel a blanco
         jPanel.setBackground(java.awt.Color.WHITE);
@@ -99,10 +106,10 @@ public class FormBraEsp extends javax.swing.JPanel {
             }
         });
 
-        jB66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jB66.addActionListener(new java.awt.event.ActionListener() {
+        jB6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jB6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB66ActionPerformed(evt);
+                jB6ActionPerformed(evt);
             }
         });
 
@@ -128,7 +135,7 @@ public class FormBraEsp extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelLayout.createSequentialGroup()
                             .addComponent(jB3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jB66, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jB6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelLayout.createSequentialGroup()
                             .addComponent(jB1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
@@ -149,7 +156,7 @@ public class FormBraEsp extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB66, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jB6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -274,6 +281,43 @@ public class FormBraEsp extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Tecla Espacio");
 
+        jBMayus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/keyboard-capslock_117115.png"))); // NOI18N
+        jBMayus.setText("Mayúsculas");
+        jBMayus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBMayusActionPerformed(evt);
+            }
+        });
+        jBMayus.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jBMayusKeyPressed(evt);
+            }
+        });
+
+        jBNumeros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/number_symbol_square_filled_icon_200455.png"))); // NOI18N
+        jBNumeros.setText("Números");
+        jBNumeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNumerosActionPerformed(evt);
+            }
+        });
+
+        jBSimbolo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/informationwebcircularbuttonsymbol_79860.png"))); // NOI18N
+        jBSimbolo.setText("Símbolo");
+        jBSimbolo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSimboloActionPerformed(evt);
+            }
+        });
+
+        jBLetra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/speech-balloon-white-a256_icon-icons.com_62586.png"))); // NOI18N
+        jBLetra.setText("Letra");
+        jBLetra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLetraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -281,36 +325,52 @@ public class FormBraEsp extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jBGenCar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jBEspacio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addComponent(jPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel5))
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(87, 87, 87)
-                            .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addComponent(jScrollPane1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jBMayus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBNumeros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jBSimbolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBLetra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addGap(50, 50, 50)))
+                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel3))
+                            .addComponent(jLabel5))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -321,71 +381,98 @@ public class FormBraEsp extends javax.swing.JPanel {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBTraducir)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBEspacio)
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBMayus)
+                            .addComponent(jBSimbolo))
                         .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBNumeros)
+                            .addComponent(jBLetra))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBGenCar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jBLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB1ActionPerformed
-
+        puntosPresionados[0] = !puntosPresionados[0];
+        actualizarColorBoton(jB1, puntosPresionados[0]);
     }//GEN-LAST:event_jB1ActionPerformed
 
     private void jB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB4ActionPerformed
-
+        puntosPresionados[1] = !puntosPresionados[1];
+        actualizarColorBoton(jB4, puntosPresionados[1]);
     }//GEN-LAST:event_jB4ActionPerformed
 
     private void jB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB5ActionPerformed
-
+        puntosPresionados[3] = !puntosPresionados[3];
+        actualizarColorBoton(jB5, puntosPresionados[3]);
     }//GEN-LAST:event_jB5ActionPerformed
 
     private void jB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB2ActionPerformed
-
+        puntosPresionados[2] = !puntosPresionados[2];
+        actualizarColorBoton(jB2, puntosPresionados[2]);
     }//GEN-LAST:event_jB2ActionPerformed
 
-    private void jB66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB66ActionPerformed
-
-    }//GEN-LAST:event_jB66ActionPerformed
+    private void jB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB6ActionPerformed
+        puntosPresionados[5] = !puntosPresionados[5];
+        actualizarColorBoton(jB6, puntosPresionados[5]);
+    }//GEN-LAST:event_jB6ActionPerformed
 
     private void jB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB3ActionPerformed
-
+        puntosPresionados[4] = !puntosPresionados[4];
+        actualizarColorBoton(jB3, puntosPresionados[4]);
     }//GEN-LAST:event_jB3ActionPerformed
 
     private void jBTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTraducirActionPerformed
         // Obtener el texto de la zona de texto Braille
-        String textoBraille = jTABraille.getText();
+        String textoBraille = jTABraille.getText().trim(); // Asegurarse de eliminar espacios en blanco
+
         if (textoBraille.isEmpty()) {
             // Mostrar mensaje de advertencia si no hay caracteres a ser traducidos
             JOptionPane.showMessageDialog(null, "No hay caracteres a ser traducidos!", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        } else {
-            // Traducir el texto al Español
-            String textoEsp = traductor.traducirTexto(textoBraille);
-            jTAEsp.setText(textoEsp);
+            return; // Salir del método si no hay texto para traducir
         }
+
+        // Traducir el texto al Español
+        String traduccion;
+        try {
+            traduccion = traductor.traducirCaracterACaracter(textoBraille, 2); // 2 indica Braille a español
+            if (traduccion.isEmpty()) {
+                // Manejar el caso donde la traducción devuelve una cadena vacía
+                JOptionPane.showMessageDialog(null, "No se pudo traducir el texto Braille ingresado.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                jTAEsp.setText(traduccion);
+            }
+        } catch (IllegalArgumentException e) {
+            // Capturar excepción si hay un error durante la traducción
+            JOptionPane.showMessageDialog(null, "Error en la traducción: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
         reiniciarBotones();
     }//GEN-LAST:event_jBTraducirActionPerformed
 
@@ -396,16 +483,18 @@ public class FormBraEsp extends javax.swing.JPanel {
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBGenCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenCarActionPerformed
-        if(isNoCharacterSelected(puntosPresionados)) {
-            //Mostrar advertencia
+        if (isNoCharacterSelected(puntosPresionados)) {
+            // Mostrar advertencia si no se selecciona ningún carácter
             JOptionPane.showMessageDialog(null, "Por favor, seleccione al menos un carácter.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         } else {
-            Character brailleChar = convertirABraille(puntosPresionados);
-            if (brailleChar != null) {
-                jTABraille.append(Character.toString(brailleChar));
-            } else {
-                // Mostrar mensaje de error si el carácter no es válido
-                JOptionPane.showMessageDialog(null, "Carácter NO válido!", "Error", JOptionPane.ERROR_MESSAGE);
+            try {
+                String caracter = generarCaracter();
+                if (!caracter.isEmpty()) {
+                    jTABraille.append(caracter);
+                }
+            } catch (IllegalArgumentException e) {
+                // Capturar excepción si hay un error en la generación del carácter Braille
+                JOptionPane.showMessageDialog(null, "Error al generar el carácter Braille: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
         reiniciarBotones();
@@ -416,6 +505,38 @@ public class FormBraEsp extends javax.swing.JPanel {
         jTABraille.append(" ");
     }//GEN-LAST:event_jBEspacioActionPerformed
 
+    private void jBMayusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMayusActionPerformed
+        char mayus = '⠨';
+        jTABraille.append(String.valueOf(mayus));
+    }//GEN-LAST:event_jBMayusActionPerformed
+
+    private void jBNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNumerosActionPerformed
+        char numero = '⠼';
+        jTABraille.append(String.valueOf(numero));
+    }//GEN-LAST:event_jBNumerosActionPerformed
+
+    private void jBMayusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jBMayusKeyPressed
+
+    }//GEN-LAST:event_jBMayusKeyPressed
+
+    private void jBSimboloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSimboloActionPerformed
+        char simbolo = '⠸';
+        jTABraille.append(String.valueOf(simbolo));
+    }//GEN-LAST:event_jBSimboloActionPerformed
+
+    private void jBLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLetraActionPerformed
+        char letra = '⠰';
+        jTABraille.append(String.valueOf(letra));
+    }//GEN-LAST:event_jBLetraActionPerformed
+
+    private void actualizarColorBoton(JButton boton, boolean presionado) {
+        if (presionado) {
+            boton.setBackground(Color.BLACK);
+        } else {
+            boton.setBackground(Color.WHITE);
+        }
+    }
+    
     private boolean isNoCharacterSelected(boolean[] puntosPresionados) {
         for (boolean punto : puntosPresionados) {
             if (punto) {
@@ -426,37 +547,11 @@ public class FormBraEsp extends javax.swing.JPanel {
     }    
     
     private void crearArregloPuntos() {
-        puntos = new JButton[]{jB1, jB4, jB2, jB5, jB3, jB66};
-
-        for (int i = 0; i < puntos.length; i++) {
-            int finalI = i;
-            puntos[i].addActionListener(e -> {
-                puntosPresionados[finalI] = !puntosPresionados[finalI];
-                puntos[finalI].setBackground(puntosPresionados[finalI] ? Color.BLACK : Color.WHITE);
-                char brailleChar = convertirABraille(puntosPresionados);
-                System.out.println(brailleChar); // Imprimir el caracter Braille
-            });
-        }
+        puntos = new JButton[]{jB1, jB4, jB2, jB5, jB3, jB6};
     }
 
-    
-    private void reiniciarBotones() {
-        for (int i = 0; i < puntos.length; i++) {
-            puntosPresionados[i] = false;
-            puntos[i].setBackground(Color.WHITE);
-        }
-    }
-
-    
-    private Character convertirABraille(boolean[] puntosPresionados) {
-        // Mapea la representación binaria a caracteres Braille
-        StringBuilder braillePattern = new StringBuilder();
-        // La representación del patrón Braille sigue el orden: 1, 4, 2, 5, 3, 6
-        for (int i = 0; i < puntosPresionados.length; i++) {
-            braillePattern.append(puntosPresionados[i] ? "1" : "0");
-        }
-
-        // Mapa de algunos patrones Braille comunes
+    private String generarCaracter() {
+        // Mapeo de combinaciones de puntos a caracteres Braille
         Map<String, Character> brailleMap = new HashMap<>();
         // Indicador de mayúscula
         brailleMap.put("010001", '⠨'); // Indicador de mayúscula
@@ -475,6 +570,7 @@ public class FormBraEsp extends javax.swing.JPanel {
         brailleMap.put("101010", '⠇'); // l
         brailleMap.put("110010", '⠍'); // m
         brailleMap.put("110110", '⠝'); // n
+        brailleMap.put("111101", '⠻'); // ñ
         brailleMap.put("100110", '⠕'); // o
         brailleMap.put("111010", '⠏'); // p
         brailleMap.put("111110", '⠟'); // q
@@ -489,6 +585,7 @@ public class FormBraEsp extends javax.swing.JPanel {
         brailleMap.put("100111", '⠵'); // z
         // Números (requieren el prefijo de número ⠼ que es 3456)
         brailleMap.put("010111", '⠼'); // Prefijo número
+        brailleMap.put("010101", '⠸'); // Prefijo símbolo        
         brailleMap.put("100000", '⠁'); // 1
         brailleMap.put("101000", '⠃'); // 2
         brailleMap.put("110000", '⠉'); // 3
@@ -502,14 +599,21 @@ public class FormBraEsp extends javax.swing.JPanel {
         // Signos de puntuación
         brailleMap.put("001000", '⠂'); // Coma
         brailleMap.put("001010", '⠆'); // Punto y coma
-        brailleMap.put("001101", '⠲'); // Punto
+        brailleMap.put("000010", '⠄'); // Punto
         brailleMap.put("001110", '⠖'); // Signo de exclamación
-        brailleMap.put("001011", '⠦'); // Signo de interrogación
+        brailleMap.put("001011", '⠢'); // Signo de interrogación
         brailleMap.put("001100", '⠒'); // Signo de 2 puntos
         
         // Otros símbolos
         brailleMap.put("010110", '⠤'); // Guion medio
         brailleMap.put("010000", '⠈'); // @ (arroba)
+        brailleMap.put("101001", '⠣'); // (  
+        brailleMap.put("010110", '⠜'); // )     
+        brailleMap.put("001111", '⠶'); // =    
+        brailleMap.put("010010", '⠌'); // /    
+        brailleMap.put("001101", '⠲'); // ÷  
+        brailleMap.put("001011", '⠦'); // x    
+        
         //Otros símbolos
         brailleMap.put("101111", '⠷'); // á
         brailleMap.put("111111", '⠿'); // é
@@ -517,11 +621,35 @@ public class FormBraEsp extends javax.swing.JPanel {
         brailleMap.put("011111", '⠾'); // ó
         brailleMap.put("010110", '⠜'); // ú
         brailleMap.put("101101", '⠳'); // ü
-        
-        // Obtener el carácter Braille correspondiente al patrón
-        return brailleMap.getOrDefault(braillePattern.toString(), null);
+        // Añade más entradas según tus necesidades
+
+        // Construye la representación de puntos (0s y 1s)
+        StringBuilder sb = new StringBuilder();
+        for (boolean punto : puntosPresionados) {
+            sb.append(punto ? "1" : "0");
+        }
+        String pattern = sb.toString();
+
+        // Busca el carácter Braille correspondiente en el mapa
+        Character brailleChar = brailleMap.get(pattern);
+
+        // Si no se encontró el carácter, puedes devolver un valor predeterminado o manejarlo según tu lógica
+        if (brailleChar == null) {
+           JOptionPane.showMessageDialog(this.getRootPane(), "Carácter no válido", "Error", JOptionPane.ERROR_MESSAGE);
+           return "";
+        } else {
+            return String.valueOf(brailleChar);
+        }
     }
 
+    private void reiniciarBotones() {
+        for (int i = 0; i < puntosPresionados.length; i++) {
+            puntosPresionados[i] = false;
+        }
+        for (JButton boton : puntos) {
+            boton.setBackground(Color.WHITE);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jB1;
@@ -529,10 +657,14 @@ public class FormBraEsp extends javax.swing.JPanel {
     private javax.swing.JButton jB3;
     private javax.swing.JButton jB4;
     private javax.swing.JButton jB5;
-    private javax.swing.JButton jB66;
+    private javax.swing.JButton jB6;
     private javax.swing.JButton jBEspacio;
     private javax.swing.JButton jBGenCar;
+    private javax.swing.JButton jBLetra;
     private javax.swing.JButton jBLimpiar;
+    private javax.swing.JButton jBMayus;
+    private javax.swing.JButton jBNumeros;
+    private javax.swing.JButton jBSimbolo;
     private javax.swing.JButton jBTraducir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

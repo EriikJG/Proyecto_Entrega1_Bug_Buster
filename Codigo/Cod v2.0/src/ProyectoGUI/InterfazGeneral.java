@@ -23,12 +23,12 @@ public class InterfazGeneral extends javax.swing.JFrame {
     public InterfazGeneral() {
         initComponents();
         setTitle("Interfaz General - Traductor");
-        setSize(800, 605);
+        setSize(840, 650);
         centerFrame(this);
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/LogoGrupo.png")).getImage());
         
         Presentacion pag1 = new Presentacion();
-        pag1.setSize(605, 605);
+        pag1.setSize(605, 620);
         pag1.setLocation(0,0);
         
         content.removeAll();
@@ -88,9 +88,11 @@ public class InterfazGeneral extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(150, 150, 150));
+        jPanel2.setPreferredSize(new java.awt.Dimension(900, 620));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(150, 150, 150));
+        jPanel1.setPreferredSize(new java.awt.Dimension(190, 620));
 
         jPanel3.setToolTipText("Bienvenido! Aquí encontrarás información sobre el proyecto");
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,25 +203,27 @@ public class InterfazGeneral extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 600));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, -1));
 
         content.setBackground(new java.awt.Color(255, 255, 255));
+        content.setPreferredSize(new java.awt.Dimension(710, 620));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 710, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 605, 605));
+        jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 710, 620));
+        content.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,7 +241,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         Presentacion pag1 = new Presentacion();
-        pag1.setSize(605, 605);
+        pag1.setSize(605, 620);
         pag1.setLocation(0,0);
         
         content.removeAll();
@@ -248,7 +252,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         FormEspBra pag2 = new FormEspBra();
-        pag2.setSize(605, 605);
+        pag2.setSize(605, 620);
         pag2.setLocation(0,0);
         
         content.removeAll();
@@ -259,7 +263,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
         FormBraEsp pag3 = new FormBraEsp();
-        pag3.setSize(605, 605);
+        pag3.setSize(647, 620);
         pag3.setLocation(0,0);
         
         content.removeAll();
