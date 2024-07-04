@@ -21,13 +21,13 @@ public class FormBraEsp extends javax.swing.JPanel {
     private boolean[] puntosPresionados;
     JButton[] puntos;
     private Diccionario traductor;
-    
+
     public FormBraEsp() {
         initComponents();
         puntosPresionados = new boolean[6];
         traductor = new Diccionario();
         crearArregloPuntos(); // Llama al método para inicializar el arreglo puntos
-        
+
     }
 
     /**
@@ -536,7 +536,7 @@ public class FormBraEsp extends javax.swing.JPanel {
             boton.setBackground(Color.WHITE);
         }
     }
-    
+
     private boolean isNoCharacterSelected(boolean[] puntosPresionados) {
         for (boolean punto : puntosPresionados) {
             if (punto) {
@@ -544,8 +544,8 @@ public class FormBraEsp extends javax.swing.JPanel {
             }
         }
         return true;  // Si todos los puntos son falsos, entonces no hay caracteres seleccionados
-    }    
-    
+    }
+
     private void crearArregloPuntos() {
         puntos = new JButton[]{jB1, jB4, jB2, jB5, jB3, jB6};
     }
@@ -596,24 +596,28 @@ public class FormBraEsp extends javax.swing.JPanel {
         brailleMap.put("101100", '⠓'); // 8
         brailleMap.put("011000", '⠊'); // 9
         brailleMap.put("011100", '⠚'); // 0
-        // Signos de puntuación
-        brailleMap.put("001000", '⠂'); // Coma
-        brailleMap.put("001010", '⠆'); // Punto y coma
-        brailleMap.put("000010", '⠄'); // Punto
-        brailleMap.put("001110", '⠖'); // Signo de exclamación
-        brailleMap.put("001011", '⠢'); // Signo de interrogación
-        brailleMap.put("001100", '⠒'); // Signo de 2 puntos
-        
+
         // Otros símbolos
-        brailleMap.put("010110", '⠤'); // Guion medio
-        brailleMap.put("010000", '⠈'); // @ (arroba)
-        brailleMap.put("101001", '⠣'); // (  
-        brailleMap.put("010110", '⠜'); // )     
+        brailleMap.put("000010", '⠄'); // punto
+        brailleMap.put("001000", '⠂'); // coma
+        brailleMap.put("001010", '⠆'); // ;
+
+        brailleMap.put("001100", '⠒'); // :
+        brailleMap.put("000011", '⠤'); // _
+        brailleMap.put("001011", '⠦'); // x    
         brailleMap.put("001111", '⠶'); // =    
         brailleMap.put("010010", '⠌'); // /    
+        brailleMap.put("110000", '⠉'); // -
         brailleMap.put("001101", '⠲'); // ÷  
-        brailleMap.put("001011", '⠦'); // x    
-        
+        brailleMap.put("101001", '⠣'); // (  
+        brailleMap.put("010110", '⠜'); // )     
+        brailleMap.put("000100", '⠐'); // +
+        brailleMap.put("001001", '⠢'); // ?¿
+        brailleMap.put("001110", '⠖'); // ¡!
+        brailleMap.put("111100", '⠛'); // ""
+
+        brailleMap.put("010000", '⠈'); // @ (arroba)
+
         //Otros símbolos
         brailleMap.put("101111", '⠷'); // á
         brailleMap.put("111111", '⠿'); // é
@@ -635,8 +639,8 @@ public class FormBraEsp extends javax.swing.JPanel {
 
         // Si no se encontró el carácter, puedes devolver un valor predeterminado o manejarlo según tu lógica
         if (brailleChar == null) {
-           JOptionPane.showMessageDialog(this.getRootPane(), "Carácter no válido", "Error", JOptionPane.ERROR_MESSAGE);
-           return "";
+            JOptionPane.showMessageDialog(this.getRootPane(), "Carácter no válido", "Error", JOptionPane.ERROR_MESSAGE);
+            return "";
         } else {
             return String.valueOf(brailleChar);
         }
