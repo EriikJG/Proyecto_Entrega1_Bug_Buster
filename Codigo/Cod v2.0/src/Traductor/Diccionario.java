@@ -25,7 +25,8 @@ public class Diccionario {
     private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
     private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
     private static final Map<Character, String> caracteresNumerosEspBraille = new HashMap<>();
-
+    private static final Map<String, Character> caracteresSimbolosBraileEsp = new HashMap<>();
+    private static final Map<Character, String> caracteresSimbolosEspBraile = new HashMap<>();
     private static final String CARACTER_NUMERO = "⠼";
     private static final String CARACTER_SIMBOLO = "⠸";
     private static final String CARACTER_MAYUSCULAS = "⠨";
@@ -72,6 +73,26 @@ public class Diccionario {
         caracteresNumerosEspBraille.put('9', "⠊");
         caracteresNumerosEspBraille.put('0', "⠚");
 
+        caracteresSimbolosEspBraile.put('.', CARACTER_SIMBOLO + "⠄");
+        caracteresSimbolosEspBraile.put(',', CARACTER_SIMBOLO + "⠂");
+        caracteresSimbolosEspBraile.put(';', CARACTER_SIMBOLO + "⠆");
+        caracteresSimbolosEspBraile.put(':', CARACTER_SIMBOLO + "⠒");
+        caracteresSimbolosEspBraile.put('_', CARACTER_SIMBOLO + "⠤");
+        caracteresSimbolosEspBraile.put('¡', CARACTER_SIMBOLO + "⠖");
+        caracteresSimbolosEspBraile.put('!', CARACTER_SIMBOLO + "⠖");
+        caracteresSimbolosEspBraile.put('¿', CARACTER_SIMBOLO + "⠢");
+        caracteresSimbolosEspBraile.put('?', CARACTER_SIMBOLO + "⠢");
+        caracteresSimbolosEspBraile.put('(', CARACTER_SIMBOLO + "⠣");
+        caracteresSimbolosEspBraile.put(')', CARACTER_SIMBOLO + "⠜");
+        caracteresSimbolosEspBraile.put('x', CARACTER_SIMBOLO + "⠦");
+        caracteresSimbolosEspBraile.put('=', CARACTER_SIMBOLO + "⠶");
+        caracteresSimbolosEspBraile.put('/', CARACTER_SIMBOLO + "⠌");
+        caracteresSimbolosEspBraile.put('-', CARACTER_SIMBOLO + "⠤");
+        caracteresSimbolosEspBraile.put('÷', CARACTER_SIMBOLO + "⠲");
+        // caracteresEspBraille.put('+', CARACTER_SIMBOLO + "⠐");// Este para que no se repita
+/*
+        
+        
         caracteresEspBraille.put(',', "⠂");
         caracteresEspBraille.put('?', "⠦");
         caracteresEspBraille.put('!', "⠖");
@@ -79,7 +100,7 @@ public class Diccionario {
         caracteresEspBraille.put(':', "⠒");
         caracteresEspBraille.put('-', "⠤");
         caracteresEspBraille.put(' ', " ");
-
+         */
         caracteresEspBraille.put('á', "⠷");
         caracteresEspBraille.put('é', "⠿");
         caracteresEspBraille.put('í', "⠌");
@@ -157,20 +178,28 @@ public class Diccionario {
         caracteresNumerosBrailleEsp.put("⠊", '9');
         caracteresNumerosBrailleEsp.put("⠚", '0');
 
-        caracteresBrailleEsp.put("⠲", '.');
-        caracteresBrailleEsp.put("⠂", ',');
-        caracteresBrailleEsp.put("⠦", '¿');
-        caracteresBrailleEsp.put("⠖", '!');
-        caracteresBrailleEsp.put("⠆", ';');
-        caracteresBrailleEsp.put("⠒", ':');
-        caracteresBrailleEsp.put("⠤", '-');
-        caracteresBrailleEsp.put(" ", ' ');
+        caracteresSimbolosBraileEsp.put("⠄", '.');
+        caracteresSimbolosBraileEsp.put("⠂", ',');
+        caracteresSimbolosBraileEsp.put("⠆", ';');
+        caracteresSimbolosBraileEsp.put("⠒", ':');
+        caracteresSimbolosBraileEsp.put("⠤", '_');
+        caracteresSimbolosBraileEsp.put("⠦", 'x');
+        caracteresSimbolosBraileEsp.put("⠶", '=');
+        caracteresSimbolosBraileEsp.put("⠌", '/');
+        caracteresSimbolosBraileEsp.put("⠉", '-');
+        caracteresSimbolosBraileEsp.put("⠲", '÷');
+        caracteresSimbolosBraileEsp.put("⠣", '(');
+        caracteresSimbolosBraileEsp.put("⠜", ')');
+
+        caracteresSimbolosBraileEsp.put("⠢", 'I'); // interrogación 1
+        caracteresSimbolosBraileEsp.put("⠖", 'E'); // exclamacion1
+        caracteresSimbolosBraileEsp.put("⠛", 'C'); // COMILLAS con puntos aleatorios PARA QUE NO SE REPITA1
 
         caracteresBrailleEsp.put("⠷", 'á');
         caracteresBrailleEsp.put("⠿", 'é');
-        caracteresBrailleEsp.put("⠌", 'í');
+        caracteresBrailleEsp.put("⠴", 'í'); // RAMDOM
         caracteresBrailleEsp.put("⠾", 'ó');
-        caracteresBrailleEsp.put("⠜", 'ú');
+        caracteresBrailleEsp.put("⠞", 'ú'); // ramdom
         caracteresBrailleEsp.put("⠳", 'ü');
         caracteresBrailleEsp.put("⠈", '@');
 
@@ -216,7 +245,7 @@ public class Diccionario {
         String[] lineas = dividirPorLineas(textoATraducir);
 
         return traducirLineas(lineas, esEspanol);
-    } 
+    }
 
     private String[] dividirPorLineas(String texto) {
         return texto.split("\n");
@@ -305,26 +334,24 @@ static {
     }
 
     private void traducirBrailleAEspanol(String palabra, StringBuilder resultado) {
-        //Traducción a español
         boolean esNumero = false;
         boolean esMayuscula = false;
+        boolean esSimbolo = false;
 
         for (int i = 0; i < palabra.length(); i++) {
             String simboloActual = Character.toString(palabra.charAt(i));
 
-            if (simboloActual.equals(CARACTER_NUMERO)) {
-                esNumero = true;
-                continue;
-            } else if (simboloActual.equals(CARACTER_LETRA)) {
-                esNumero = false;
-                continue;
-            } else if (simboloActual.equals(CARACTER_MAYUSCULAS)) {
-                esMayuscula = true;
+            if (manejarCaracterEspecial(simboloActual, resultado)) {
+                esNumero = simboloActual.equals(CARACTER_NUMERO);
+                esMayuscula = simboloActual.equals(CARACTER_MAYUSCULAS);
+                esSimbolo = simboloActual.equals(CARACTER_SIMBOLO);
                 continue;
             }
 
-            if (esNumero) {
-                // En modo número, interpretamos los símbolos como números
+            if (esSimbolo) {
+                manejarSimbolo(simboloActual, resultado);
+                esSimbolo = false;
+            } else if (esNumero) {
                 resultado.append(caracteresNumerosBrailleEsp.get(simboloActual));
             } else {
                 char caracter = caracteresBrailleEsp.get(simboloActual);
@@ -335,32 +362,98 @@ static {
                 resultado.append(caracter);
             }
         }
+    }
 
+    private boolean manejarCaracterEspecial(String simboloActual, StringBuilder resultado) {
+        switch (simboloActual) {
+            case CARACTER_NUMERO:
+            case CARACTER_LETRA:
+            case CARACTER_MAYUSCULAS:
+            case CARACTER_SIMBOLO:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private void manejarSimbolo(String simboloActual, StringBuilder resultado) {
+        char aux = caracteresSimbolosBraileEsp.get(simboloActual);
+        boolean[] aparecio = {false}; // Usamos un array para mantener el estado en diferentes casos
+
+        switch (aux) {
+            case 'I':
+                agregarSimboloInterrogacion(resultado, aparecio);
+                break;
+            case 'E':
+                agregarSimboloExclamacion(resultado, aparecio);
+                break;
+            case 'C':
+                agregarComillas(resultado, aparecio);
+                break;
+            default:
+                resultado.append(aux);
+                break;
+        }
+    }
+
+    private void agregarSimboloInterrogacion(StringBuilder resultado, boolean[] aparecio) {
+        if (aparecio[0]) {
+            resultado.append('?');
+            aparecio[0] = false;
+        } else {
+            resultado.append('¿');
+            aparecio[0] = true;
+        }
+    }
+
+    private void agregarSimboloExclamacion(StringBuilder resultado, boolean[] aparecio) {
+        if (aparecio[0]) {
+            resultado.append('!');
+            aparecio[0] = false;
+        } else {
+            resultado.append('¡');
+            aparecio[0] = true;
+        }
+    }
+
+    private void agregarComillas(StringBuilder resultado, boolean[] aparecio) {
+        resultado.append('"');
+        aparecio[0] = !aparecio[0];
     }
 
     private void traducirEspanolABraille(String palabra, StringBuilder resultado) {
         boolean enModoNumero = false;
+        boolean enModoSimbolo = false;
 
         for (int i = 0; i < palabra.length(); i++) {
             char caracterActual = palabra.charAt(i);
+
+            if (caracteresSimbolosEspBraile.containsKey(caracterActual)) {
+                enModoSimbolo = true;
+            }
 
             if (Character.isDigit(caracterActual)) {
                 if (!enModoNumero) {
                     resultado.append(CARACTER_NUMERO);
                     enModoNumero = true;
                 }
+
                 resultado.append(caracteresNumerosEspBraille.get(caracterActual));
             } else {
-                if (enModoNumero) {
+                if (enModoNumero && !enModoSimbolo) {
                     resultado.append(CARACTER_LETRA);
                     enModoNumero = false;
                 }
                 if (Character.isUpperCase(caracterActual)) {
                     resultado.append(CARACTER_MAYUSCULAS);
                     resultado.append(caracteresEspBraille.get(Character.toLowerCase(caracterActual)));
+                } else if (enModoSimbolo) {
+                    resultado.append(caracteresSimbolosEspBraile.get(caracterActual));
                 } else {
                     resultado.append(caracteresEspBraille.get(caracterActual));
+
                 }
+                enModoSimbolo = false;
             }
         }
     }
@@ -369,48 +462,4 @@ static {
         return cadena.split("\\s+");
     }
 
-    /**
-     * Verifica si una cadena contiene números.
-     *
-     * @param str La cadena a verificar.
-     * @return true si la cadena contiene números, de lo contrario false.
-     */
-    /**
-     * Obtiene el carácter correspondiente en español para un carácter Braille
-     * dado.
-     *
-     * @param caracterPalabra El carácter Braille.
-     * @return El carácter correspondiente en español.
-     */
-    /**
-     * Obtiene el carácter correspondiente en Braille para un carácter en
-     * español dado.
-     *
-     * @param caracterPalabra El carácter en español.
-     * @return El carácter correspondiente en Braille.
-     */
-    /**
-     * Extrae las palabras de una cadena dada.
-     *
-     * @param cadena La cadena de entrada.
-     * @return Un arreglo de palabras.
-     */
-    /**
-     * Divide una cadena en subcadenas de números y palabras.
-     *
-     * @param palabrasATraducir Las palabras a traducir.
-     * @return Un arreglo de subcadenas divididas.
-     */
-    /**
-     * Agrega el carácter numérico a una cadena de caracteres y números.
-     *
-     * @param stringSeparadoCaracterNumero La cadena separada.
-     * @return La cadena con el carácter numérico agregado.
-     */
-    /**
-     * Separa una cadena de caracteres Braille en números Braille.
-     *
-     * @param stringSeparadoCaracterNumero La cadena separada.
-     * @return Un arreglo de números Braille.
-     */
 }
