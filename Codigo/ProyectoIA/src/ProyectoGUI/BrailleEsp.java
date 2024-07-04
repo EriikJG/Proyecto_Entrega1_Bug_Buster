@@ -448,7 +448,10 @@ public class BrailleEsp extends javax.swing.JFrame {
         brailleMap.put("010001", '⠨'); // Indicador de mayúscula
         brailleMap.put("010101", '⠸');
         brailleMap.put("001001", '⠢');
-
+        brailleMap.put("000010", '⠄');
+        brailleMap.put("101001", '⠣');
+        brailleMap.put("001111", '⠶');
+        brailleMap.put("000011", '⠤');
         //Letras 
         brailleMap.put("100000", '⠁'); // a
         brailleMap.put("101000", '⠃'); // b

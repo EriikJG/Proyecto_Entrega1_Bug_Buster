@@ -25,7 +25,7 @@ public class Diccionario {
     private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
     private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
     private static final Map<Character, String> caracteresNumerosEspBraille = new HashMap<>();
-
+    private static final Map<String, Character> caracteresSimbolosBraileEsp = new HashMap<>();
     private static final String CARACTER_NUMERO = "⠼";
     private static final String CARACTER_SIMBOLO = "⠸";
     private static final String CARACTER_MAYUSCULAS = "⠨";
@@ -71,25 +71,24 @@ public class Diccionario {
         caracteresNumerosEspBraille.put('8', "⠓");
         caracteresNumerosEspBraille.put('9', "⠊");
         caracteresNumerosEspBraille.put('0', "⠚");
-        
+
+        caracteresEspBraille.put('.', CARACTER_SIMBOLO + "⠄");
         caracteresEspBraille.put(',', CARACTER_SIMBOLO + "⠂");
-        caracteresEspBraille.put('.',CARACTER_SIMBOLO +  "⠲");
         caracteresEspBraille.put(';', CARACTER_SIMBOLO + "⠆");
         caracteresEspBraille.put(':', CARACTER_SIMBOLO + "⠒");
-        caracteresEspBraille.put('¿', CARACTER_SIMBOLO + "⠦");
-        caracteresEspBraille.put('?',CARACTER_SIMBOLO +  "⠦");
-        caracteresEspBraille.put('¡',CARACTER_SIMBOLO +  "⠖");
-        caracteresEspBraille.put('!',CARACTER_SIMBOLO +  "⠖");
-        caracteresEspBraille.put('(',CARACTER_SIMBOLO +  "⠶");
-        caracteresEspBraille.put(')',CARACTER_SIMBOLO +  "⠶");
-        caracteresEspBraille.put('-',CARACTER_SIMBOLO +  "⠤");
-        caracteresEspBraille.put('_',CARACTER_SIMBOLO +  "⠤");
-        caracteresEspBraille.put('\'',CARACTER_SIMBOLO +  "⠄");
-        caracteresEspBraille.put('*',CARACTER_SIMBOLO +  "⠔");
-        caracteresEspBraille.put('“',CARACTER_SIMBOLO +  "⠦");  // Comillas de apertura
-        caracteresEspBraille.put('”',CARACTER_SIMBOLO +  "⠴");  // Comillas de cierre
-      //  caracteresEspBraille.put('\"',CARACTER_SIMBOLO + "⠶");  // Comillas
-
+        caracteresEspBraille.put('_', CARACTER_SIMBOLO + "⠤");
+        caracteresEspBraille.put('¡', CARACTER_SIMBOLO + "⠖");
+        caracteresEspBraille.put('!', CARACTER_SIMBOLO + "⠖");
+        caracteresEspBraille.put('¿', CARACTER_SIMBOLO + "⠢");
+        caracteresEspBraille.put('?', CARACTER_SIMBOLO + "⠢");
+        caracteresEspBraille.put('(', CARACTER_SIMBOLO + "⠣");
+        caracteresEspBraille.put(')', CARACTER_SIMBOLO + "⠜");
+        caracteresEspBraille.put('x', CARACTER_SIMBOLO + "⠦");
+        caracteresEspBraille.put('=', CARACTER_SIMBOLO + "⠶");
+        caracteresEspBraille.put('/', CARACTER_SIMBOLO + "⠌");
+        caracteresEspBraille.put('-', CARACTER_SIMBOLO + "⠤");
+        caracteresEspBraille.put('÷', CARACTER_SIMBOLO + "⠲");
+       // caracteresEspBraille.put('+', CARACTER_SIMBOLO + "⠐");// Este para que no se repita
 /*
         
         
@@ -180,22 +179,40 @@ public class Diccionario {
 
 
 
-        caracteresBrailleEsp.put("⠲", '.');
-        caracteresBrailleEsp.put("⠂", ',');
-        caracteresBrailleEsp.put("⠦", 'I'); // interrogación
-        caracteresBrailleEsp.put("⠖", 'E'); // exclamacion
-        caracteresBrailleEsp.put("⠶", 'C'); // COMILLAS
-        caracteresBrailleEsp.put("⠆", ';');
-        caracteresBrailleEsp.put("⠒", ':');
-        caracteresBrailleEsp.put("⠤", '-');
-        caracteresBrailleEsp.put(" ", ' ');
+
+
+
+
+
+
+
+        caracteresSimbolosBraileEsp.put("⠄", '.');
+        caracteresSimbolosBraileEsp.put("⠂", ',');
+        caracteresSimbolosBraileEsp.put("⠆", ';');
+        caracteresSimbolosBraileEsp.put("⠒", ':');
+        caracteresSimbolosBraileEsp.put("⠤", '_');
+        caracteresSimbolosBraileEsp.put("⠦", 'x');
+        caracteresSimbolosBraileEsp.put("⠶", '=');
+        caracteresSimbolosBraileEsp.put("⠌", '/');
+        caracteresSimbolosBraileEsp.put("⠉", '-');//ramdom
+        caracteresSimbolosBraileEsp.put("⠲", '÷');
+        caracteresSimbolosBraileEsp.put("⠣", '(');
+        caracteresSimbolosBraileEsp.put("⠜", ')');
+
+
+
+        caracteresSimbolosBraileEsp.put("⠢", 'I'); // interrogación 1
+        caracteresSimbolosBraileEsp.put("⠖", 'E'); // exclamacion1
+        caracteresSimbolosBraileEsp.put("⠛", 'C'); // COMILLAS con puntos aleatorios PARA QUE NO SE REPITA1
+
+
 
 
         caracteresBrailleEsp.put("⠷", 'á');
         caracteresBrailleEsp.put("⠿", 'é');
-        caracteresBrailleEsp.put("⠌", 'í');
+        caracteresBrailleEsp.put("⠴", 'í'); // RAMDOM
         caracteresBrailleEsp.put("⠾", 'ó');
-        caracteresBrailleEsp.put("⠜", 'ú');
+        caracteresBrailleEsp.put("⠞", 'ú'); // ramdom
         caracteresBrailleEsp.put("⠳", 'ü');
         caracteresBrailleEsp.put("⠈", '@');
 
@@ -330,70 +347,24 @@ static {
     }
 
     private void traducirBrailleAEspanol(String palabra, StringBuilder resultado) {
-        //Traducción a español
         boolean esNumero = false;
         boolean esMayuscula = false;
         boolean esSimbolo = false;
-        boolean aparecio = false;
 
         for (int i = 0; i < palabra.length(); i++) {
             String simboloActual = Character.toString(palabra.charAt(i));
 
-            if (simboloActual.equals(CARACTER_NUMERO)) {
-                esNumero = true;
-                continue;
-            } else if (simboloActual.equals(CARACTER_LETRA)) {
-                esNumero = false;
-                continue;
-            } else if (simboloActual.equals(CARACTER_MAYUSCULAS)) {
-                esMayuscula = true;
-                continue;
-            }else if(simboloActual.equals(CARACTER_SIMBOLO)) {
-                esSimbolo = true;
+            if (manejarCaracterEspecial(simboloActual, resultado)) {
+                esNumero = simboloActual.equals(CARACTER_NUMERO);
+                esMayuscula = simboloActual.equals(CARACTER_MAYUSCULAS);
+                esSimbolo = simboloActual.equals(CARACTER_SIMBOLO);
                 continue;
             }
 
-
-            //⠦", 'I');
             if (esSimbolo) {
-                char aux = caracteresBrailleEsp.get(simboloActual);
-                switch (aux) {
-                    case 'I':
-                        if (aparecio) {
-                            resultado.append('?');
-                            aparecio = false;
-                        } else {
-                            resultado.append('¿');
-                            aparecio = true; // Marcar que 'I' ya ha aparecido una vez
-                        }
-                        break;
-                    case 'E':
-                        if (aparecio) {
-                            resultado.append('!');
-                            aparecio = false;
-                        } else {
-                            resultado.append('¡');
-                            aparecio = true; // Marcar que 'I' ya ha aparecido una vez
-                        }
-                        break;
-                    case 'P':
-                        if (aparecio) {
-                            resultado.append(')');
-                            aparecio = false;
-                        } else {
-                            resultado.append('(');
-                            aparecio = true; // Marcar que 'I' ya ha aparecido una vez
-                        }
-                        break;
-                    // Agregar más casos según sea necesario
-                    default:
-                        // Manejar el caso por defecto si es necesario
-                        break;
-                }
+                manejarSimbolo(simboloActual, resultado);
                 esSimbolo = false;
-
-            }else if (esNumero) {
-                // En modo número, interpretamos los símbolos como números
+            } else if (esNumero) {
                 resultado.append(caracteresNumerosBrailleEsp.get(simboloActual));
             } else {
                 char caracter = caracteresBrailleEsp.get(simboloActual);
@@ -401,10 +372,68 @@ static {
                     caracter = Character.toUpperCase(caracter);
                     esMayuscula = false;
                 }
-                 resultado.append(caracter);
+                resultado.append(caracter);
             }
         }
     }
+
+    private boolean manejarCaracterEspecial(String simboloActual, StringBuilder resultado) {
+        switch (simboloActual) {
+            case CARACTER_NUMERO:
+            case CARACTER_LETRA:
+            case CARACTER_MAYUSCULAS:
+            case CARACTER_SIMBOLO:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private void manejarSimbolo(String simboloActual, StringBuilder resultado) {
+        char aux = caracteresSimbolosBraileEsp.get(simboloActual);
+        boolean[] aparecio = {false}; // Usamos un array para mantener el estado en diferentes casos
+
+        switch (aux) {
+            case 'I':
+                agregarSimboloInterrogacion(resultado, aparecio);
+                break;
+            case 'E':
+                agregarSimboloExclamacion(resultado, aparecio);
+                break;
+            case 'C':
+                agregarComillas(resultado, aparecio);
+                break;
+            default:
+                resultado.append(aux);
+                break;
+        }
+    }
+
+    private void agregarSimboloInterrogacion(StringBuilder resultado, boolean[] aparecio) {
+        if (aparecio[0]) {
+            resultado.append('?');
+            aparecio[0] = false;
+        } else {
+            resultado.append('¿');
+            aparecio[0] = true;
+        }
+    }
+
+    private void agregarSimboloExclamacion(StringBuilder resultado, boolean[] aparecio) {
+        if (aparecio[0]) {
+            resultado.append('!');
+            aparecio[0] = false;
+        } else {
+            resultado.append('¡');
+            aparecio[0] = true;
+        }
+    }
+
+    private void agregarComillas(StringBuilder resultado, boolean[] aparecio) {
+        resultado.append('"');
+        aparecio[0] = !aparecio[0];
+    }
+
 
 
 
