@@ -208,13 +208,18 @@ public class FormBraEsp extends javax.swing.JPanel {
                 {"⠞", "t", "⠥", "u"},
                 {"⠧", "v", "⠺", "w"},
                 {"⠭", "x", "⠽", "y"},
-                {"⠵", "z", "⠲", "."},
-                {"⠂", ",", "⠦", "?"},
+                {"⠵", "z", "⠄", "."},
+                {"⠂", ",", "⠢", "?"},
                 {"⠖", "!", "⠆", ";"},
                 {"⠒", ":", "⠤", "-"},
+                {"⠖", "¡", "⠢", "¿"},
+                {"⠣", "(", "⠜", ")"},
+                {"⠦", "x", "⠶", "="},
+                {"⠌", "/", "⠲", "÷"},
+                {"⠐", "+", " ", " "},
                 {" ", " ", "⠷", "á"},
                 {"⠿", "é", "⠌", "í"},
-                {"⠾", "ó", "⠜", "ú"},
+                {"⠾", "ó", "⠞", "ú"},
                 {"⠳", "ü", "⠈", "@"},
                 {"⠨⠁", "A", "⠨⠃", "B"},
                 {"⠨⠉", "C", "⠨⠙", "D"},
@@ -346,7 +351,7 @@ public class FormBraEsp extends javax.swing.JPanel {
                                     .addComponent(jBTraducir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1))
                                 .addGap(50, 50, 50)))
-                        .addContainerGap(22, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -410,11 +415,11 @@ public class FormBraEsp extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
