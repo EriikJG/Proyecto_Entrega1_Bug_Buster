@@ -89,18 +89,8 @@ public class Diccionario {
         caracteresSimbolosEspBraile.put('/', CARACTER_SIMBOLO + "⠌");
         caracteresSimbolosEspBraile.put('-', CARACTER_SIMBOLO + "⠤");
         caracteresSimbolosEspBraile.put('÷', CARACTER_SIMBOLO + "⠲");
-        // caracteresEspBraille.put('+', CARACTER_SIMBOLO + "⠐");// Este para que no se repita
-/*
-        
-        
-        caracteresEspBraille.put(',', "⠂");
-        caracteresEspBraille.put('?', "⠦");
-        caracteresEspBraille.put('!', "⠖");
-        caracteresEspBraille.put(';', "⠆");
-        caracteresEspBraille.put(':', "⠒");
-        caracteresEspBraille.put('-', "⠤");
-        caracteresEspBraille.put(' ', " ");
-         */
+        caracteresSimbolosEspBraile.put('+', CARACTER_SIMBOLO + "⠐");// Este para que no se repita
+
         caracteresEspBraille.put('á', "⠷");
         caracteresEspBraille.put('é', "⠿");
         caracteresEspBraille.put('í', "⠌");
@@ -190,6 +180,7 @@ public class Diccionario {
         caracteresSimbolosBraileEsp.put("⠲", '÷');
         caracteresSimbolosBraileEsp.put("⠣", '(');
         caracteresSimbolosBraileEsp.put("⠜", ')');
+        caracteresSimbolosBraileEsp.put("⠐", '+');
 
         caracteresSimbolosBraileEsp.put("⠢", 'I'); // interrogación 1
         caracteresSimbolosBraileEsp.put("⠖", 'E'); // exclamacion1
