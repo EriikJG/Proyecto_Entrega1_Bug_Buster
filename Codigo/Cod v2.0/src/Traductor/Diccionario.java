@@ -21,6 +21,12 @@ import java.util.regex.Pattern;
  */
 public class Diccionario {
 
+    private final ControladorTexto controladorTexto;
+
+    public Diccionario() {
+        controladorTexto = new ControladorTexto();
+    }
+
     private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
     private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
     private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
@@ -223,56 +229,6 @@ public class Diccionario {
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠵", 'Z');
     }
 
-    /**
-     * Traduce un texto entre español y Braille, o viceversa.
-     *
-     * @param textoATraducir El texto que se desea traducir.
-     * @param indiceIdioma El índice que indica el idioma de origen: 1 para
-     * español a Braille, otro valor para Braille a español.
-     * @return El texto traducido.
-     */
-    public String traducirCaracterACaracter(String textoATraducir, int indiceIdioma) {
-        boolean esEspanol = esIdiomaEspanol(indiceIdioma);
-        String[] lineas = dividirPorLineas(textoATraducir);
-
-        return traducirLineas(lineas, esEspanol);
-    }
-
-    private String[] dividirPorLineas(String texto) {
-        return texto.split("\n");
-    }
-
-    private boolean esIdiomaEspanol(int indiceIdioma) {
-        return indiceIdioma == 1;
-    }
-
-    private String traducirLineas(String[] lineas, boolean esEspanol) {
-        StringBuilder resultado = new StringBuilder();
-
-        for (String linea : lineas) {
-            String[] palabras = extraerPalabras(linea);
-            resultado.append(traducirPalabras(palabras, esEspanol));
-            limpiarUltimoEspacio(resultado);
-            resultado.append("\n");
-        }
-
-        limpiarUltimoSaltoDeLinea(resultado);
-
-        return resultado.toString();
-    }
-
-    private void limpiarUltimoEspacio(StringBuilder resultado) {
-        if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == ' ') {
-            resultado.setLength(resultado.length() - 1);
-        }
-    }
-
-    private void limpiarUltimoSaltoDeLinea(StringBuilder resultado) {
-        if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == '\n') {
-            resultado.setLength(resultado.length() - 1);
-        }
-    }
-
     /*
     MUESTRA PEQUEÑA PARA PREGUNTAR A CHATGPT
     private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
@@ -296,6 +252,40 @@ static {
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠁", 'A');
         caracteresBrailleEsp.put("⠖", '!');
     }*/
+    /**
+     * Traduce un texto entre español y Braille, o viceversa.
+     *
+     * @param textoATraducir El texto que se desea traducir.
+     * @param indiceIdioma El índice que indica el idioma de origen: 1 para
+     * español a Braille, otro valor para Braille a español.
+     * @return El texto traducido.
+     */
+    public String traducir(String textoATraducir, int indiceIdioma) {
+        boolean esEspanol = esIdiomaEspanol(indiceIdioma);
+        String[] lineas = controladorTexto.dividirPorLineas(textoATraducir);
+
+        return traducirLineas(lineas, esEspanol);
+    }
+
+    private String traducirLineas(String[] lineas, boolean esEspanol) {
+        StringBuilder resultado = new StringBuilder();
+
+        for (String linea : lineas) {
+            String[] palabras = controladorTexto.extraerPalabras(linea);
+            resultado.append(traducirPalabras(palabras, esEspanol));
+            controladorTexto.limpiarUltimoEspacio(resultado);
+            resultado.append("\n");
+        }
+
+        controladorTexto.limpiarUltimoSaltoDeLinea(resultado);
+
+        return resultado.toString();
+    }
+
+    private boolean esIdiomaEspanol(int indiceIdioma) {
+        return indiceIdioma == 1;
+    }
+
     private StringBuilder traducirPalabras(String[] palabras, boolean esEspanol) {
         StringBuilder resultado = new StringBuilder();
 
@@ -307,7 +297,7 @@ static {
             resultado.append(" ");
         }
 
-        limpiarUltimoEspacio(resultado);
+        controladorTexto.limpiarUltimoEspacio(resultado);
 
         return resultado;
     }
@@ -328,48 +318,77 @@ static {
         boolean esNumero = false;
         boolean esMayuscula = false;
         boolean esSimbolo = false;
+        TipoTraduccion estado = TipoTraduccion.NORMAL;
 
         for (int i = 0; i < palabra.length(); i++) {
             String simboloActual = Character.toString(palabra.charAt(i));
 
-            if (manejarCaracterEspecial(simboloActual, resultado)) {
-                esNumero = simboloActual.equals(CARACTER_NUMERO);
-                esMayuscula = simboloActual.equals(CARACTER_MAYUSCULAS);
-                esSimbolo = simboloActual.equals(CARACTER_SIMBOLO);
+//            if (esCaracterEspecial(simboloActual)) {
+//                esNumero = simboloActual.equals(CARACTER_NUMERO);
+//                esMayuscula = simboloActual.equals(CARACTER_MAYUSCULAS);
+//                esSimbolo = simboloActual.equals(CARACTER_SIMBOLO);
+//                continue;
+//            }
+//            if (esSimbolo) {
+//                manejarSimbolo(simboloActual, resultado);
+//                esSimbolo = false;
+//            } else if (esNumero) {
+//                resultado.append(caracteresNumerosBrailleEsp.get(simboloActual));
+//            } else {
+//                char caracter = caracteresBrailleEsp.get(simboloActual);
+//                if (esMayuscula) {
+//                    caracter = Character.toUpperCase(caracter);
+//                    esMayuscula = false;
+//                }
+//                resultado.append(caracter);
+//            }
+            if (esCaracterEspecial(simboloActual)) {
+                estado = determinarNuevoTipo(simboloActual);
                 continue;
             }
 
-            if (esSimbolo) {
-                manejarSimbolo(simboloActual, resultado);
-                esSimbolo = false;
-            } else if (esNumero) {
-                resultado.append(caracteresNumerosBrailleEsp.get(simboloActual));
-            } else {
-                char caracter = caracteresBrailleEsp.get(simboloActual);
-                if (esMayuscula) {
-                    caracter = Character.toUpperCase(caracter);
-                    esMayuscula = false;
-                }
-                resultado.append(caracter);
+            switch (estado) {
+                case SIMBOLO:
+                    manejarSimbolo(simboloActual, resultado);
+                    estado = TipoTraduccion.NORMAL;
+                    break;
+                case NUMERO:
+                    resultado.append(caracteresNumerosBrailleEsp.get(simboloActual));
+                    break;
+                case MAYUSCULA:
+                    char caracter = caracteresBrailleEsp.get(simboloActual);
+                    resultado.append(Character.toUpperCase(caracter));
+                    estado = TipoTraduccion.NORMAL;
+                    break;
+                case NORMAL:
+                    resultado.append(caracteresBrailleEsp.get(simboloActual));
+                    break;
             }
+
         }
     }
 
-    private boolean manejarCaracterEspecial(String simboloActual, StringBuilder resultado) {
-        switch (simboloActual) {
-            case CARACTER_NUMERO:
-            case CARACTER_LETRA:
-            case CARACTER_MAYUSCULAS:
-            case CARACTER_SIMBOLO:
-                return true;
-            default:
-                return false;
+    private TipoTraduccion determinarNuevoTipo(String simboloActual) {
+        if (CARACTER_NUMERO.equals(simboloActual)) {
+            return TipoTraduccion.NUMERO;
+        } else if (CARACTER_MAYUSCULAS.equals(simboloActual)) {
+            return TipoTraduccion.MAYUSCULA;
+        } else if (CARACTER_SIMBOLO.equals(simboloActual)) {
+            return TipoTraduccion.SIMBOLO;
         }
+        return TipoTraduccion.NORMAL;
     }
 
+    private boolean esCaracterEspecial(String simboloActual) {
+        return CARACTER_NUMERO.equals(simboloActual)
+                || CARACTER_MAYUSCULAS.equals(simboloActual)
+                || CARACTER_SIMBOLO.equals(simboloActual);
+    }
+
+    /*
     private void manejarSimbolo(String simboloActual, StringBuilder resultado) {
         char aux = caracteresSimbolosBraileEsp.get(simboloActual);
-        boolean[] aparecio = {false}; // Usamos un array para mantener el estado en diferentes casos
+        boolean aparecio = false;
 
         switch (aux) {
             case 'I':
@@ -387,29 +406,69 @@ static {
         }
     }
 
-    private void agregarSimboloInterrogacion(StringBuilder resultado, boolean[] aparecio) {
-        if (aparecio[0]) {
+    private void agregarSimboloInterrogacion(StringBuilder resultado, boolean aparecio) {
+        if (aparecio) {
             resultado.append('?');
-            aparecio[0] = false;
+            aparecio = false;
         } else {
             resultado.append('¿');
-            aparecio[0] = true;
+            aparecio = true;
         }
     }
 
-    private void agregarSimboloExclamacion(StringBuilder resultado, boolean[] aparecio) {
-        if (aparecio[0]) {
+    private void agregarSimboloExclamacion(StringBuilder resultado, boolean aparecio) {
+        if (aparecio) {
             resultado.append('!');
-            aparecio[0] = false;
+            aparecio = false;
         } else {
             resultado.append('¡');
-            aparecio[0] = true;
+            aparecio = true;
+        }
+    }*/
+    private boolean aparecioInterrogacion = false;
+    private boolean aparecioExclamacion = false;
+    public void manejarSimbolo(String simboloActual, StringBuilder resultado) {
+        char aux = caracteresSimbolosBraileEsp.get(simboloActual);
+        
+        switch (aux) {
+            case 'I':
+                agregarSimboloInterrogacion(resultado);
+                break;
+            case 'E':
+                agregarSimboloExclamacion(resultado);
+                break;
+            case 'C':
+                agregarComillas(resultado);
+                break;
+            default:
+                resultado.append(aux);
+                break;
         }
     }
 
-    private void agregarComillas(StringBuilder resultado, boolean[] aparecio) {
+    private void agregarSimboloInterrogacion(StringBuilder resultado) {
+        if (aparecioInterrogacion) {
+            resultado.append('?');
+            aparecioInterrogacion = false;
+        } else {
+            resultado.append('¿');
+            aparecioInterrogacion = true;
+        }
+    }
+
+    private void agregarSimboloExclamacion(StringBuilder resultado) {
+        if (aparecioExclamacion) {
+            resultado.append('!');
+            aparecioExclamacion = false;
+        } else {
+            resultado.append('¡');
+            aparecioExclamacion = true;
+        }
+    }
+
+    private void agregarComillas(StringBuilder resultado) {
         resultado.append('"');
-        aparecio[0] = !aparecio[0];
+
     }
 
     private void traducirEspanolABraille(String palabra, StringBuilder resultado) {
@@ -447,10 +506,6 @@ static {
                 enModoSimbolo = false;
             }
         }
-    }
-
-    private String[] extraerPalabras(String cadena) {
-        return cadena.split("\\s+");
     }
 
 }

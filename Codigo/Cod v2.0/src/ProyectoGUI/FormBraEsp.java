@@ -466,7 +466,7 @@ public class FormBraEsp extends javax.swing.JPanel {
         // Traducir el texto al Español
         String traduccion;
         try {
-            traduccion = traductor.traducirCaracterACaracter(textoBraille, 2); // 2 indica Braille a español
+            traduccion = traductor.traducir(textoBraille, 2); // 2 indica Braille a español
             if (traduccion.isEmpty()) {
                 // Manejar el caso donde la traducción devuelve una cadena vacía
                 JOptionPane.showMessageDialog(null, "No se pudo traducir el texto Braille ingresado.", "Error", JOptionPane.ERROR_MESSAGE);

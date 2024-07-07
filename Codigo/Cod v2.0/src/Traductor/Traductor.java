@@ -33,7 +33,7 @@ public class Traductor {
         char primerCaracter = textoATraducir.charAt(0);
         int indiceIdioma = esBraille(primerCaracter) ? 0 : 1;
 
-        return diccionario.traducirCaracterACaracter(textoATraducir, indiceIdioma);
+        return diccionario.traducir(textoATraducir, indiceIdioma);
     }
 
     /**
