@@ -165,7 +165,7 @@ public class FormEspBra extends javax.swing.JPanel {
             // Mostrar mensaje de advertencia si no hay caracteres a ser traducidos
             JOptionPane.showMessageDialog(null, "No hay texto a ser traducido!", "Advertencia", JOptionPane.WARNING_MESSAGE);            
         } else {
-            String textoBraille = traductor.traducirTexto(textoEsp);
+            String textoBraille = traductor.traducir(textoEsp, 1);
             jTASalida.setText(textoBraille);
         }
         imagenSenalGuardada = false;

@@ -1,39 +1,47 @@
 package Traductor;
 
 import java.awt.image.BufferedImage;
+
 /**
- * La clase Traductor proporciona métodos para traducir texto entre Braille y texto normal,
- * así como para generar y manipular imágenes de texto traducido.
+ * La clase Traductor proporciona métodos para traducir texto entre Braille y
+ * texto normal, así como para generar y manipular imágenes de texto traducido.
  */
 public class Traductor {
-
-    private Impresion impresion;
-    private Diccionario diccionario;
+    private final DiccionarioBrailleEspanol diccionarioBrailleEsp;
+    private final DiccionarioEspanolBraille diccionarioEspBraille;
 
     /**
-     * Constructor de la clase Traductor.
-     * Inicializa el diccionario y la instancia de impresión.
+     * Constructor de la clase Traductor. Inicializa el diccionario y la
+     * instancia de impresión.
      */
     public Traductor() {
-        diccionario = new Diccionario();
-        impresion = new Impresion();
+        diccionarioBrailleEsp = new DiccionarioBrailleEspanol();
+        diccionarioEspBraille = new DiccionarioEspanolBraille();
     }
 
     /**
-     * Traduce el texto proporcionado entre Braille y texto normal.
+     * Traduce un texto entre español y Braille, o viceversa.
      *
-     * @param textoATraducir El texto a traducir.
+     * @param textoATraducir El texto que se desea traducir.
+     * @param indiceIdioma El índice que indica el idioma de origen: 1 para
+     * español a Braille, otro valor para Braille a español.
      * @return El texto traducido.
      */
-    public String traducirTexto(String textoATraducir) {
-        if (textoATraducir == null || textoATraducir.isEmpty()) {
-            return "";
+    public String traducir(String textoATraducir, int indiceIdioma) {
+        boolean esEspanol = esIdiomaEspanol(indiceIdioma);
+        String resultado;
+        
+        if (esEspanol) {
+            resultado = diccionarioEspBraille.procesarTexto(textoATraducir);
+        } else {
+            resultado = diccionarioBrailleEsp.procesarTexto(textoATraducir);
         }
 
-        char primerCaracter = textoATraducir.charAt(0);
-        int indiceIdioma = esBraille(primerCaracter) ? 0 : 1;
+        return resultado;
+    }
 
-        return diccionario.traducir(textoATraducir, indiceIdioma);
+    private boolean esIdiomaEspanol(int indiceIdioma) {
+        return indiceIdioma == 1;
     }
 
     /**
@@ -45,6 +53,7 @@ public class Traductor {
     public boolean esBraille(char primerCaracter) {
         return primerCaracter >= '\u2800' && primerCaracter <= '\u28FF';
     }
+
     /**
      * Genera una imagen con el texto traducido proporcionado.
      *
@@ -52,27 +61,31 @@ public class Traductor {
      * @return Un objeto BufferedImage con el texto traducido.
      */
     public BufferedImage generarImagen(String texto) {
-        String traduccionBraille = traducirTexto(texto);
-        return impresion.generarImagen(texto);
+//        String traduccionBraille = traducir(texto, 1);
+        return Impresion.generarImagen(texto);
     }
 
     /**
      * Genera una imagen en espejo de la imagen proporcionada.
      *
      * @param imagen La imagen original.
-     * @return Un objeto BufferedImage que es la imagen en espejo de la original.
+     * @return Un objeto BufferedImage que es la imagen en espejo de la
+     * original.
      */
     public BufferedImage generarImagenEspejo(BufferedImage imagen) {
-        return impresion.generarImagenEspejo(imagen);
+        return Impresion.generarImagenEspejo(imagen);
     }
+
     /**
      * Guarda la imagen proporcionada en un archivo en el sistema de archivos.
      * El usuario seleccionará el directorio donde se guardará la imagen.
      *
-     * @param imagen     La imagen a guardar.
-     * @param nombreBase El nombre base del archivo. Se le añadirá un timestamp para asegurar unicidad.
+     * @param imagen La imagen a guardar.
+     * @param nombreBase El nombre base del archivo. Se le añadirá un timestamp
+     * para asegurar unicidad.
      */
     public void guardarImagen(BufferedImage imagen, String nombreBase) {
-        impresion.guardarImagen(imagen, nombreBase);
+        Impresion.guardarImagen(imagen, nombreBase);
     }
+
 }

@@ -4,7 +4,8 @@
  */
 package ProyectoGUI;
 
-import Traductor.Diccionario;
+import Traductor.ControladorTexto;
+import Traductor.Traductor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -20,12 +21,12 @@ public class FormBraEsp extends javax.swing.JPanel {
 
     private boolean[] puntosPresionados;
     JButton[] puntos;
-    private Diccionario traductor;
+    private Traductor traductor;
 
     public FormBraEsp() {
         initComponents();
         puntosPresionados = new boolean[6];
-        traductor = new Diccionario();
+        traductor = new Traductor();
         crearArregloPuntos(); // Llama al método para inicializar el arreglo puntos
 
     }
