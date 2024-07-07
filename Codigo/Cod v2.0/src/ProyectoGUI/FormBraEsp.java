@@ -4,7 +4,8 @@
  */
 package ProyectoGUI;
 
-import Traductor.Diccionario;
+import Traductor.ControladorTexto;
+import Traductor.Traductor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -20,12 +21,12 @@ public class FormBraEsp extends javax.swing.JPanel {
 
     private boolean[] puntosPresionados;
     JButton[] puntos;
-    private Diccionario traductor;
+    private Traductor traductor;
 
     public FormBraEsp() {
         initComponents();
         puntosPresionados = new boolean[6];
-        traductor = new Diccionario();
+        traductor = new Traductor();
         crearArregloPuntos(); // Llama al método para inicializar el arreglo puntos
 
     }
@@ -466,7 +467,7 @@ public class FormBraEsp extends javax.swing.JPanel {
         // Traducir el texto al Español
         String traduccion;
         try {
-            traduccion = traductor.traducirCaracterACaracter(textoBraille, 2); // 2 indica Braille a español
+            traduccion = traductor.traducir(textoBraille, 2); // 2 indica Braille a español
             if (traduccion.isEmpty()) {
                 // Manejar el caso donde la traducción devuelve una cadena vacía
                 JOptionPane.showMessageDialog(null, "No se pudo traducir el texto Braille ingresado.", "Error", JOptionPane.ERROR_MESSAGE);
