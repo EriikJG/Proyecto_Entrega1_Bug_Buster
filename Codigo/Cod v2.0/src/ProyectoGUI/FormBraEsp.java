@@ -14,8 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author pilco
+ * Interfaz gráfica para el  Braile-Español
  */
 public class FormBraEsp extends javax.swing.JPanel {
 

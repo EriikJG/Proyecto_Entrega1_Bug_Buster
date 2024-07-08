@@ -12,8 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
- *
- * @author pilco
+ * Interfaz gráfica principal del proyecto de traducción.
  */
 public class InterfazGeneral extends javax.swing.JFrame {
 
