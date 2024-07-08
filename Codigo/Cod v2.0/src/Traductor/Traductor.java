@@ -45,16 +45,6 @@ public class Traductor {
     }
 
     /**
-     * Determina si el primer carácter de un texto está en Braille.
-     *
-     * @param primerCaracter El primer carácter del texto.
-     * @return true si el carácter está en Braille, false en caso contrario.
-     */
-    public boolean esBraille(char primerCaracter) {
-        return primerCaracter >= '\u2800' && primerCaracter <= '\u28FF';
-    }
-
-    /**
      * Genera una imagen con el texto traducido proporcionado.
      *
      * @param texto El texto a traducir y generar la imagen.

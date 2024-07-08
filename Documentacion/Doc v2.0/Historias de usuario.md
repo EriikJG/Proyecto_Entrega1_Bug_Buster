@@ -1,6 +1,6 @@
 # ISWD652- CALIDAD DE SOFTWARE
 
-## TEMA: Proyecto de Calidad de Software
+# TEMA: Proyecto de Calidad de Software
 
 ## Historias de usuario
 
@@ -48,8 +48,3 @@
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **Historia de usuario:**    | **Como** usuario, **quiero** imprimir el texto en braille **para** facilitar la escritura manual.                        |
 | **Criterio de aceptación:** | **Dado** que se desea imprimir un texto **cuando** se imprima en Braille **entonces** deberá imprimirse en forma espejo. |
-
-
-## DIAGRAMA DE CLASES
-
-![Diagrama de clases](./images/Diagrama-bug.png)

@@ -17,11 +17,7 @@ public abstract class Diccionario {
     protected static final String CARACTER_MAYUSCULAS = "⠨";
     protected static final String CARACTER_LETRA = "⠰";
 
-    protected ControladorTexto controladorTexto;
-
-    public Diccionario() {
-        this.controladorTexto = new ControladorTexto();
-    }
+    protected ControladorTexto controladorTexto = new ControladorTexto();
 
     /*
     MUESTRA PEQUEÑA PARA PREGUNTAR A CHATGPT
@@ -52,10 +48,10 @@ static {
      */
     public String procesarTexto(String textoATraducir) {
         StringBuilder resultado = new StringBuilder();
-        String[] lineas = controladorTexto.dividirPorLineas(textoATraducir);
+        String[] lineas = controladorTexto.dividirEnLineas(textoATraducir);
 
         for (String linea : lineas) {
-            String[] palabras = controladorTexto.extraerPalabras(linea);
+            String[] palabras = controladorTexto.dividirEnPalabras(linea);
             resultado.append(traducirPalabras(palabras));
             controladorTexto.limpiarUltimoEspacio(resultado);
             resultado.append("\n");

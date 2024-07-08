@@ -21,11 +21,11 @@ import java.util.regex.Pattern;
  */
 public class ControladorTexto {
     
-    protected String[] dividirPorLineas(String texto) {
+    protected String[] dividirEnLineas(String texto) {
         return texto.split("\n");
     }
 
-    protected String[] extraerPalabras(String cadena) {
+    protected String[] dividirEnPalabras(String cadena) {
         if (cadena.trim().isEmpty()) {
             return new String[0]; // Si la cadena está vacía, devolver un array vacío
         } else {

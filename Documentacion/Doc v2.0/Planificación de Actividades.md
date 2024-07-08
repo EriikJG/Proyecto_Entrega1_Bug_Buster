@@ -1,3 +1,7 @@
+# ISWD652- CALIDAD DE SOFTWARE
+
+# TEMA: Proyecto de Calidad de Software
+
 # Planificación de Actividades
 ## Objetivos
 - Definir los objetivos específicos del proyecto.
