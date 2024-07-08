@@ -20,11 +20,21 @@ import java.util.regex.Pattern;
  * conversión entre caracteres en español y Braille.
  */
 public class ControladorTexto {
-    
+    /**
+     * Divide un texto en líneas.
+     *
+     * @param texto El texto a dividir.
+     * @return Un array de líneas.
+     */
     protected String[] dividirEnLineas(String texto) {
         return texto.split("\n");
     }
-
+    /**
+     * Divide una cadena en palabras.
+     *
+     * @param cadena La cadena a dividir.
+     * @return Un array de palabras.
+     */
     protected String[] dividirEnPalabras(String cadena) {
         if (cadena.trim().isEmpty()) {
             return new String[0]; // Si la cadena está vacía, devolver un array vacío
@@ -37,13 +47,21 @@ public class ControladorTexto {
             }
         }
     }
-
+    /**
+     * Limpia el último espacio en blanco de un StringBuilder si existe.
+     *
+     * @param resultado El StringBuilder del que se limpiará el último espacio.
+     */
     protected void limpiarUltimoEspacio(StringBuilder resultado) {
         if (resultado.charAt(resultado.length() - 1) == ' ') {
             resultado.setLength(resultado.length() - 1);
         }
     }
-
+    /**
+     * Limpia el último salto de línea en un StringBuilder si existe.
+     *
+     * @param resultado El StringBuilder del que se limpiará el último salto de línea.
+     */
     protected void limpiarUltimoSaltoDeLinea(StringBuilder resultado) {
         if (resultado.length() > 0 && resultado.charAt(resultado.length() - 1) == '\n') {
             resultado.setLength(resultado.length() - 1);

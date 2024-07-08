@@ -8,15 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
- * @author alejo
+ * Clase que extiende Diccionario para proporcionar la traducción entre Braille y español.
+ * Maneja la visualización de caracteres en Braille y su conversión a caracteres en español.
  */
 public class DiccionarioBrailleEspanol extends Diccionario {
 
+    // Mapeos de caracteres Braille a caracteres españoles
     private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
     private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
     private static final Map<String, Character> caracteresSimbolosBraileEsp = new HashMap<>();
 
+    // Flags para manejar los símbolos de interrogación y exclamación
     private boolean aparecioInterrogacion = false;
     private boolean aparecioExclamacion = false;
 
@@ -114,7 +116,12 @@ public class DiccionarioBrailleEspanol extends Diccionario {
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠽", 'Y');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠵", 'Z');
     }
-
+    /**
+     * Traduce una palabra específica de Braille a español y la agrega a un StringBuilder.
+     *
+     * @param palabra La palabra en Braille a traducir.
+     * @param resultado El StringBuilder donde se almacenará la palabra traducida.
+     */
     @Override
     protected void traducir(String palabra, StringBuilder resultado) {
         boolean esNumero = false;
@@ -146,14 +153,23 @@ public class DiccionarioBrailleEspanol extends Diccionario {
             }
         }
     }
-
+    /**
+     * Verifica si un símbolo es un carácter especial en Braille.
+     *
+     * @param simboloActual El símbolo a verificar.
+     * @return true si es un carácter especial, false en caso contrario.
+     */
     private boolean esCaracterEspecial(String simboloActual) {
         return switch (simboloActual) {
             case CARACTER_NUMERO, CARACTER_LETRA, CARACTER_MAYUSCULAS, CARACTER_SIMBOLO -> true;
             default -> false;
         };
     }
-    
+    /**
+     * Agrega el símbolo de interrogación correspondiente al resultado.
+     *
+     * @param resultado El StringBuilder donde se agregará el símbolo de interrogación.
+     */
     private void agregarSimboloInterrogacion(StringBuilder resultado) {
         if (aparecioInterrogacion) {
             resultado.append('?');
@@ -163,7 +179,11 @@ public class DiccionarioBrailleEspanol extends Diccionario {
             aparecioInterrogacion = true;
         }
     }
-
+    /**
+     * Agrega el símbolo de exclamación correspondiente al resultado.
+     *
+     * @param resultado El StringBuilder donde se agregará el símbolo de exclamación.
+     */
     private void agregarSimboloExclamacion(StringBuilder resultado) {
         if (aparecioExclamacion) {
             resultado.append('!');
@@ -173,12 +193,21 @@ public class DiccionarioBrailleEspanol extends Diccionario {
             aparecioExclamacion = true;
         }
     }
-
+    /**
+     * Agrega comillas al resultado.
+     *
+     * @param resultado El StringBuilder donde se agregarán las comillas.
+     */
     private void agregarComillas(StringBuilder resultado) {
         resultado.append('"');
 
     }
-
+    /**
+     * Maneja la traducción de símbolos especiales en Braille a español.
+     *
+     * @param simboloActual El símbolo en Braille a traducir.
+     * @param resultado El StringBuilder donde se almacenará el símbolo traducido.
+     */
     public void manejarSimbolo(String simboloActual, StringBuilder resultado) {
         char aux = caracteresSimbolosBraileEsp.get(simboloActual);
 

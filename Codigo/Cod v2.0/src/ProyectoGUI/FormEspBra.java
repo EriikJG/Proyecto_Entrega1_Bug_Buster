@@ -9,8 +9,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author pilco
+ * Interfaz gráfica para el Español-Braile
  */
 public class FormEspBra extends javax.swing.JPanel {
 

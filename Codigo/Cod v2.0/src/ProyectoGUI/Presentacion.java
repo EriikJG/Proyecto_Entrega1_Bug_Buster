@@ -5,8 +5,7 @@
 package ProyectoGUI;
 
 /**
- *
- * @author pilco
+ * Interfaz gráfica de presentación.
  */
 public class Presentacion extends javax.swing.JPanel {
 

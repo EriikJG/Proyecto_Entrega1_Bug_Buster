@@ -7,11 +7,11 @@ package Traductor;
 import java.util.Map;
 
 /**
- *
- * @author alejo
+ * Clase abstracta que proporciona métodos para traducir texto entre español y Braille.
+ * También maneja la visualización de caracteres en Braille y la conversión entre caracteres en español y Braille.
  */
 public abstract class Diccionario {
-
+    // Constantes para caracteres especiales en Braille
     protected static final String CARACTER_NUMERO = "⠼";
     protected static final String CARACTER_SIMBOLO = "⠸";
     protected static final String CARACTER_MAYUSCULAS = "⠨";
@@ -46,6 +46,12 @@ static {
         caracteresBrailleEsp.put("⠖", '!');
     }
      */
+    /**
+     * Procesa el texto a traducir, dividiéndolo en líneas y palabras, y traduciéndolo a Braille.
+     *
+     * @param textoATraducir El texto en español a traducir a Braille.
+     * @return El texto traducido a Braille.
+     */
     public String procesarTexto(String textoATraducir) {
         StringBuilder resultado = new StringBuilder();
         String[] lineas = controladorTexto.dividirEnLineas(textoATraducir);
@@ -61,9 +67,20 @@ static {
 
         return resultado.toString();
     }
-
+    /**
+     * Traduce una palabra específica a Braille y la agrega a un StringBuilder.
+     * Este método debe ser implementado por las clases que extiendan Diccionario.
+     *
+     * @param palabra La palabra en español a traducir.
+     * @param resultado El StringBuilder donde se almacenará la palabra traducida.
+     */
     protected abstract void traducir(String palabra, StringBuilder resultado);
-    
+    /**
+     * Traduce un array de palabras en español a Braille.
+     *
+     * @param palabras El array de palabras en español a traducir.
+     * @return Un StringBuilder con las palabras traducidas a Braille.
+     */
     private StringBuilder traducirPalabras(String[] palabras) {
         StringBuilder resultado = new StringBuilder();
         StringBuilder palabraTraducida = new StringBuilder();
