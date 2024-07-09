@@ -5,12 +5,6 @@
 ![Caso 1.1](./images/caso1.1.png)  
   
   
-## Caso de prueba 2 : Traducción de párrafos extensos
-
-![Caso 2.1](./images/caso2.1.png)  
-
-### Defecto encontrado :
-*La traducción se realiza de manera correcta sin embargo la visualización de un párrafo demasiado grande es poco amigable.*
   
 ## Caso de prueba 3 : Traducción de Braille a español
 
@@ -62,7 +56,6 @@ Existen signos que aún no son traducidos.
 
 ## Caso de prueba 11: Generación de la traducción en formato espejo  
   
-
   ![Caso 11.1](./images/caso11.1.png)
 ![Caso 11.2](./images/caso11.2.png)
 
@@ -72,11 +65,6 @@ Existen signos que aún no son traducidos.
 *Al igual que la generación de la señalización no es posible establecer un nombre.  
 No es posible generar más de una vez la imagen con la traducción de español a braille en modo espejo*
 
-## Caso de prueba 12: Traducción de textos o palabras con letras en mayúsculas y minúsculas combinadas
-![Caso 12.1](./images/caso12.1.png)
-## Defecto encontrado  
-  
-*Al ingresar un texto con espacios extras entre las palabras se observo que estos espacios en la traducción también se ven reflejados.*
   
 ## Caso de prueba 13: Traducción de números de braille a español
 ![Caso 13.1](./images/caso13.1.png)
