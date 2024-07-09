@@ -13,51 +13,43 @@
 ### Defectos encontrados
 *Se encontró un defecto al automatizar las opciones de caracteres con botones especificos (mayusculas, simbolos , numeros) se permite ingresar estos caracteres de manera indefinida*
   
-![Caso 3.2](./images/caso3.2.png)
-![Caso 3.3](./images/caso3.3.png)
-  
-## Caso de prueba 4 : Traducción de textos con espacios en blanco
+## Caso de prueba 4 : Traducción de textos con espacios en blanco y combinacion de mayusculas y minisculas
 
   
-![Caso 4.1](./images/caso4.1.png)
-  
+![Caso 4.1](./images/EspacionEnBlanco.png)
+
+*A pesar de existir espacion en blanco al incio del texto y de igual forma entre las palabras , se puede observar que en la traduccion esto es controlado de manera correcta*
   
 ## Caso de prueba 5: Transcripción con vocales acentuadas  !
 
-![Caso 5.1](./images/caso5.1.png)
+![Caso 5.1](./images/acentuadas.png)
 
 ## Caso de prueba 6: Transcripción de números a Braille
 
-![Caso 6.1](./images/caso6.1.png)
-  
-## Caso de prueba 7: Transcripción de signos de puntuación 
-  
-![Caso 7.1](./images/caso7.1.png)
-  
-**Defectos encontrados**  
-Existen signos que aún no son traducidos.  
-  
-  
-## Caso de prueba 8: traducción de una combinación de números y letras en una misma palabra  
-
-![Caso 8.1](./images/caso8.1.png)
+![Caso 6.1](./images/EspBrailleNumeros.png)
 
 
-## Caso de prueba 9: Generación de la señalética de español a braille
 
-![Caso 10.1](./images/caso10.1.png)
+## Caso de prueba 7: Generación de la señalética de español a braille
+
+![Caso 10.1](./images/señaletica.png) 
+
+![Caso 10.1](./images/señaleticadefecto.png) 
 
 
-  ![Caso 10.2](./images/caso10.2.png)
 ### Defecto encontrados
   
 *No es posible guardar la imagen con un nombre especifico para luego realizar una mejor búsqueda de este.*
-
-
-## Caso de prueba 11: Generación de la traducción en formato espejo  
   
-  ![Caso 11.1](./images/caso11.1.png)
-![Caso 11.2](./images/caso11.2.png)
+*La señalizacion es guardada aun cuando no hay nungun texto traducido , es decir se guarda una imagen en blanco*
+
+
+## Caso de prueba 8: Generación de la traducción en formato espejo  
+  
+ ![Caso 11.1](./images/espejodefecto.png) 
+
+![Caso 10.1](./images/espejocorrecto.png)
+
 
 
 ### Defecto Encontrados
@@ -65,7 +57,3 @@ Existen signos que aún no son traducidos.
 *Al igual que la generación de la señalización no es posible establecer un nombre.  
 No es posible generar más de una vez la imagen con la traducción de español a braille en modo espejo*
 
-  
-## Caso de prueba 13: Traducción de números de braille a español
-![Caso 13.1](./images/caso13.1.png)
-  
