@@ -16,7 +16,7 @@ public class FormEspBra extends javax.swing.JPanel {
     private Traductor traductor;
     private boolean imagenSenalGuardada = false;
     private boolean imagenEspejoGuardada = false;
-    
+
     public FormEspBra() {
         initComponents();
         traductor = new Traductor();
@@ -160,9 +160,9 @@ public class FormEspBra extends javax.swing.JPanel {
 
     private void jBTraducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTraducirActionPerformed
         String textoEsp = jTAEntrada.getText();
-        if(textoEsp.isEmpty()){
+        if (textoEsp.isEmpty()) {
             // Mostrar mensaje de advertencia si no hay caracteres a ser traducidos
-            JOptionPane.showMessageDialog(null, "No hay texto a ser traducido!", "Advertencia", JOptionPane.WARNING_MESSAGE);            
+            JOptionPane.showMessageDialog(null, "No hay texto a ser traducido!", "Advertencia", JOptionPane.WARNING_MESSAGE);
         } else {
             String textoBraille = traductor.traducir(textoEsp, 1);
             jTASalida.setText(textoBraille);
@@ -171,37 +171,59 @@ public class FormEspBra extends javax.swing.JPanel {
     }//GEN-LAST:event_jBTraducirActionPerformed
 
     private void jBGuardarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarImgActionPerformed
-        if(imagenSenalGuardada)
-        {
+        if (imagenSenalGuardada) {
             JOptionPane.showMessageDialog(null, "Ya guardaste la imagen", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;
         }
         String textoBraille = jTASalida.getText();
+        if (textoBraille.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay texto traducido para guardar en señalización Braille.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         BufferedImage senial = traductor.generarImagen(textoBraille);
         traductor.guardarImagen(senial, jTAEntrada.getText());
         imagenSenalGuardada = true;
     }//GEN-LAST:event_jBGuardarImgActionPerformed
 
     private void jBGuardarImgEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarImgEspActionPerformed
-        if(imagenEspejoGuardada) {
+        if (imagenEspejoGuardada) {
             JOptionPane.showMessageDialog(null, "Ya guardaste la imagen espejo", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         String textoBraille = jTASalida.getText();
+        if (textoBraille.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay texto traducido para guardar en modo Espejo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
         // Generar la imagen espejo a partir del texto Braille
         BufferedImage senial = traductor.generarImagenEspejo(traductor.generarImagen(textoBraille));
 
         // Guardar la imagen espejo
-        traductor.guardarImagen(senial, jTAEntrada.getText()+"_espejo");
+        traductor.guardarImagen(senial, jTAEntrada.getText() + "_espejo");
 
         imagenEspejoGuardada = true; // Marcar que la imagen espejo ha sido guardada
     }//GEN-LAST:event_jBGuardarImgEspActionPerformed
 
     private void jBLimpiarPantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarPantaActionPerformed
+        String textoEntrada = jTAEntrada.getText();
+        String textoSalida = jTASalida.getText();
+
+        // Verificar si ambos campos ya están vacíos
+        if (textoEntrada.isEmpty() && textoSalida.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay texto traducido para limpiar la pantalla.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            return; // Salir del método sin hacer más operaciones
+        }
+
+        // Limpiar los campos de entrada y salida
         jTAEntrada.setText("");
         jTASalida.setText("");
+
+        // Reiniciar las banderas de imágenes guardadas
+        imagenSenalGuardada = false;
+        imagenEspejoGuardada = false;
     }//GEN-LAST:event_jBLimpiarPantaActionPerformed
 
 

@@ -482,9 +482,17 @@ public class FormBraEsp extends javax.swing.JPanel {
     }//GEN-LAST:event_jBTraducirActionPerformed
 
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
-        jTAEsp.setText("");
-        jTABraille.setText("");
-        reiniciarBotones();
+        String textoBraille = jTABraille.getText().trim(); // Obtener el texto de jTABraille y eliminar espacios en blanco
+
+        if (!textoBraille.isEmpty()) {
+            // Si hay texto en jTABraille, limpiar las áreas y reiniciar los botones
+            jTAEsp.setText("");
+            jTABraille.setText("");
+            reiniciarBotones();
+        } else {
+            // Mostrar un mensaje de advertencia si jTABraille está vacío
+            JOptionPane.showMessageDialog(null, "No hay caracteres para limpiar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBGenCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenCarActionPerformed
