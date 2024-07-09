@@ -8,10 +8,10 @@
   
 ## Caso de prueba 3 : Traducción de Braille a español
 
-![Caso 3.1](./images/caso3.1.png)
+![Caso 3.1](./images/Braile-español.png)
 
 ### Defectos encontrados
-*Se encontró un error o defecto al dibujar el carácter en braille en la GUI , al momento de intentar traducir un carácter en braille primero debe ser seleccionado el primer punto en caso contrario se muestra un mensaje indicando carácter no valido*
+*Se encontró un defecto al automatizar las opciones de caracteres con botones especificos (mayusculas, simbolos , numeros) se permite ingresar estos caracteres de manera indefinida*
   
 ![Caso 3.2](./images/caso3.2.png)
 ![Caso 3.3](./images/caso3.3.png)
