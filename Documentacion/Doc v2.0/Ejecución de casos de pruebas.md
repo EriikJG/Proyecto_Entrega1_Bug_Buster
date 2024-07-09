@@ -2,7 +2,7 @@
   
 ## Caso de prueba 1: Traducción de texto de español a Braille
 
-![Caso 1.1](./images/caso1.1.png)  
+![Caso 1.1](./images/EspañolaBraille.png)  
   
   
   
