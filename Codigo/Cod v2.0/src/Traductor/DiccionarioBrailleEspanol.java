@@ -75,6 +75,21 @@ public class DiccionarioBrailleEspanol extends Diccionario {
         caracteresSimbolosBraileEsp.put("⠣", '(');
         caracteresSimbolosBraileEsp.put("⠜", ')');
         caracteresSimbolosBraileEsp.put("⠐", '+');
+        
+        caracteresSimbolosBraileEsp.put("⠵", '&');
+        caracteresSimbolosBraileEsp.put("⠴", '%');
+        caracteresSimbolosBraileEsp.put("⠎", '$');
+        caracteresSimbolosBraileEsp.put("⠼", '#');
+        caracteresSimbolosBraileEsp.put("⠔", '*');
+        caracteresSimbolosBraileEsp.put("⠓", '{');
+        caracteresSimbolosBraileEsp.put("⠚", '}');
+        caracteresSimbolosBraileEsp.put("⠯", '[');
+        caracteresSimbolosBraileEsp.put("⠽", ']');
+        caracteresSimbolosBraileEsp.put("⠑", '^');
+        caracteresSimbolosBraileEsp.put("⠘", '~');
+        caracteresSimbolosBraileEsp.put("⠅", '¬');
+        caracteresSimbolosBraileEsp.put("⠇", '|');
+        
 
         caracteresSimbolosBraileEsp.put("⠢", 'I'); // interrogación 1
         caracteresSimbolosBraileEsp.put("⠖", 'E'); // exclamacion1
