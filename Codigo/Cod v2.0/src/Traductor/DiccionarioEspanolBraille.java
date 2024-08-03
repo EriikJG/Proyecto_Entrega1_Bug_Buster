@@ -8,8 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Clase que extiende Diccionario para proporcionar la traducción entre español y Braille.
- * Maneja la visualización de caracteres en español y su conversión a caracteres en Braille.
+ * Clase que extiende Diccionario para proporcionar la traducción entre español
+ * y Braille. Maneja la visualización de caracteres en español y su conversión a
+ * caracteres en Braille.
  */
 public class DiccionarioEspanolBraille extends Diccionario {
 
@@ -75,6 +76,20 @@ public class DiccionarioEspanolBraille extends Diccionario {
         caracteresSimbolosEspBraile.put('÷', CARACTER_SIMBOLO + "⠲");
         caracteresSimbolosEspBraile.put('+', CARACTER_SIMBOLO + "⠐");
 
+        caracteresSimbolosEspBraile.put('&', CARACTER_SIMBOLO + "⠵");
+        caracteresSimbolosEspBraile.put('%', CARACTER_SIMBOLO + "⠴");
+        caracteresSimbolosEspBraile.put('$', CARACTER_SIMBOLO + "⠎");
+        caracteresSimbolosEspBraile.put('#', CARACTER_SIMBOLO + "⠼");
+        caracteresSimbolosEspBraile.put('*', CARACTER_SIMBOLO + "⠔");
+        caracteresSimbolosEspBraile.put('{', CARACTER_SIMBOLO + "⠓");
+        caracteresSimbolosEspBraile.put('}', CARACTER_SIMBOLO + "⠚");
+        caracteresSimbolosEspBraile.put('[', CARACTER_SIMBOLO + "⠯");
+        caracteresSimbolosEspBraile.put(']', CARACTER_SIMBOLO + "⠽");
+        caracteresSimbolosEspBraile.put('^', CARACTER_SIMBOLO + "⠑");
+        caracteresSimbolosEspBraile.put('~', CARACTER_SIMBOLO + "⠘");
+        caracteresSimbolosEspBraile.put('¬', CARACTER_SIMBOLO + "⠅");
+        caracteresSimbolosEspBraile.put('|', CARACTER_SIMBOLO + "⠇");
+
         caracteresEspBraille.put('á', "⠷");
         caracteresEspBraille.put('é', "⠿");
         caracteresEspBraille.put('í', "⠌");
@@ -111,11 +126,14 @@ public class DiccionarioEspanolBraille extends Diccionario {
         caracteresEspBraille.put('Y', CARACTER_MAYUSCULAS + "⠽");
         caracteresEspBraille.put('Z', CARACTER_MAYUSCULAS + "⠵");
     }
+
     /**
-     * Traduce una palabra a Braille español y la agrega al StringBuilder proporcionado.
+     * Traduce una palabra a Braille español y la agrega al StringBuilder
+     * proporcionado.
      *
-     * @param palabra   La palabra a traducir.
-     * @param resultado El StringBuilder donde se agregará la traducción en Braille.
+     * @param palabra La palabra a traducir.
+     * @param resultado El StringBuilder donde se agregará la traducción en
+     * Braille.
      */
     @Override
     public void traducir(String palabra, StringBuilder resultado) {
@@ -141,7 +159,7 @@ public class DiccionarioEspanolBraille extends Diccionario {
      * Agrega el símbolo en Braille español correspondiente al StringBuilder.
      *
      * @param caracterActual El caracter actual a traducir.
-     * @param resultado      El StringBuilder donde se agrega la traducción.
+     * @param resultado El StringBuilder donde se agrega la traducción.
      */
     private void agregarSimbolo(char caracterActual, StringBuilder resultado) {
         resultado.append(caracteresSimbolosEspBraile.get(caracterActual));
@@ -151,8 +169,8 @@ public class DiccionarioEspanolBraille extends Diccionario {
      * Agrega el número en Braille español correspondiente al StringBuilder.
      *
      * @param caracterActual El caracter actual a traducir (debe ser un dígito).
-     * @param resultado      El StringBuilder donde se agrega la traducción.
-     * @param enModoNumero   Indica si ya estamos en modo número.
+     * @param resultado El StringBuilder donde se agrega la traducción.
+     * @param enModoNumero Indica si ya estamos en modo número.
      */
     private void agregarNumero(char caracterActual, StringBuilder resultado, boolean enModoNumero) {
         // Si no estamos en modo número, agregamos el indicador de número
@@ -167,8 +185,8 @@ public class DiccionarioEspanolBraille extends Diccionario {
      * Agrega el caracter en Braille español correspondiente al StringBuilder.
      *
      * @param caracterActual El caracter actual a traducir.
-     * @param resultado      El StringBuilder donde se agrega la traducción.
-     * @param enModoNumero   Indica si estamos en modo número.
+     * @param resultado El StringBuilder donde se agrega la traducción.
+     * @param enModoNumero Indica si estamos en modo número.
      */
     private void agregarCaracter(char caracterActual, StringBuilder resultado, boolean enModoNumero) {
         // Si estábamos en modo número y no es un símbolo, agregamos el indicador de letra
@@ -184,6 +202,5 @@ public class DiccionarioEspanolBraille extends Diccionario {
             resultado.append(caracteresEspBraille.get(caracterActual));
         }
     }
-
 
 }
