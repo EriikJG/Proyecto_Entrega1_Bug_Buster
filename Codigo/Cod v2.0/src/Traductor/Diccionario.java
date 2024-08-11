@@ -21,16 +21,16 @@ import java.util.regex.Pattern;
  */
 public class Diccionario {
 
-    private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
-    private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
-    private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
-    private static final Map<Character, String> caracteresNumerosEspBraille = new HashMap<>();
-    private static final Map<String, Character> caracteresSimbolosBraileEsp = new HashMap<>();
-    private static final Map<Character, String> caracteresSimbolosEspBraile = new HashMap<>();
-    private static final String CARACTER_NUMERO = "⠼";
-    private static final String CARACTER_SIMBOLO = "⠸";
-    private static final String CARACTER_MAYUSCULAS = "⠨";
-    private static final String CARACTER_LETRA = "⠰";
+    public static final Map<Character, String> caracteresEspBraille = new HashMap<>();
+    public static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
+    public static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
+    public static final Map<Character, String> caracteresNumerosEspBraille = new HashMap<>();
+    public static final Map<String, Character> caracteresSimbolosBraileEsp = new HashMap<>();
+    public static final Map<Character, String> caracteresSimbolosEspBraile = new HashMap<>();
+    public static final String CARACTER_NUMERO = "⠼";
+    public static final String CARACTER_SIMBOLO = "⠸";
+    public static final String CARACTER_MAYUSCULAS = "⠨";
+    public static final String CARACTER_LETRA = "⠰";
 
     static {
         // Mapeo de caracteres en español a Braille

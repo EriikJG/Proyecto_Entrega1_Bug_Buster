@@ -137,7 +137,6 @@ public class DiccionarioBrailleEspanol extends Diccionario {
      * @param palabra La palabra en Braille a traducir.
      * @param resultado El StringBuilder donde se almacenará la palabra traducida.
      */
-    @Override
     protected void traducir(String palabra, StringBuilder resultado) {
         boolean esNumero = false;
         boolean esMayuscula = false;
