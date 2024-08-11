@@ -639,6 +639,22 @@ public class FormBraEsp extends javax.swing.JPanel {
         brailleMap.put("010110", '⠜'); // ú
         brailleMap.put("101101", '⠳'); // ü
         // Añade más entradas según tus necesidades
+        //Nuevos simbolos
+        brailleMap.put("100111", '⠵');  // &
+        brailleMap.put("000111", '⠴');  // %
+        brailleMap.put("011010", '⠎');  // $
+        brailleMap.put("010111", '⠼');  // #
+        brailleMap.put("000110", '⠔');  // *
+        brailleMap.put("101100", '⠓');  // {
+        brailleMap.put("011100", '⠚');  // }
+        brailleMap.put("111011", '⠯');  // [
+        brailleMap.put("110111", '⠽');  // ]
+        brailleMap.put("100100", '⠑');  // ^
+        brailleMap.put("010100", '⠘');  // ~
+        brailleMap.put("100010", '⠅');  // ¬
+        brailleMap.put("101010", '⠇');  // |
+
+
 
         // Construye la representación de puntos (0s y 1s)
         StringBuilder sb = new StringBuilder();
