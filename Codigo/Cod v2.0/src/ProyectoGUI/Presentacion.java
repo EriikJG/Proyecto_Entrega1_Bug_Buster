@@ -5,28 +5,45 @@
 package ProyectoGUI;
 
 /**
- * Interfaz gráfica de presentación.
+ *
+ * @author pilco
  */
 public class Presentacion extends javax.swing.JPanel {
 
     /**
      * Creates new form Presentacion
      */
-    public Presentacion() {
-        initComponents();
-        String texto = "Este proyecto consiste en un software que permite traducir textos entre español y Braille, además de "
-                + "generar señalética en Braille a partir de textos en español y "
-                + "facilitar la impresión en espejo de textos Braille para escritura manual."
-                + "<br><br>"
-                + "Contamos con atajos de teclado en este programa:<br>"
-                + "1. Tecla ESC -> Cerrar el programa<br>"
-                + "2. Tecla I -> Dirigir a la pestaña de Inicio<br>"
-                + "3. Tecla E -> Dirigir a la pestaña de Esp - Bra<br>"
-                + "4. Tecla B -> Dirigir a la pestaña de Bra - Esp";
+public Presentacion() {
+    initComponents();
+    String texto = "<span style='font-size:9px;'>"
+            + "<span style='color:#007BFF;'>Instrucciones:</span><br>"
+            + "Para generar un caracter en el Traductor Brialle-Español, "
+            + "dibujar en el cajetín y a continuación clickear "
+            + "“Generar carácter”. "
+            + "Para facilitar la escritura se encuentran botones que "
+            + "generan los caracteres para letras, números, mayúsculas y "
+            + "signos de puntuación. <br><br>"
+            + "<span style='color:#007BFF;'>Atajos:</span><br>"
+            + "<ul style='font-size:9px; margin-left: 20px;'>"
+            + "<li>Número (cualquier longitud de cifras) -> Botón \"Números\" + cualquier cantidad de números</li>"
+            + "<li>Letras mayúsculas -> Botón \"Mayúsculas\" + cualquier letra</li>"
+            + "<li>Letras después de un número -> Botón \"Letra\" + cualquier letra</li>"
+            + "<li>Letras mayúsculas después de un número -> Botón \"Letra\" + Botón \"Mayúsculas\" + cualquier letra</li>"
+            + "<li>Símbolos -> Botón \"Símbolo\" + símbolo</li>"
+            + "</ul>"
+            + "<span style='font-size:9px'>(Ver “Diccionario para recordar” para conocer qué caracteres "
+            + "están soportados)</span><br>"
+            + "<span style='color:#007BFF;'>Atajos de teclado:</span><br>"
+            + "<ol style='font-size:9px; margin-left: 20px;'>"
+            + "<li>Tecla ESC -> Cerrar el programa</li>"
+            + "<li>Tecla I -> Dirigir a la pestaña de Inicio</li>"
+            + "<li>Tecla E -> Dirigir a la pestaña de Esp - Bra</li>"
+            + "<li>Tecla B -> Dirigir a la pestaña de Bra - Esp</li>"
+            + "</ol>"
+            + "</span>";
 
-        Descripcion.setText("<html>" + texto + "</html>");
-
-    }
+    Descripcion.setText("<html>" + texto + "</html>");
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,17 +78,15 @@ public class Presentacion extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(Descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 40, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 19, Short.MAX_VALUE)
+                .addComponent(Descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(237, 237, 237)
+                .addGap(239, 239, 239)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -80,11 +95,11 @@ public class Presentacion extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(Descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -99,9 +114,8 @@ public class Presentacion extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public String StrToHtml (String texto)
-    {
-        return "<html><p>"+texto+"</p></html>";
+    public String StrToHtml(String texto) {
+        return "<html><p>" + texto + "</p></html>";
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Descripcion;

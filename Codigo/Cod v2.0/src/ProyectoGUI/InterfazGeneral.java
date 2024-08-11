@@ -12,7 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
- * Interfaz gráfica principal del proyecto de traducción.
+ *
+ * @author pilco
  */
 public class InterfazGeneral extends javax.swing.JFrame {
 
@@ -27,7 +28,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/LogoGrupo.png")).getImage());
         
         Presentacion pag1 = new Presentacion();
-        pag1.setSize(605, 620);
+        pag1.setSize(620, 640);
         pag1.setLocation(0,0);
         
         content.removeAll();
@@ -240,7 +241,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         Presentacion pag1 = new Presentacion();
-        pag1.setSize(605, 620);
+        pag1.setSize(620, 640);
         pag1.setLocation(0,0);
         
         content.removeAll();
