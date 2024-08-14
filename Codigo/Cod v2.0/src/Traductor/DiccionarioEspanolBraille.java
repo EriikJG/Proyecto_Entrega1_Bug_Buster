@@ -14,10 +14,10 @@ import java.util.Map;
  */
 public class DiccionarioEspanolBraille extends Diccionario {
 
-    private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
-    private static final Map<Character, String> caracteresNumerosEspBraille = new HashMap<>();
-    private static final Map<Character, String> caracteresSimbolosEspBraile = new HashMap<>();
-
+//    private static final Map<Character, String> caracteresEspBraille = new HashMap<>();
+//    private static final Map<Character, String> caracteresNumerosEspBraille = new HashMap<>();
+//    private static final Map<Character, String> caracteresSimbolosEspBraile = new HashMap<>();
+/*
     static {
         caracteresEspBraille.put('a', "⠁");
         caracteresEspBraille.put('b', "⠃");
@@ -76,7 +76,7 @@ public class DiccionarioEspanolBraille extends Diccionario {
         caracteresSimbolosEspBraile.put('÷', CARACTER_SIMBOLO + "⠲");
         caracteresSimbolosEspBraile.put('+', CARACTER_SIMBOLO + "⠐");
 
-        caracteresSimbolosEspBraile.put('&', CARACTER_SIMBOLO + "⠵");
+        caracteresSimbolosEspBraile.put('&', CARACTER_SIMBOLO + "7");
         caracteresSimbolosEspBraile.put('%', CARACTER_SIMBOLO + "⠴");
         caracteresSimbolosEspBraile.put('$', CARACTER_SIMBOLO + "⠎");
         caracteresSimbolosEspBraile.put('#', CARACTER_SIMBOLO + "⠼");
@@ -126,7 +126,7 @@ public class DiccionarioEspanolBraille extends Diccionario {
         caracteresEspBraille.put('Y', CARACTER_MAYUSCULAS + "⠽");
         caracteresEspBraille.put('Z', CARACTER_MAYUSCULAS + "⠵");
     }
-
+*/
     /**
      * Traduce una palabra a Braille español y la agrega al StringBuilder
      * proporcionado.

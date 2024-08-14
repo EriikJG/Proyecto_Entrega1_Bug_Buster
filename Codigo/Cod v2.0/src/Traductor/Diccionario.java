@@ -91,6 +91,67 @@ public class Diccionario {
         caracteresSimbolosEspBraile.put('÷', CARACTER_SIMBOLO + "⠲");
         caracteresSimbolosEspBraile.put('+', CARACTER_SIMBOLO + "⠐");// Este para que no se repita
 
+        caracteresSimbolosBraileEsp.put("⠄", '.');
+        caracteresSimbolosBraileEsp.put("⠂", ',');
+        caracteresSimbolosBraileEsp.put("⠆", ';');
+        caracteresSimbolosBraileEsp.put("⠒", ':');
+        caracteresSimbolosBraileEsp.put("⠤", '_');
+        caracteresSimbolosBraileEsp.put("⠦", 'x');
+        caracteresSimbolosBraileEsp.put("⠶", '=');
+        caracteresSimbolosBraileEsp.put("⠌", '/');
+        caracteresSimbolosBraileEsp.put("⠉", '-');
+        caracteresSimbolosBraileEsp.put("⠲", '÷');
+        caracteresSimbolosBraileEsp.put("⠣", '(');
+        caracteresSimbolosBraileEsp.put("⠜", ')');
+        caracteresSimbolosBraileEsp.put("⠐", '+');
+        
+        caracteresSimbolosBraileEsp.put("⠵", '&');
+        caracteresSimbolosBraileEsp.put("⠴", '%');
+        caracteresSimbolosBraileEsp.put("⠎", '$');
+        caracteresSimbolosBraileEsp.put("⠼", '#');
+        caracteresSimbolosBraileEsp.put("⠔", '*');
+        caracteresSimbolosBraileEsp.put("⠓", '{');
+        caracteresSimbolosBraileEsp.put("⠚", '}');
+        caracteresSimbolosBraileEsp.put("⠯", '[');
+        caracteresSimbolosBraileEsp.put("⠽", ']');
+        caracteresSimbolosBraileEsp.put("⠑", '^');
+        caracteresSimbolosBraileEsp.put("⠘", '~');
+        caracteresSimbolosBraileEsp.put("⠅", '¬');
+        caracteresSimbolosBraileEsp.put("⠇", '|');
+        
+        
+                caracteresSimbolosEspBraile.put('.', CARACTER_SIMBOLO + "⠄");
+        caracteresSimbolosEspBraile.put(',', CARACTER_SIMBOLO + "⠂");
+        caracteresSimbolosEspBraile.put(';', CARACTER_SIMBOLO + "⠆");
+        caracteresSimbolosEspBraile.put(':', CARACTER_SIMBOLO + "⠒");
+        caracteresSimbolosEspBraile.put('_', CARACTER_SIMBOLO + "⠤");
+        caracteresSimbolosEspBraile.put('¡', CARACTER_SIMBOLO + "⠖");
+        caracteresSimbolosEspBraile.put('!', CARACTER_SIMBOLO + "⠖");
+        caracteresSimbolosEspBraile.put('¿', CARACTER_SIMBOLO + "⠢");
+        caracteresSimbolosEspBraile.put('?', CARACTER_SIMBOLO + "⠢");
+        caracteresSimbolosEspBraile.put('(', CARACTER_SIMBOLO + "⠣");
+        caracteresSimbolosEspBraile.put(')', CARACTER_SIMBOLO + "⠜");
+        caracteresSimbolosEspBraile.put('x', CARACTER_SIMBOLO + "⠦");
+        caracteresSimbolosEspBraile.put('=', CARACTER_SIMBOLO + "⠶");
+        caracteresSimbolosEspBraile.put('/', CARACTER_SIMBOLO + "⠌");
+        caracteresSimbolosEspBraile.put('-', CARACTER_SIMBOLO + "⠤");
+        caracteresSimbolosEspBraile.put('÷', CARACTER_SIMBOLO + "⠲");
+        caracteresSimbolosEspBraile.put('+', CARACTER_SIMBOLO + "⠐");
+
+        caracteresSimbolosEspBraile.put('&', CARACTER_SIMBOLO + "⠵");
+        caracteresSimbolosEspBraile.put('%', CARACTER_SIMBOLO + "⠴");
+        caracteresSimbolosEspBraile.put('$', CARACTER_SIMBOLO + "⠎");
+        caracteresSimbolosEspBraile.put('#', CARACTER_SIMBOLO + "⠼");
+        caracteresSimbolosEspBraile.put('*', CARACTER_SIMBOLO + "⠔");
+        caracteresSimbolosEspBraile.put('{', CARACTER_SIMBOLO + "⠓");
+        caracteresSimbolosEspBraile.put('}', CARACTER_SIMBOLO + "⠚");
+        caracteresSimbolosEspBraile.put('[', CARACTER_SIMBOLO + "⠯");
+        caracteresSimbolosEspBraile.put(']', CARACTER_SIMBOLO + "⠽");
+        caracteresSimbolosEspBraile.put('^', CARACTER_SIMBOLO + "⠑");
+        caracteresSimbolosEspBraile.put('~', CARACTER_SIMBOLO + "⠘");
+        caracteresSimbolosEspBraile.put('¬', CARACTER_SIMBOLO + "⠅");
+        caracteresSimbolosEspBraile.put('|', CARACTER_SIMBOLO + "⠇");
+
         caracteresEspBraille.put('á', "⠷");
         caracteresEspBraille.put('é', "⠿");
         caracteresEspBraille.put('í', "⠌");
@@ -167,20 +228,6 @@ public class Diccionario {
         caracteresNumerosBrailleEsp.put("⠓", '8');
         caracteresNumerosBrailleEsp.put("⠊", '9');
         caracteresNumerosBrailleEsp.put("⠚", '0');
-
-        caracteresSimbolosBraileEsp.put("⠄", '.');
-        caracteresSimbolosBraileEsp.put("⠂", ',');
-        caracteresSimbolosBraileEsp.put("⠆", ';');
-        caracteresSimbolosBraileEsp.put("⠒", ':');
-        caracteresSimbolosBraileEsp.put("⠤", '_');
-        caracteresSimbolosBraileEsp.put("⠦", 'x');
-        caracteresSimbolosBraileEsp.put("⠶", '=');
-        caracteresSimbolosBraileEsp.put("⠌", '/');
-        caracteresSimbolosBraileEsp.put("⠉", '-');
-        caracteresSimbolosBraileEsp.put("⠲", '÷');
-        caracteresSimbolosBraileEsp.put("⠣", '(');
-        caracteresSimbolosBraileEsp.put("⠜", ')');
-        caracteresSimbolosBraileEsp.put("⠐", '+');
 
         caracteresSimbolosBraileEsp.put("⠢", 'I'); // interrogación 1
         caracteresSimbolosBraileEsp.put("⠖", 'E'); // exclamacion1

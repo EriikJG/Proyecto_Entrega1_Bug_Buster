@@ -14,14 +14,14 @@ import java.util.Map;
 public class DiccionarioBrailleEspanol extends Diccionario {
 
     // Mapeos de caracteres Braille a caracteres españoles
-    private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
-    private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
-    private static final Map<String, Character> caracteresSimbolosBraileEsp = new HashMap<>();
+//    private static final Map<String, Character> caracteresBrailleEsp = new HashMap<>();
+//    private static final Map<String, Character> caracteresNumerosBrailleEsp = new HashMap<>();
+//    private static final Map<String, Character> caracteresSimbolosBraileEsp = new HashMap<>();
 
     // Flags para manejar los símbolos de interrogación y exclamación
     private boolean aparecioInterrogacion = false;
     private boolean aparecioExclamacion = false;
-
+/*
     static {
         caracteresBrailleEsp.put("⠁", 'a');
         caracteresBrailleEsp.put("⠃", 'b');
@@ -130,7 +130,7 @@ public class DiccionarioBrailleEspanol extends Diccionario {
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠭", 'X');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠽", 'Y');
         caracteresBrailleEsp.put(CARACTER_MAYUSCULAS + "⠵", 'Z');
-    }
+    }*/
     /**
      * Traduce una palabra específica de Braille a español y la agrega a un StringBuilder.
      *
